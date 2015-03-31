@@ -1,0 +1,131 @@
+//
+//  THGBridgeTests.swift
+//  THGBridgeTests
+//
+//  Created by Brandon Sneed on 3/25/15.
+//  Copyright (c) 2015 TheHolyGrail. All rights reserved.
+//
+
+import UIKit
+import XCTest
+import THGFoundation
+import THGBridge
+
+class THGBridgeTests: XCTestCase {
+    
+    override func setUp() {
+        super.setUp()
+        // Put setup code here. This method is called before the invocation of each test method in the class.
+    }
+    
+    override func tearDown() {
+        // Put teardown code here. This method is called after the invocation of each test method in the class.
+        super.tearDown()
+    }
+    
+    func testScriptEvaluationFailure() {
+        let bridge = Bridge()
+
+        var error: NSError? = nil
+        bridge.load("doSomethingStupid()", error: &error)
+
+        XCTAssertTrue(error != nil, "An error should occur if junk javascript is evaluated!")
+    }
+
+    func testScriptDownloadScriptBadEval() {
+        let bridge = Bridge()
+        var failed = false
+        var anError: NSError? = nil
+
+        let semaphore = dispatch_semaphore_create(0)
+
+        let url = NSURL(string: "http://theholygrail.io/testfiles/THGBridge_testdownload_bad.js")
+        bridge.loadFromURL(url!) { (error) -> Void in
+            if error != nil {
+                failed = true
+                anError = error
+            }
+            // signal that the block has finished.
+            dispatch_semaphore_signal(semaphore)
+        }
+
+        // wait for the block to finish.
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+
+        XCTAssertTrue(failed, "This should have failed!")
+        XCTAssertTrue(anError!.domain == "io.theholygrail.THGBridgeError" &&
+            anError!.code == THGBridgeError.FailedToEvaluateScript.rawValue,
+            "Error should be THGBridgeError.FailedToEvaluateScript!")
+    }
+
+    func testScriptDownloadScriptFileDoesNotExist() {
+        let bridge = Bridge()
+        var failed = false
+        var anError: NSError? = nil
+
+        let semaphore = dispatch_semaphore_create(0)
+
+        let url = NSURL(string: "http://theholygrail.io/testfiles/doesnotexist.js")
+        bridge.loadFromURL(url!) { (error) -> Void in
+            if error != nil {
+                failed = true
+                anError = error
+            }
+            // signal that the block has finished.
+            dispatch_semaphore_signal(semaphore)
+        }
+
+        // wait for the block to finish.
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+
+        XCTAssertTrue(failed, "This should have failed!")
+        XCTAssertTrue(anError!.domain == "io.theholygrail.THGBridgeError" &&
+            anError!.code == THGBridgeError.FileDoesNotExist.rawValue,
+            "Error should be THGBridgeError.FileDoesNotExist!")
+    }
+
+    func testScriptDownloadScriptWorks() {
+        let bridge = Bridge()
+        var failed = false
+        var anError: NSError? = nil
+
+        let semaphore = dispatch_semaphore_create(0)
+
+        let url = NSURL(string: "http://theholygrail.io/testfiles/doesnotexist.js")
+        bridge.loadFromURL(url!) { (error) -> Void in
+            if error != nil {
+                failed = true
+                anError = error
+            }
+            // signal that the block has finished.
+            dispatch_semaphore_signal(semaphore)
+        }
+
+        // wait for the block to finish.
+        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+
+        //let testFunction = bridge.context.objectForKeyedSubscript("test")
+        let testFunction = bridge.context.objectForKeyedSubscript("test")
+        println("testFunction = \(testFunction.toString())")
+
+        let result = testFunction.callWithArguments([2, 2])
+        println("result = \(result.toString())")
+
+        if result.isUndefined() {
+            XCTAssertTrue(0 == 1, "Result is undefined!")
+        }
+        //let result = testFunction.callWithArguments([])
+
+        XCTAssertTrue(result.isNumber(), "the javascript function should've returned a number!")
+        XCTAssertTrue(result.toInt32() == 3, "the javascript function should've returned a value of 3!")
+    }
+
+
+    func testPerformanceExample() {
+        // This is an example of a performance test case.
+        self.measureBlock() {
+            // Put the code you want to measure the time of here.
+        }
+    }
+    
+}
