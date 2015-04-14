@@ -41,7 +41,7 @@ public class Bridge {
         context = JSContext(virtualMachine: JSVirtualMachine())
         
         context.exceptionHandler = { context, exception in
-            log(.Error, "JSError = \(exception)")
+            log(.Debug, "JSError = \(exception)")
         }
     }
 
@@ -80,10 +80,10 @@ public class Bridge {
 
     public func load(script: String, error: NSErrorPointer = nil) {
         let value = context.evaluateScript(script)
-        if value.isUndefined() {
+        /*if value.isUndefined() {
             let anError = NSError(THGBridgeError.FailedToEvaluateScript)
             error.memory = anError
-        }
+        }*/
     }
 
     private func downloadScript(url: NSURL, completion: (data: NSData?, error: NSError?) -> Void)
