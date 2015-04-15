@@ -208,4 +208,18 @@ class THGBridgeTests: XCTestCase {
         XCTAssert(bridge.exports[name] === export)
         XCTAssert(bridge.contextValueForName(name).toObject() === export)
     }
+    
+    func testExportsBetweenContextChanges() {
+        let name = "testExport"
+        let export = Script()
+        let bridge = Bridge()
+        bridge.addExport(export, name: name)
+        
+        XCTAssert(bridge.exports[name] === export)
+        XCTAssert(bridge.contextValueForName(name).toObject() === export)
+        
+        bridge.context = JSContext(virtualMachine: JSVirtualMachine())
+        
+        XCTAssert(bridge.contextValueForName(name).toObject() === export)
+    }
 }
