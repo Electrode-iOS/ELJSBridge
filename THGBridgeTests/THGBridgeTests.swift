@@ -107,7 +107,7 @@ class THGBridgeTests: XCTestCase {
         XCTAssertTrue(failed == false, "This shouldn't have failed!")
         XCTAssertTrue(anError == nil, "There should be no errors!")
 
-        let testFunction = bridge.context.objectForKeyedSubscript("test")
+        let testFunction = bridge.contextValueForName("test")
         if testFunction.isUndefined() {
             println("you moron.")
         }

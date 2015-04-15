@@ -107,5 +107,16 @@ public class Bridge {
 
         downloadTask.resume()
     }
+
+    // MARK: Exports API
+    
+    public func addExport(export: JSExport, name: String) {
+        exports[name] = export
+        context.setObject(export, forKeyedSubscript: name)
+    }
+    
+    public func contextValueForName(name: String) -> JSValue {
+        return context.objectForKeyedSubscript(name)
+    }
 }
 
