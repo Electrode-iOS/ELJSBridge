@@ -35,14 +35,22 @@ public enum THGBridgeError: Int, NSErrorEnum {
 @objc(THGBridge)
 public class Bridge {
 
-    public let context: JSContext
+    public var context: JSContext {
+        didSet {
+            for (name, script) in exports {
+                context.setObject(script, forKeyedSubscript: name)
+            }
+            
+            context.exceptionHandler = { context, exception in
+                log(.Debug, "JSError = \(exception)")
+            }
+        }
+    }
+
+    private(set) public var exports = [String: JSExport]()
 
     public init() {
         context = JSContext(virtualMachine: JSVirtualMachine())
-        
-        context.exceptionHandler = { context, exception in
-            log(.Debug, "JSError = \(exception)")
-        }
     }
 
     public func loadFromFile(filePath: String, error: NSErrorPointer = nil) {
@@ -98,6 +106,17 @@ public class Bridge {
         }
 
         downloadTask.resume()
+    }
+
+    // MARK: Exports API
+    
+    public func addExport(export: JSExport, name: String) {
+        exports[name] = export
+        context.setObject(export, forKeyedSubscript: name)
+    }
+    
+    public func contextValueForName(name: String) -> JSValue {
+        return context.objectForKeyedSubscript(name)
     }
 }
 

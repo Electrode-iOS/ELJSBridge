@@ -10,8 +10,15 @@ import UIKit
 import XCTest
 import THGFoundation
 import THGBridge
+import JavaScriptCore
 
 class THGBridgeTests: XCTestCase {
+    
+    class Script: NSObject, JSExport {
+        func foo() -> String {
+            return "foo"
+        }
+    }
     
     override func setUp() {
         super.setUp()
@@ -107,7 +114,7 @@ class THGBridgeTests: XCTestCase {
         XCTAssertTrue(failed == false, "This shouldn't have failed!")
         XCTAssertTrue(anError == nil, "There should be no errors!")
 
-        let testFunction = bridge.context.objectForKeyedSubscript("test")
+        let testFunction = bridge.contextValueForName("test")
         if testFunction.isUndefined() {
             println("you moron.")
         }
@@ -189,5 +196,30 @@ class THGBridgeTests: XCTestCase {
 
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
     }
-
+    
+    // MARK: Export API Tests
+    
+    func testAddExport() {
+        let name = "testExport"
+        let export = Script()
+        let bridge = Bridge()
+        bridge.addExport(export, name: name)
+        
+        XCTAssert(bridge.exports[name] === export)
+        XCTAssert(bridge.contextValueForName(name).toObject() === export)
+    }
+    
+    func testExportsBetweenContextChanges() {
+        let name = "testExport"
+        let export = Script()
+        let bridge = Bridge()
+        bridge.addExport(export, name: name)
+        
+        XCTAssert(bridge.exports[name] === export)
+        XCTAssert(bridge.contextValueForName(name).toObject() === export)
+        
+        bridge.context = JSContext(virtualMachine: JSVirtualMachine())
+        
+        XCTAssert(bridge.contextValueForName(name).toObject() === export)
+    }
 }
