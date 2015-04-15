@@ -10,8 +10,15 @@ import UIKit
 import XCTest
 import THGFoundation
 import THGBridge
+import JavaScriptCore
 
 class THGBridgeTests: XCTestCase {
+    
+    class Script: NSObject, JSExport {
+        func foo() -> String {
+            return "foo"
+        }
+    }
     
     override func setUp() {
         super.setUp()
@@ -189,5 +196,16 @@ class THGBridgeTests: XCTestCase {
 
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
     }
-
+    
+    // MARK: Export API Tests
+    
+    func testAddExport() {
+        let name = "testExport"
+        let export = Script()
+        let bridge = Bridge()
+        bridge.addExport(export, name: name)
+        
+        XCTAssert(bridge.exports[name] === export)
+        XCTAssert(bridge.contextValueForName(name).toObject() === export)
+    }
 }
