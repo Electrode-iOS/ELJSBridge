@@ -47,7 +47,7 @@ public class Bridge {
         }
     }
 
-    public var exports = [String: JSExport]()
+    private(set) public var exports = [String: JSExport]()
 
     public init() {
         context = JSContext(virtualMachine: JSVirtualMachine())
