@@ -120,3 +120,9 @@ public class Bridge {
     }
 }
 
+extension UIWebView {
+    
+    public var javaScriptContext: JSContext? {
+        return valueForKeyPath("documentView.webView.mainFrame.javaScriptContext") as? JSContext
+    }
+}
