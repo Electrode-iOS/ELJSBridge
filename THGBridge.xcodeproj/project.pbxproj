@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1947E25A1AE04190004E189C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1947E2591AE04190004E189C /* WebViewController.swift */; };
 		CABA99911AC321B3008D25B4 /* THGFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABA99811AC31D5D008D25B4 /* THGFoundation.framework */; };
 		CABA99921AC321B3008D25B4 /* THGLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABA998A1AC32103008D25B4 /* THGLog.framework */; };
 		CAC38AA31AC3130B005A3CE0 /* THGBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC38AA21AC3130B005A3CE0 /* THGBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -69,6 +70,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1947E2591AE04190004E189C /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		CABA997B1AC31D5D008D25B4 /* THGFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = THGFoundation.xcodeproj; path = ../Excalibur/THGFoundation.xcodeproj; sourceTree = "<group>"; };
 		CABA99841AC32103008D25B4 /* THGLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = THGLog.xcodeproj; path = ../Shrubbery/THGLog.xcodeproj; sourceTree = "<group>"; };
 		CAC38A9D1AC3130B005A3CE0 /* THGBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = THGBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -155,6 +157,7 @@
 			children = (
 				CAC38AA21AC3130B005A3CE0 /* THGBridge.h */,
 				CAC38AB91AC3136C005A3CE0 /* Bridge.swift */,
+				1947E2591AE04190004E189C /* WebViewController.swift */,
 				CAC38AA01AC3130B005A3CE0 /* Supporting Files */,
 			);
 			path = THGBridge;
@@ -336,6 +339,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAC38ABA1AC3136C005A3CE0 /* Bridge.swift in Sources */,
+				1947E25A1AE04190004E189C /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
