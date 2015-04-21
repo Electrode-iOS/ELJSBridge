@@ -49,6 +49,7 @@ public class WebViewController: UIViewController {
         
         if isSharingWebView {
             containWebView()
+            webView.scrollView.contentInset = UIEdgeInsetsZero
         }
     }
     
@@ -65,7 +66,6 @@ public class WebViewController: UIViewController {
         webView.delegate = self
         webView.removeFromSuperview()
         webView.frame = view.bounds
-        webView.scrollView.contentInset = UIEdgeInsetsZero
         webView.hidden = false // todo: wait to unhide untill load completes
         view.addSubview(webView)
     }
