@@ -12,20 +12,13 @@ import Foundation
 public class WebViewController: UIViewController {
     
     private(set) public var url: NSURL?
-    var shouldAnimateHistoryChange = true
-    var isSharingWebView = false
-    
-    lazy var placeholderImageView: UIImageView = {
-        let imageView = UIImageView(frame: self.view.bounds)
-        self.view.insertSubview(imageView, atIndex: 0)
-        return imageView
-    }()
-    
-    private(set) public lazy var webView: UIWebView = {
-        let webView = UIWebView(frame: self.view.bounds)
-        webView.delegate = self
-        self.view.addSubview(webView)
-        return webView
+    private var shouldAnimateHistoryChange = true
+    private var hasAppeared = false
+    private var showWebViewOnAppear = false
+    private(set) public var webView = UIWebView(frame: CGRectZero)
+
+    private lazy var placeholderImageView: UIImageView = {
+        return UIImageView(frame: self.view.bounds)
     }()
     
     var isAppearingFromPop: Bool {
@@ -35,7 +28,7 @@ public class WebViewController: UIViewController {
     convenience init(webView: UIWebView) {
         self.init(nibName: nil, bundle: nil)
         self.webView = webView
-        self.isSharingWebView = true
+        self.webView.delegate = self
     }
     
     deinit {
@@ -46,11 +39,11 @@ public class WebViewController: UIViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        view.backgroundColor = UIColor.whiteColor()
         
-        if isSharingWebView {
-            containWebView()
-            webView.scrollView.contentInset = UIEdgeInsetsZero
-        }
+        edgesForExtendedLayout = .None
+        view.addSubview(placeholderImageView)
+        containWebView()
     }
     
     public override func viewWillAppear(animated: Bool) {
@@ -62,12 +55,38 @@ public class WebViewController: UIViewController {
         }
     }
     
+    public override func viewDidAppear(animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        hasAppeared = true
+        
+        if showWebViewOnAppear {
+            webView.hidden = false
+        }
+    }
+    
+    public override func viewWillDisappear(animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        placeholderImageView.frame = webView.frame // must align frames for image capture
+        placeholderImageView.image = webView.captureImage()
+        webView.hidden = true
+    }
+    
     func containWebView() {
         webView.delegate = self
         webView.removeFromSuperview()
         webView.frame = view.bounds
-        webView.hidden = false // todo: wait to unhide untill load completes
         view.addSubview(webView)
+    }
+    
+    func attemptToShowWebView() {
+        if hasAppeared {
+            webView.hidden = false
+        } else {
+            // wait for viewDidAppear to show web view
+            showWebViewOnAppear = true
+        }
     }
 }
 
@@ -90,7 +109,9 @@ extension WebViewController: UIWebViewDelegate {
     }
     
     public func webViewDidFinishLoad(webView: UIWebView) {
-        
+        if !webView.loading {
+            attemptToShowWebView()
+        }
     }
     
     public func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
@@ -107,7 +128,7 @@ extension WebViewController: UIWebViewDelegate {
     }
     
     public func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
-        println("WebViewController Error: \(error)")
+//        println("WebViewController Error: \(error)")
     }
 }
 
@@ -130,9 +151,6 @@ extension WebViewController {
     }
     
     func animatePushState() {
-        placeholderImageView.image = view.captureImage()
-        webView.hidden = true
-        
         let webViewController = WebViewController(webView: webView)
         navigationController?.pushViewController(webViewController, animated: true)
     }
