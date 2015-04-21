@@ -8,42 +8,66 @@
 
 import Foundation
 
+
 public class WebViewController: UIViewController {
     
-    var webView: UIWebView? {
-        didSet {
-            webView?.delegate = self
-        }
-    }
-    
     private(set) public var url: NSURL?
+    var shouldAnimateHistoryChange = true
+    var isSharingWebView = false
     
-    override init(nibName nibNameOrNil: String?, bundle nibBundleOrNil: NSBundle?) {
-        super.init(nibName: nibNameOrNil, bundle: nibBundleOrNil)
-        
-        webView = UIWebView(frame: self.view.frame)
-        webView?.delegate = self
-        view.addSubview(webView!)
-
+    lazy var placeholderImageView: UIImageView = {
+        let imageView = UIImageView(frame: self.view.bounds)
+        self.view.insertSubview(imageView, atIndex: 0)
+        return imageView
+    }()
+    
+    private(set) public lazy var webView: UIWebView = {
+        let webView = UIWebView(frame: self.view.bounds)
+        webView.delegate = self
+        self.view.addSubview(webView)
+        return webView
+    }()
+    
+    var isAppearingFromPop: Bool {
+        return !isMovingFromParentViewController() && webView.superview != view
     }
-
-    required public init(coder aDecoder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
+    
+    convenience init(webView: UIWebView) {
+        self.init(nibName: nil, bundle: nil)
+        self.webView = webView
+        self.isSharingWebView = true
     }
     
     deinit {
-        if webView?.delegate === self {
-            self.webView?.delegate = nil
+        if webView.delegate === self {
+            webView.delegate = nil
         }
     }
-}
-
-// MARK: - UIViewController
-
-extension WebViewController {
     
     override public func viewDidLoad() {
         super.viewDidLoad()
+        
+        if isSharingWebView {
+            containWebView()
+        }
+    }
+    
+    public override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if isAppearingFromPop {
+            popState()
+            containWebView()
+        }
+    }
+    
+    func containWebView() {
+        webView.delegate = self
+        webView.removeFromSuperview()
+        webView.frame = view.bounds
+        webView.scrollView.contentInset = UIEdgeInsetsZero
+        webView.hidden = false // todo: wait to unhide untill load completes
+        view.addSubview(webView)
     }
 }
 
@@ -53,7 +77,7 @@ extension WebViewController {
     
     public func loadURL(url: NSURL) {
         let request = NSURLRequest(URL: url)
-        self.webView?.loadRequest(request)
+        self.webView.loadRequest(request)
     }
 }
 
@@ -70,10 +94,60 @@ extension WebViewController: UIWebViewDelegate {
     }
     
     public func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
-        return true
+        var shouldStartLoad = true
+        
+        switch navigationType {
+        case .LinkClicked:
+            animatePushState()
+        default:
+            break
+        }
+        
+        return shouldStartLoad
     }
     
     public func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
         println("WebViewController Error: \(error)")
+    }
+}
+
+// MARK: - UIWebView History
+
+extension WebViewController {
+    
+    func popState() {
+        webView.goBack()
+    }
+    
+    func onPushState() {
+        if shouldAnimateHistoryChange {
+            animatePushState()
+        }
+    }
+    
+    func onPopState() {
+        
+    }
+    
+    func animatePushState() {
+        placeholderImageView.image = view.captureImage()
+        webView.hidden = true
+        
+        let webViewController = WebViewController(webView: webView)
+        navigationController?.pushViewController(webViewController, animated: true)
+    }
+}
+
+
+// MARK: - Utils
+
+extension UIView {
+    
+    func captureImage() -> UIImage {
+        UIGraphicsBeginImageContextWithOptions(bounds.size, opaque, 0.0)
+        layer.renderInContext(UIGraphicsGetCurrentContext())
+        let image = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return image
     }
 }
