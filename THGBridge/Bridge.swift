@@ -38,6 +38,9 @@ public class Bridge {
     public var context: JSContext {
         didSet {
             for (name, script) in exports {
+                
+                println("add \(name) \(script)")
+                
                 context.setObject(script, forKeyedSubscript: name)
             }
             
@@ -107,16 +110,28 @@ public class Bridge {
 
         downloadTask.resume()
     }
+}
 
-    // MARK: Exports API
-    
+// MARK: - Exports API
+
+extension Bridge {
+    /**
+    Add an exported object to the context
+    :param: export Object being exported to JavaScript
+    :param: name Name of object being exported
+    */
     public func addExport(export: JSExport, name: String) {
         exports[name] = export
         context.setObject(export, forKeyedSubscript: name)
     }
     
+    /**
+    Retrieve a JSValue out of the context by name.
+    :param: name Name of value to retrieve out of context.
+    */
     public func contextValueForName(name: String) -> JSValue {
         return context.objectForKeyedSubscript(name)
     }
 }
+
 
