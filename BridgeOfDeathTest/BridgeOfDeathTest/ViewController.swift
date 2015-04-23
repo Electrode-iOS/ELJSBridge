@@ -24,7 +24,8 @@ class ViewController: UIViewController {
     @IBAction func openWebView(sender: UIButton) {
         let webController = WebViewController()
         let navController = UINavigationController(rootViewController: webController)
-        let url = NSURL(string: "http://www.techmeme.com/")!
+//        let url = NSURL(string: "http://localhost:3000/")!
+        let url = NSURL(string: "http://bridgeofdeath.herokuapp.com/")!
         
         webController.loadURL(url)
         presentViewController(navController, animated: true, completion: nil)
