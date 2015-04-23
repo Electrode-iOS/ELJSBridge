@@ -24,7 +24,7 @@ extension Bridge {
         return contextValueForName(bridgePlatformExportName).toObject() as? BridgePlatform
     }
     
-    func addPlatformIfNeeded() {
+    func addPlatformExportIfNeeded() {
         if platform == nil {
             let platform = BridgePlatform()
             platform.navigation = BridgeNavigation()

@@ -16,7 +16,7 @@ public class WebViewController: UIViewController {
     private var hasAppeared = false
     private var showWebViewOnAppear = false
     private(set) public var webView = UIWebView(frame: CGRectZero)
-    public var bridge = Bridge()
+    private(set) public var bridge = Bridge()
 
     private lazy var placeholderImageView: UIImageView = {
         return UIImageView(frame: self.view.bounds)
@@ -46,7 +46,6 @@ public class WebViewController: UIViewController {
         
         edgesForExtendedLayout = .None
         view.addSubview(placeholderImageView)
-        containWebView()
     }
     
     public override func viewWillAppear(animated: Bool) {
@@ -55,9 +54,13 @@ public class WebViewController: UIViewController {
         bridge.platform?.navigation?.webNavigator = self
         
         if isAppearingFromPop {
-            webView.goBack()
-            containWebView()
+            webView.goBack() // go back before remove/adding web view
         }
+        
+        webView.delegate = self
+        webView.removeFromSuperview()
+        webView.frame = view.bounds
+        view.addSubview(webView)
         
         if !webView.loading {
             showWebViewOnAppear = true
@@ -81,22 +84,6 @@ public class WebViewController: UIViewController {
         placeholderImageView.image = webView.captureImage()
         webView.hidden = true
     }
-    
-    func containWebView() {
-        webView.delegate = self
-        webView.removeFromSuperview()
-        webView.frame = view.bounds
-        view.addSubview(webView)
-    }
-    
-    func attemptToShowWebView() {
-        if hasAppeared {
-            webView.hidden = false
-        } else {
-            // wait for viewDidAppear to show web view
-            showWebViewOnAppear = true
-        }
-    }
 }
 
 // MARK: - Request Loading
@@ -118,6 +105,15 @@ extension WebViewController: UIWebViewDelegate {
     }
     
     public func webViewDidFinishLoad(webView: UIWebView) {
+        
+        func attemptToShowWebView() {
+            if hasAppeared {
+                self.webView.hidden = false
+            } else {
+                // wait for viewDidAppear to show web view
+                showWebViewOnAppear = true
+            }
+        }
 
         if !webView.loading {
             updateBridgeContext() // todo: listen for context changes
@@ -137,6 +133,11 @@ extension WebViewController: UIWebViewDelegate {
     public func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
         println("WebViewController Error: \(error)")
     }
+}
+
+// MARK: - JavaScript Context
+
+extension WebViewController {
     
     public func updateBridgeContext() {
         if let context =  webView.javaScriptContext {
@@ -148,15 +149,8 @@ extension WebViewController: UIWebViewDelegate {
     
     public func configureBridgeContext(context: JSContext) {
         bridge.context = context
-        bridge.addPlatformIfNeeded()
+        bridge.addPlatformExportIfNeeded()
         bridge.platform?.navigation?.webNavigator = self
-    }
-    
-    public func pushesWebViewControllerForNavigationType(navigationType: UIWebViewNavigationType) -> Bool {
-        switch navigationType {
-        default:
-            return false
-        }
     }
 }
 
@@ -171,6 +165,20 @@ extension WebViewController: UIWebViewDelegate {
 // MARK: - Web Navigation
 
 extension WebViewController: WebViewControllerNavigator {
+
+    func pushWebViewController(#animated: Bool) {
+        let webViewController = WebViewController(webView: webView, bridge: bridge)
+        navigationController?.pushViewController(webViewController, animated: animated)
+    }
+    
+    func pushesWebViewControllerForNavigationType(navigationType: UIWebViewNavigationType) -> Bool {
+        switch navigationType {
+        default:
+            return false
+        }
+    }
+    
+    // MARK: WebViewControllerNavigator
     
     func popState() {
         navigationController?.popViewControllerAnimated(shouldAnimateHistoryChange)
@@ -182,20 +190,6 @@ extension WebViewController: WebViewControllerNavigator {
     
     func replaceState() {
         
-    }
-    
-    func pushWebViewController(#animated: Bool) {
-        let webViewController = WebViewController(webView: webView, bridge: bridge)
-        navigationController?.pushViewController(webViewController, animated: animated)
-    }
-}
-
-// MARK: - Bridge Platform API
-
-extension WebViewController {
-
-    func configureBridgePlatform() {
-        bridge.platform?.navigation?.webNavigator = self
     }
 }
 
