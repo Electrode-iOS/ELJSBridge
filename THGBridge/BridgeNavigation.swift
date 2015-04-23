@@ -13,14 +13,13 @@ import JavaScriptCore
     func animateForward()
 }
 
-@objc class BridgeNavigation: NSObject, BridgeNavigationProtocol {
-    weak var webNavigator: WebViewControllerNavigator?
-    
-    func animateBackward() {
-        webNavigator?.animateBackward()
-    }
+@objc class BridgeNavigation: WebViewControllerScript, BridgeNavigationProtocol {
     
     func animateForward() {
-        webNavigator?.animateForward()
+        parentWebViewController?.pushWebViewController()
+    }
+    
+    func animateBackward() {
+        parentWebViewController?.popWebViewController()
     }
 }

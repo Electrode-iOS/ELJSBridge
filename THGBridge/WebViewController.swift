@@ -9,14 +9,17 @@
 import Foundation
 import JavaScriptCore
 
+@objc class WebViewControllerScript: NSObject {
+    weak var parentWebViewController: WebViewController?
+}
+
 public class WebViewController: UIViewController {
     
     private(set) public var url: NSURL?
-    private var shouldAnimateHistoryChange = true
-    private var hasAppeared = false
-    private var showWebViewOnAppear = false
     private(set) public var webView = UIWebView(frame: CGRectZero)
     private(set) public var bridge = Bridge()
+    private var hasAppeared = false
+    private var showWebViewOnAppear = false
 
     private lazy var placeholderImageView: UIImageView = {
         return UIImageView(frame: self.view.bounds)
@@ -51,7 +54,7 @@ public class WebViewController: UIViewController {
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        bridge.platform?.navigation?.webNavigator = self
+        bridge.platform?.parentWebViewController = self
         
         if isAppearingFromPop {
             webView.goBack() // go back before remove/adding web view
@@ -124,7 +127,7 @@ extension WebViewController: UIWebViewDelegate {
     public func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
         if pushesWebViewControllerForNavigationType(navigationType) {
-            pushWebViewController(animated: shouldAnimateHistoryChange)
+            pushWebViewController()
         }
         
         return true
@@ -140,7 +143,7 @@ extension WebViewController: UIWebViewDelegate {
 extension WebViewController {
     
     public func updateBridgeContext() {
-        if let context =  webView.javaScriptContext {
+        if let context = webView.javaScriptContext {
             configureBridgeContext(context)
         } else {
             println("Failed to retrieve JavaScript context from web view.")
@@ -149,25 +152,20 @@ extension WebViewController {
     
     public func configureBridgeContext(context: JSContext) {
         bridge.context = context
-        bridge.addPlatformExportIfNeeded()
-        bridge.platform?.navigation?.webNavigator = self
     }
 }
 
-// MARK: - WebViewControllerNavigator
+// MARK: - Web Controller Navigation
 
-@objc protocol WebViewControllerNavigator {
-    func animateForward()
-    func animateBackward()
-}
+extension WebViewController {
 
-// MARK: - Web Navigation
-
-extension WebViewController: WebViewControllerNavigator {
-
-    func pushWebViewController(#animated: Bool) {
+    func pushWebViewController() {
         let webViewController = WebViewController(webView: webView, bridge: bridge)
-        navigationController?.pushViewController(webViewController, animated: animated)
+        navigationController?.pushViewController(webViewController, animated: true)
+    }
+    
+    func popWebViewController() {
+        navigationController?.popViewControllerAnimated(true)
     }
     
     func pushesWebViewControllerForNavigationType(navigationType: UIWebViewNavigationType) -> Bool {
@@ -175,17 +173,6 @@ extension WebViewController: WebViewControllerNavigator {
         default:
             return false
         }
-    }
-    
-    // MARK: WebViewControllerNavigator
-    
-    func animateForward() {
-        pushWebViewController(animated: shouldAnimateHistoryChange)
-    }
-    
-    
-    func animateBackward() {
-        navigationController?.popViewControllerAnimated(shouldAnimateHistoryChange)
     }
 }
 
@@ -214,4 +201,3 @@ extension UIWebView {
         return valueForKeyPath(webViewJavaScriptContextPath) as? JSContext
     }
 }
-

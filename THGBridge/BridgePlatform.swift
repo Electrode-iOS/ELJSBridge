@@ -8,27 +8,38 @@
 
 import JavaScriptCore
 
+private let bridgePlatformExportName = "NativeBridge"
+
 @objc protocol BridgePlatformProtocol: JSExport {
-    var navigation: BridgeNavigation? {get}
+    var navigation: BridgeNavigation {get}
 }
 
-@objc class BridgePlatform: NSObject, BridgePlatformProtocol {
-    var navigation: BridgeNavigation?
+@objc class BridgePlatform: WebViewControllerScript, BridgePlatformProtocol {
+    var navigation = BridgeNavigation()
+    
+    override weak var parentWebViewController: WebViewController? {
+        didSet {
+            navigation.parentWebViewController = parentWebViewController
+        }
+    }
 }
 
-let bridgePlatformExportName = "NativeBridge"
+// MARK: - WebViewController Integration
+
+public extension WebViewController {
+    
+    static func WithBridgePlatform() -> WebViewController {
+        let webViewController = WebViewController()
+        webViewController.bridge.addExport(BridgePlatform(), name: bridgePlatformExportName)
+        return webViewController
+    }
+}
+
+// MARK: - Bridge Integration
 
 extension Bridge {
     
     var platform: BridgePlatform? {
         return contextValueForName(bridgePlatformExportName).toObject() as? BridgePlatform
-    }
-    
-    func addPlatformExportIfNeeded() {
-        if platform == nil {
-            let platform = BridgePlatform()
-            platform.navigation = BridgeNavigation()
-            addExport(platform, name: bridgePlatformExportName)
-        }
     }
 }
