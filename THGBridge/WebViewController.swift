@@ -157,9 +157,8 @@ extension WebViewController {
 // MARK: - WebViewControllerNavigator
 
 @objc protocol WebViewControllerNavigator {
-    func pushState()
-    func popState()
-    func replaceState()
+    func animateForward()
+    func animateBackward()
 }
 
 // MARK: - Web Navigation
@@ -180,16 +179,13 @@ extension WebViewController: WebViewControllerNavigator {
     
     // MARK: WebViewControllerNavigator
     
-    func popState() {
-        navigationController?.popViewControllerAnimated(shouldAnimateHistoryChange)
-    }
-    
-    func pushState() {
+    func animateForward() {
         pushWebViewController(animated: shouldAnimateHistoryChange)
     }
     
-    func replaceState() {
-        
+    
+    func animateBackward() {
+        navigationController?.popViewControllerAnimated(shouldAnimateHistoryChange)
     }
 }
 
