@@ -9,23 +9,18 @@
 import JavaScriptCore
 
 @objc protocol BridgeNavigationProtocol: JSExport {
-    func pushState()
-    func popState()
-    func replaceState()
+    func animateBackward()
+    func animateForward()
 }
 
 @objc class BridgeNavigation: NSObject, BridgeNavigationProtocol {
     weak var webNavigator: WebViewControllerNavigator?
     
-    func pushState() {
-        webNavigator?.pushState()
+    func animateBackward() {
+        webNavigator?.animateBackward()
     }
     
-    func popState() {
-        webNavigator?.popState()
-    }
-    
-    func replaceState() {
-        webNavigator?.pushState()
+    func animateForward() {
+        webNavigator?.animateForward()
     }
 }
