@@ -55,7 +55,7 @@ public class WebViewController: UIViewController {
         bridge.platform?.navigation?.webNavigator = self
         
         if isAppearingFromPop {
-            popState()
+            webView.goBack()
             containWebView()
         }
         
@@ -171,7 +171,7 @@ extension WebViewController: UIWebViewDelegate {
 extension WebViewController: WebViewControllerNavigator {
     
     func popState() {
-        webView.goBack()
+        navigationController?.popViewControllerAnimated(shouldAnimateHistoryChange)
     }
     
     func pushState() {
