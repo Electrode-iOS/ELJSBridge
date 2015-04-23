@@ -127,16 +127,11 @@ extension WebViewController: UIWebViewDelegate {
     
     public func webView(webView: UIWebView, shouldStartLoadWithRequest request: NSURLRequest, navigationType: UIWebViewNavigationType) -> Bool {
         
-        var shouldStartLoad = true
-        
-        switch navigationType {
-        case .LinkClicked:
+        if pushesWebViewControllerForNavigationType(navigationType) {
             pushWebViewController(animated: shouldAnimateHistoryChange)
-        default:
-            break
         }
         
-        return shouldStartLoad
+        return true
     }
     
     public func webView(webView: UIWebView, didFailLoadWithError error: NSError) {
@@ -155,6 +150,13 @@ extension WebViewController: UIWebViewDelegate {
         bridge.context = context
         bridge.addPlatformIfNeeded()
         bridge.platform?.navigation?.webNavigator = self
+    }
+    
+    public func pushesWebViewControllerForNavigationType(navigationType: UIWebViewNavigationType) -> Bool {
+        switch navigationType {
+        default:
+            return false
+        }
     }
 }
 
