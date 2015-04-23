@@ -10,6 +10,7 @@ import JavaScriptCore
 
 @objc protocol BridgeNavigationProtocol: JSExport {
     func pushState()
+    func popState()
     func replaceState()
 }
 
@@ -18,6 +19,10 @@ import JavaScriptCore
     
     func pushState() {
         webNavigator?.pushState()
+    }
+    
+    func popState() {
+        webNavigator?.popState()
     }
     
     func replaceState() {
