@@ -38,6 +38,9 @@ public class Bridge {
     public var context: JSContext {
         didSet {
             for (name, script) in exports {
+                
+                println("add \(name) \(script)")
+                
                 context.setObject(script, forKeyedSubscript: name)
             }
             
@@ -131,14 +134,4 @@ extension Bridge {
     }
 }
 
-// MARK: - Utilities
 
-extension UIWebView {
-    
-    /**
-     Retreive the JavaScript context from the web view.
-    */
-    public var javaScriptContext: JSContext? {
-        return valueForKeyPath("documentView.webView.mainFrame.javaScriptContext") as? JSContext
-    }
-}
