@@ -12,6 +12,7 @@ private let bridgePlatformExportName = "NativeBridge"
 
 @objc protocol BridgePlatformProtocol: JSExport {
     var navigation: BridgeNavigation {get}
+    func updatePageState(options: [String: AnyObject])
     func log(value: AnyObject)
 }
 
@@ -21,6 +22,13 @@ private let bridgePlatformExportName = "NativeBridge"
     override weak var parentWebViewController: WebViewController? {
         didSet {
             navigation.parentWebViewController = parentWebViewController
+        }
+    }
+    
+    func updatePageState(options: [String: AnyObject]) {
+        
+        if let title = options["title"] as? String {
+            parentWebViewController?.title = title
         }
     }
     
