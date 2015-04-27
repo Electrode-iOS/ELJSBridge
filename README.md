@@ -2,7 +2,43 @@
 
 THGBridge, a Javascript&lt;->Native bridge implementation in Swift
 
-## Usage
+## Swift Usage
+
+```
+// present a modal web view controller w/ bridge scripts
+
+if let url = NSURL(string: "http://localhost:3000/") {
+    let webController = WebViewController.WithBridgePlatform()
+    let navController = UINavigationController(rootViewController: webController)
+
+    webController.loadURL(url)
+    presentViewController(navController, animated: true, completion: nil)
+}
+```
+
+## JavaScript Usage
+
+#### window.nativeBridgeReady()
+
+An optional callback to invoke after the web view has finished loading and the bridge APIs are ready for use.
+
+**Example**
+
+```
+// wait for the bridge to be ready
+
+function bridgeReady() {
+  // web view is loaded and bridge is ready for use
+}
+
+if (window.NativeBridge === undefined) {
+  window.nativeBridgeReady = function() {
+    bridgeReady();
+  }
+} else {
+  bridgeReady();
+}
+```
 
 ### NativeBridge
 
