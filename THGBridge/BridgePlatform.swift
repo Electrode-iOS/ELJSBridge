@@ -12,6 +12,7 @@ private let bridgePlatformExportName = "NativeBridge"
 
 @objc protocol BridgePlatformProtocol: JSExport {
     var navigation: BridgeNavigation {get}
+    func log(value: AnyObject)
 }
 
 @objc class BridgePlatform: WebViewControllerScript, BridgePlatformProtocol {
@@ -21,6 +22,10 @@ private let bridgePlatformExportName = "NativeBridge"
         didSet {
             navigation.parentWebViewController = parentWebViewController
         }
+    }
+    
+    func log(value: AnyObject) {
+        println("BridgeOfDeath: \(value)")
     }
 }
 
