@@ -4,6 +4,24 @@ THGBridge, a Javascript&lt;->Native bridge implementation in Swift
 
 ## Usage
 
+### NativeBridge
+
+#### updatePageState()
+
+Update the current view controller state using data from options. Currently only supports updating the title.
+
+**Parameters**
+
+- `options` (object) - Options
+  - `title` (string) - Title text of view controller.
+
+**Example**
+
+```
+NativeBridge.updatePageState({title: "Edit Address"});
+
+```
+
 ### NativeBridge.navigation
 
 #### animateForward()
