@@ -58,6 +58,28 @@ NativeBridge.updatePageState({title: "Edit Address"});
 
 ```
 
+#### share()
+
+Present an activity view controller with `message` and `url` as the activity items.
+
+**Parameters**
+
+- `options` (object) - Options
+  - `message` (string) - Message text to share.
+  - `url` (string) -  URL to share.
+
+**Example**
+
+```
+var options = {
+  message: "What is your quest?", 
+  url: "https://github.com/TheHolyGrail/BridgeOfDeath"
+};
+
+NativeBridge.share(options);
+
+```
+
 ### NativeBridge.navigation
 
 #### animateForward()
