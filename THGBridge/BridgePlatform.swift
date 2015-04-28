@@ -16,6 +16,10 @@ private let bridgePlatformExportName = "NativeBridge"
     func log(value: AnyObject)
 }
 
+@objc protocol BridgeShareProtocol: JSExport {
+    func share(options: [String: AnyObject])
+}
+
 @objc class BridgePlatform: WebViewControllerScript, BridgePlatformProtocol {
     var navigation = BridgeNavigation()
     
@@ -34,6 +38,27 @@ private let bridgePlatformExportName = "NativeBridge"
     
     func log(value: AnyObject) {
         println("BridgeOfDeath: \(value)")
+    }
+}
+
+// MARK: - Sharing
+
+extension BridgePlatform: BridgeShareProtocol {
+    
+    func share(options: [String: AnyObject]) {
+        if let items = shareItemsFromOptions(options) {
+            var activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+            parentWebViewController?.presentViewController(activityViewController, animated: true, completion: nil)
+        }
+    }
+    
+    func shareItemsFromOptions(options: [String: AnyObject]) -> [AnyObject]? {
+        if let message = options["message"] as? String,
+            let url = options["url"] as? String {
+            return [url, message]
+        }
+        
+        return nil
     }
 }
 
