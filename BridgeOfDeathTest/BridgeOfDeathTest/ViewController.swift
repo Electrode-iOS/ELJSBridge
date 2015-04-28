@@ -24,12 +24,10 @@ class ViewController: UIViewController {
     @IBAction func openWebView(sender: UIButton) {
         let webController = WebViewController.WithBridgePlatform()
         let navController = UINavigationController(rootViewController: webController)
-        let url = NSURL(string: "http://localhost:3000/")!
+        let url = NSURL(string: "https://dl.dropboxusercontent.com/u/6589453/wm/bridge/bridge-test.html")!
 //        let url = NSURL(string: "http://bridgeofdeath.herokuapp.com/")!
 
         webController.loadURL(url)
         presentViewController(navController, animated: true, completion: nil)
     }
-
 }
-
