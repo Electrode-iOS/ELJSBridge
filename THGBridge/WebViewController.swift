@@ -9,10 +9,6 @@
 import Foundation
 import JavaScriptCore
 
-@objc class WebViewControllerScript: NSObject {
-    weak var parentWebViewController: WebViewController?
-}
-
 public class WebViewController: UIViewController {
     
     private(set) public var url: NSURL?
