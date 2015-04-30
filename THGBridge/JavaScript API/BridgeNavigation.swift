@@ -8,12 +8,12 @@
 
 import JavaScriptCore
 
-@objc protocol BridgeNavigationProtocol: JSExport {
+@objc protocol BridgeNavigationJSExport: JSExport {
     func animateBackward()
     func animateForward()
 }
 
-@objc class BridgeNavigation: WebViewControllerScript, BridgeNavigationProtocol {
+@objc class BridgeNavigation: WebViewControllerScript, BridgeNavigationJSExport {
     
     func animateForward() {
         parentWebViewController?.pushWebViewController()

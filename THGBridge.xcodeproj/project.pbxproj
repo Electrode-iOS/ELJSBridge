@@ -7,9 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		1766B8931AE85EBA0039FFB5 /* BridgeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1766B8921AE85EBA0039FFB5 /* BridgeNavigation.swift */; };
-		1766B8951AE85F650039FFB5 /* BridgePlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1766B8941AE85F650039FFB5 /* BridgePlatform.swift */; };
 		17B5F6101AF00A8A00571957 /* WebViewControllerScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17B5F60F1AF00A8A00571957 /* WebViewControllerScript.swift */; };
+		17E26AD01AF2924500DDC3B2 /* BridgeDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E26ACD1AF2924500DDC3B2 /* BridgeDialog.swift */; };
+		17E26AD11AF2924500DDC3B2 /* BridgeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E26ACE1AF2924500DDC3B2 /* BridgeNavigation.swift */; };
+		17E26AD21AF2924500DDC3B2 /* BridgePlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E26ACF1AF2924500DDC3B2 /* BridgePlatform.swift */; };
 		1947E25A1AE04190004E189C /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1947E2591AE04190004E189C /* WebViewController.swift */; };
 		CABA99911AC321B3008D25B4 /* THGFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABA99811AC31D5D008D25B4 /* THGFoundation.framework */; };
 		CABA99921AC321B3008D25B4 /* THGLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABA998A1AC32103008D25B4 /* THGLog.framework */; };
@@ -73,9 +74,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		1766B8921AE85EBA0039FFB5 /* BridgeNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeNavigation.swift; sourceTree = "<group>"; };
-		1766B8941AE85F650039FFB5 /* BridgePlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgePlatform.swift; sourceTree = "<group>"; };
 		17B5F60F1AF00A8A00571957 /* WebViewControllerScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewControllerScript.swift; sourceTree = "<group>"; };
+		17E26ACD1AF2924500DDC3B2 /* BridgeDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeDialog.swift; sourceTree = "<group>"; };
+		17E26ACE1AF2924500DDC3B2 /* BridgeNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeNavigation.swift; sourceTree = "<group>"; };
+		17E26ACF1AF2924500DDC3B2 /* BridgePlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgePlatform.swift; sourceTree = "<group>"; };
 		1947E2591AE04190004E189C /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		CABA997B1AC31D5D008D25B4 /* THGFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = THGFoundation.xcodeproj; path = ../Excalibur/THGFoundation.xcodeproj; sourceTree = "<group>"; };
 		CABA99841AC32103008D25B4 /* THGLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = THGLog.xcodeproj; path = ../Shrubbery/THGLog.xcodeproj; sourceTree = "<group>"; };
@@ -111,6 +113,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		17E26ACC1AF2924500DDC3B2 /* JavaScript API */ = {
+			isa = PBXGroup;
+			children = (
+				17E26ACD1AF2924500DDC3B2 /* BridgeDialog.swift */,
+				17E26ACE1AF2924500DDC3B2 /* BridgeNavigation.swift */,
+				17E26ACF1AF2924500DDC3B2 /* BridgePlatform.swift */,
+			);
+			path = "JavaScript API";
+			sourceTree = "<group>";
+		};
 		CABA997A1AC31C7F008D25B4 /* Modules */ = {
 			isa = PBXGroup;
 			children = (
@@ -165,8 +177,7 @@
 				CAC38AB91AC3136C005A3CE0 /* Bridge.swift */,
 				1947E2591AE04190004E189C /* WebViewController.swift */,
 				17B5F60F1AF00A8A00571957 /* WebViewControllerScript.swift */,
-				1766B8941AE85F650039FFB5 /* BridgePlatform.swift */,
-				1766B8921AE85EBA0039FFB5 /* BridgeNavigation.swift */,
+				17E26ACC1AF2924500DDC3B2 /* JavaScript API */,
 				CAC38AA01AC3130B005A3CE0 /* Supporting Files */,
 			);
 			path = THGBridge;
@@ -348,9 +359,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAC38ABA1AC3136C005A3CE0 /* Bridge.swift in Sources */,
-				1766B8951AE85F650039FFB5 /* BridgePlatform.swift in Sources */,
-				1766B8931AE85EBA0039FFB5 /* BridgeNavigation.swift in Sources */,
+				17E26AD21AF2924500DDC3B2 /* BridgePlatform.swift in Sources */,
 				17B5F6101AF00A8A00571957 /* WebViewControllerScript.swift in Sources */,
+				17E26AD11AF2924500DDC3B2 /* BridgeNavigation.swift in Sources */,
+				17E26AD01AF2924500DDC3B2 /* BridgeDialog.swift in Sources */,
 				1947E25A1AE04190004E189C /* WebViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

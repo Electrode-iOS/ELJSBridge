@@ -10,18 +10,19 @@ import JavaScriptCore
 
 private let bridgePlatformExportName = "NativeBridge"
 
-@objc protocol BridgePlatformProtocol: JSExport {
+@objc protocol PlatformJSExport: JSExport {
     var navigation: BridgeNavigation {get}
     func updatePageState(options: [String: AnyObject])
     func log(value: AnyObject)
 }
 
-@objc protocol BridgeShareProtocol: JSExport {
+@objc protocol ShareJSExport: JSExport {
     func share(options: [String: AnyObject])
 }
 
-@objc class BridgePlatform: WebViewControllerScript, BridgePlatformProtocol {
+@objc class BridgePlatform: WebViewControllerScript, PlatformJSExport {
     var navigation = BridgeNavigation()
+    lazy var dialogDelegate: BridgeDialog = { return BridgeDialog() }()
     
     override weak var parentWebViewController: WebViewController? {
         didSet {
@@ -41,9 +42,9 @@ private let bridgePlatformExportName = "NativeBridge"
     }
 }
 
-// MARK: - Sharing
+// MARK: - ShareJSExport
 
-extension BridgePlatform: BridgeShareProtocol {
+extension BridgePlatform: ShareJSExport {
     
     func share(options: [String: AnyObject]) {
         if let items = shareItemsFromOptions(options) {
@@ -54,13 +55,24 @@ extension BridgePlatform: BridgeShareProtocol {
         }
     }
     
-    func shareItemsFromOptions(options: [String: AnyObject]) -> [AnyObject]? {
+    private func shareItemsFromOptions(options: [String: AnyObject]) -> [AnyObject]? {
         if let message = options["message"] as? String,
             let url = options["url"] as? String {
             return [url, message]
         }
         
         return nil
+    }
+}
+
+// MARK: - DialogJSExport
+
+extension BridgePlatform: DialogJSExport {
+    
+    func dialog(options: [String: AnyObject], _ callback: JSValue) {
+        dispatch_async(dispatch_get_main_queue()) {
+            self.dialogDelegate.showWithOptions(options, callback: callback)
+        }
     }
 }
 
