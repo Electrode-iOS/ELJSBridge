@@ -47,8 +47,10 @@ extension BridgePlatform: BridgeShareProtocol {
     
     func share(options: [String: AnyObject]) {
         if let items = shareItemsFromOptions(options) {
-            var activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
-            parentWebViewController?.presentViewController(activityViewController, animated: true, completion: nil)
+            dispatch_async(dispatch_get_main_queue()) {
+                var activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+                self.parentWebViewController?.presentViewController(activityViewController, animated: true, completion: nil)
+            }
         }
     }
     
