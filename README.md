@@ -80,6 +80,43 @@ NativeBridge.share(options);
 
 ```
 
+#### dialog()
+
+Present an activity view controller with `message` and `url` as the activity items.
+
+**Parameters**
+
+- `options` (object) - Options
+  - `title` (string) -  Title text.
+  - `message` (string) - Message text.
+  - `actions` (array) - Array of dialog actions.
+    - `id` (string) - Action identifier
+    - `label` (string) - Action label text.
+- `callback` (function(error, id)) - Callback to invoke when dialog action is tapped.
+  - `error - Possible error.
+  - `id` - ID of action that was tapped.
+
+**Example**
+
+```
+var options = {
+  title: "Title of Dialog",
+  message: "Message of Dialog",
+  actions: [{
+    id: "cancel",
+    label: "Cancel"
+  }, {
+    id: "ok",
+    label: "Ok"
+  }]
+};
+
+window.NativeBridge.dialog(options, function(error, id) {
+  // handle action
+});
+
+```
+
 ### NativeBridge.navigation
 
 #### animateForward()
