@@ -186,9 +186,9 @@ extension UIView {
     }
 }
 
-private let webViewJavaScriptContextPath = "documentView.webView.mainFrame.javaScriptContext"
-
 // MARK: - UIWebView's JavaScriptContext
+
+private let webViewJavaScriptContextPath = "documentView.webView.mainFrame.javaScriptContext"
 
 extension UIWebView {
     /**

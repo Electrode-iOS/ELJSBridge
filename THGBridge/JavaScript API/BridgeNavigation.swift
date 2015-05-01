@@ -16,10 +16,14 @@ import JavaScriptCore
 @objc class BridgeNavigation: WebViewControllerScript, BridgeNavigationJSExport {
     
     func animateForward() {
-        parentWebViewController?.pushWebViewController()
+        dispatch_async(dispatch_get_main_queue()) {
+            parentWebViewController?.pushWebViewController()
+        }
     }
     
     func animateBackward() {
-        parentWebViewController?.popWebViewController()
+        dispatch_async(dispatch_get_main_queue()) {
+            parentWebViewController?.popWebViewController()
+        }
     }
 }
