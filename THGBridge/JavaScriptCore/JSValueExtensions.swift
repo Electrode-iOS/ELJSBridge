@@ -17,7 +17,7 @@ internal extension JSValue {
      :return: The return value of the function call.
     */
     func callWithData(data: AnyObject) -> JSValue! {
-        return callWithArguments([NSNull(), data])
+        return callWithArguments([JSValue(nullInContext: context), data])
     }
     
     /**
@@ -39,6 +39,6 @@ internal extension JSValue {
     */
     func callWithErrorMessage(errorMessage: String) -> JSValue! {
         let jsError = JSValue(newErrorFromMessage: errorMessage, inContext: context)
-        return callWithArguments([jsError, NSNull()])
+        return callWithArguments([jsError, JSValue(nullInContext: context)])
     }
 }
