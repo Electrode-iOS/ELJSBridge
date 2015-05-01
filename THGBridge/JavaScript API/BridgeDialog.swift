@@ -32,7 +32,7 @@ import JavaScriptCore
     
     func alertView(alertView: UIAlertView, clickedButtonAtIndex buttonIndex: Int) {
         if let selectedAction = alert?.actions[buttonIndex] {
-            callback?.callWithArguments([NSNull(), selectedAction.actionID])
+            callback?.callWithWithData(selectedAction.actionID, error: nil)
         }
     }
 }

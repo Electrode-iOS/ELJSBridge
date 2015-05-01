@@ -133,5 +133,3 @@ extension Bridge {
         return context.objectForKeyedSubscript(name)
     }
 }
-
-
