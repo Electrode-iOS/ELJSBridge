@@ -22,7 +22,6 @@ private let bridgePlatformExportName = "NativeBridge"
 
 @objc class BridgePlatform: WebViewControllerScript, PlatformJSExport {
     var navigation = BridgeNavigation()
-    lazy var dialogDelegate: BridgeDialog = { return BridgeDialog() }()
     
     override weak var parentWebViewController: WebViewController? {
         didSet {
@@ -71,7 +70,8 @@ extension BridgePlatform: DialogJSExport {
     
     func dialog(options: [String: AnyObject], _ callback: JSValue) {
         dispatch_async(dispatch_get_main_queue()) {
-            self.dialogDelegate.showWithOptions(options, callback: callback)
+            let alertController = BridgeAlert.alertControllerWithOptions(options, callback: callback)
+            self.parentWebViewController?.presentViewController(alertController, animated: true, completion: nil)
         }
     }
 }

@@ -11,6 +11,7 @@
 		17647D011AF3DA9800D450E7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17647CFE1AF3DA9800D450E7 /* WebViewController.swift */; };
 		17647D021AF3DA9800D450E7 /* WebViewControllerScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17647CFF1AF3DA9800D450E7 /* WebViewControllerScript.swift */; };
 		17647D041AF3DAC800D450E7 /* JSValueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17647D031AF3DAC800D450E7 /* JSValueExtensions.swift */; };
+		176502181AF7CE55006D8CC1 /* BridgeAlert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 176502171AF7CE55006D8CC1 /* BridgeAlert.swift */; };
 		17E26AD01AF2924500DDC3B2 /* BridgeDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E26ACD1AF2924500DDC3B2 /* BridgeDialog.swift */; };
 		17E26AD11AF2924500DDC3B2 /* BridgeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E26ACE1AF2924500DDC3B2 /* BridgeNavigation.swift */; };
 		17E26AD21AF2924500DDC3B2 /* BridgePlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E26ACF1AF2924500DDC3B2 /* BridgePlatform.swift */; };
@@ -79,6 +80,7 @@
 		17647CFE1AF3DA9800D450E7 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		17647CFF1AF3DA9800D450E7 /* WebViewControllerScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewControllerScript.swift; sourceTree = "<group>"; };
 		17647D031AF3DAC800D450E7 /* JSValueExtensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = JSValueExtensions.swift; sourceTree = "<group>"; };
+		176502171AF7CE55006D8CC1 /* BridgeAlert.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeAlert.swift; sourceTree = "<group>"; };
 		17E26ACD1AF2924500DDC3B2 /* BridgeDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeDialog.swift; sourceTree = "<group>"; };
 		17E26ACE1AF2924500DDC3B2 /* BridgeNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeNavigation.swift; sourceTree = "<group>"; };
 		17E26ACF1AF2924500DDC3B2 /* BridgePlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgePlatform.swift; sourceTree = "<group>"; };
@@ -136,6 +138,7 @@
 		17E26ACC1AF2924500DDC3B2 /* JavaScript API */ = {
 			isa = PBXGroup;
 			children = (
+				176502171AF7CE55006D8CC1 /* BridgeAlert.swift */,
 				17E26ACD1AF2924500DDC3B2 /* BridgeDialog.swift */,
 				17E26ACE1AF2924500DDC3B2 /* BridgeNavigation.swift */,
 				17E26ACF1AF2924500DDC3B2 /* BridgePlatform.swift */,
@@ -378,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				17647D001AF3DA9800D450E7 /* Bridge.swift in Sources */,
+				176502181AF7CE55006D8CC1 /* BridgeAlert.swift in Sources */,
 				17E26AD21AF2924500DDC3B2 /* BridgePlatform.swift in Sources */,
 				17E26AD11AF2924500DDC3B2 /* BridgeNavigation.swift in Sources */,
 				17647D041AF3DAC800D450E7 /* JSValueExtensions.swift in Sources */,
