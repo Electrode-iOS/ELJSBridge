@@ -16,10 +16,6 @@ private let bridgePlatformExportName = "NativeBridge"
     func log(value: AnyObject)
 }
 
-@objc protocol ShareJSExport: JSExport {
-    func share(options: [String: AnyObject])
-}
-
 @objc class BridgePlatform: WebViewControllerScript, PlatformJSExport {
     var navigation = BridgeNavigation()
     
@@ -46,21 +42,11 @@ private let bridgePlatformExportName = "NativeBridge"
 extension BridgePlatform: ShareJSExport {
     
     func share(options: [String: AnyObject]) {
-        if let items = shareItemsFromOptions(options) {
-            dispatch_async(dispatch_get_main_queue()) {
-                var activityViewController = UIActivityViewController(activityItems: items, applicationActivities: nil)
+        dispatch_async(dispatch_get_main_queue()) {
+            if let activityViewController = BridgeShareActivity.activityViewControllerWithOptions(options) {
                 self.parentWebViewController?.presentViewController(activityViewController, animated: true, completion: nil)
             }
         }
-    }
-    
-    private func shareItemsFromOptions(options: [String: AnyObject]) -> [AnyObject]? {
-        if let message = options["message"] as? String,
-            let url = options["url"] as? String {
-            return [url, message]
-        }
-        
-        return nil
     }
 }
 
