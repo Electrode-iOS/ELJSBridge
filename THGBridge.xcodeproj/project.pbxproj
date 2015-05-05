@@ -16,6 +16,11 @@
 		17E26AD01AF2924500DDC3B2 /* BridgeDialog.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E26ACD1AF2924500DDC3B2 /* BridgeDialog.swift */; };
 		17E26AD11AF2924500DDC3B2 /* BridgeNavigation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E26ACE1AF2924500DDC3B2 /* BridgeNavigation.swift */; };
 		17E26AD21AF2924500DDC3B2 /* BridgePlatform.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E26ACF1AF2924500DDC3B2 /* BridgePlatform.swift */; };
+		CA24106D1AF9692000AA4410 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17647CFC1AF3DA9800D450E7 /* Bridge.swift */; };
+		CA2410721AF9692000AA4410 /* JSValueExtensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17647D031AF3DAC800D450E7 /* JSValueExtensions.swift */; };
+		CA2410771AF9692000AA4410 /* THGFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABA99811AC31D5D008D25B4 /* THGFoundation.framework */; };
+		CA2410781AF9692000AA4410 /* THGLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABA998A1AC32103008D25B4 /* THGLog.framework */; };
+		CA24107A1AF9692000AA4410 /* THGBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC38AA21AC3130B005A3CE0 /* THGBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CABA99911AC321B3008D25B4 /* THGFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABA99811AC31D5D008D25B4 /* THGFoundation.framework */; };
 		CABA99921AC321B3008D25B4 /* THGLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CABA998A1AC32103008D25B4 /* THGLog.framework */; };
 		CAC38AA31AC3130B005A3CE0 /* THGBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC38AA21AC3130B005A3CE0 /* THGBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -25,6 +30,34 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		CA2410691AF9692000AA4410 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CABA99841AC32103008D25B4 /* THGLog.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CA8D47BA1AAE6FF50028B74D;
+			remoteInfo = THGLog;
+		};
+		CA24106B1AF9692000AA4410 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CABA997B1AC31D5D008D25B4 /* THGFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CACF2A091A9614D20084EFAE;
+			remoteInfo = THGFoundation;
+		};
+		CA2410831AF9692000AA4410 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CABA997B1AC31D5D008D25B4 /* THGFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CA24104D1AF965B700AA4410;
+			remoteInfo = THGFoundation_osx;
+		};
+		CA2410871AF9692000AA4410 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CABA99841AC32103008D25B4 /* THGLog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CA2410631AF966F600AA4410;
+			remoteInfo = THGLog_osx;
+		};
 		CABA99801AC31D5D008D25B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CABA997B1AC31D5D008D25B4 /* THGFoundation.xcodeproj */;
@@ -86,6 +119,8 @@
 		17E26ACD1AF2924500DDC3B2 /* BridgeDialog.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeDialog.swift; sourceTree = "<group>"; };
 		17E26ACE1AF2924500DDC3B2 /* BridgeNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeNavigation.swift; sourceTree = "<group>"; };
 		17E26ACF1AF2924500DDC3B2 /* BridgePlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgePlatform.swift; sourceTree = "<group>"; };
+		CA24107F1AF9692000AA4410 /* THGBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = THGBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA2410801AF9692000AA4410 /* THGBridge copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "THGBridge copy-Info.plist"; path = "/Users/brandon/work/Libraries/BridgeOfDeath/THGBridge copy-Info.plist"; sourceTree = "<absolute>"; };
 		CABA997B1AC31D5D008D25B4 /* THGFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = THGFoundation.xcodeproj; path = ../Excalibur/THGFoundation.xcodeproj; sourceTree = "<group>"; };
 		CABA99841AC32103008D25B4 /* THGLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = THGLog.xcodeproj; path = ../Shrubbery/THGLog.xcodeproj; sourceTree = "<group>"; };
 		CAC38A9D1AC3130B005A3CE0 /* THGBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = THGBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -98,6 +133,15 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		CA2410761AF9692000AA4410 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA2410771AF9692000AA4410 /* THGFoundation.framework in Frameworks */,
+				CA2410781AF9692000AA4410 /* THGLog.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CAC38A991AC3130B005A3CE0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -163,6 +207,7 @@
 			children = (
 				CABA99811AC31D5D008D25B4 /* THGFoundation.framework */,
 				CABA99831AC31D5D008D25B4 /* THGFoundationTests.xctest */,
+				CA2410841AF9692000AA4410 /* THGFoundation.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -172,6 +217,7 @@
 			children = (
 				CABA998A1AC32103008D25B4 /* THGLog.framework */,
 				CABA998C1AC32103008D25B4 /* THGLogTests.xctest */,
+				CA2410881AF9692000AA4410 /* THGLog.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -184,6 +230,7 @@
 				CABA997A1AC31C7F008D25B4 /* Modules */,
 				CAC38AAC1AC3130B005A3CE0 /* THGBridgeTests */,
 				CAC38A9E1AC3130B005A3CE0 /* Products */,
+				CA2410801AF9692000AA4410 /* THGBridge copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -192,6 +239,7 @@
 			children = (
 				CAC38A9D1AC3130B005A3CE0 /* THGBridge.framework */,
 				CAC38AA81AC3130B005A3CE0 /* THGBridgeTests.xctest */,
+				CA24107F1AF9692000AA4410 /* THGBridge.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -236,6 +284,14 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		CA2410791AF9692000AA4410 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA24107A1AF9692000AA4410 /* THGBridge.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CAC38A9A1AC3130B005A3CE0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -247,6 +303,26 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		CA2410671AF9692000AA4410 /* THGBridge_osx */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = CA24107C1AF9692000AA4410 /* Build configuration list for PBXNativeTarget "THGBridge_osx" */;
+			buildPhases = (
+				CA24106C1AF9692000AA4410 /* Sources */,
+				CA2410761AF9692000AA4410 /* Frameworks */,
+				CA2410791AF9692000AA4410 /* Headers */,
+				CA24107B1AF9692000AA4410 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				CA2410681AF9692000AA4410 /* PBXTargetDependency */,
+				CA24106A1AF9692000AA4410 /* PBXTargetDependency */,
+			);
+			name = THGBridge_osx;
+			productName = THGBridge;
+			productReference = CA24107F1AF9692000AA4410 /* THGBridge.framework */;
+			productType = "com.apple.product-type.framework";
+		};
 		CAC38A9C1AC3130B005A3CE0 /* THGBridge */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CAC38AB31AC3130B005A3CE0 /* Build configuration list for PBXNativeTarget "THGBridge" */;
@@ -326,11 +402,26 @@
 			targets = (
 				CAC38A9C1AC3130B005A3CE0 /* THGBridge */,
 				CAC38AA71AC3130B005A3CE0 /* THGBridgeTests */,
+				CA2410671AF9692000AA4410 /* THGBridge_osx */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
+		CA2410841AF9692000AA4410 /* THGFoundation.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = THGFoundation.framework;
+			remoteRef = CA2410831AF9692000AA4410 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CA2410881AF9692000AA4410 /* THGLog.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = THGLog.framework;
+			remoteRef = CA2410871AF9692000AA4410 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
 		CABA99811AC31D5D008D25B4 /* THGFoundation.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -362,6 +453,13 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
+		CA24107B1AF9692000AA4410 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CAC38A9B1AC3130B005A3CE0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -379,6 +477,15 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		CA24106C1AF9692000AA4410 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CA24106D1AF9692000AA4410 /* Bridge.swift in Sources */,
+				CA2410721AF9692000AA4410 /* JSValueExtensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		CAC38A981AC3130B005A3CE0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -406,6 +513,16 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		CA2410681AF9692000AA4410 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = THGLog;
+			targetProxy = CA2410691AF9692000AA4410 /* PBXContainerItemProxy */;
+		};
+		CA24106A1AF9692000AA4410 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = THGFoundation;
+			targetProxy = CA24106B1AF9692000AA4410 /* PBXContainerItemProxy */;
+		};
 		CABA998E1AC3217A008D25B4 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			name = THGLog;
@@ -424,6 +541,43 @@
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
+		CA24107D1AF9692000AA4410 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "THGBridge copy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_MODULE_NAME = THGBridge;
+				PRODUCT_NAME = THGBridge;
+				SKIP_INSTALL = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		CA24107E1AF9692000AA4410 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
+				DEFINES_MODULE = YES;
+				DYLIB_COMPATIBILITY_VERSION = 1;
+				DYLIB_CURRENT_VERSION = 1;
+				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				INFOPLIST_FILE = "THGBridge copy-Info.plist";
+				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_MODULE_NAME = THGBridge;
+				PRODUCT_NAME = THGBridge;
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
 		CAC38AB11AC3130B005A3CE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -581,6 +735,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CA24107C1AF9692000AA4410 /* Build configuration list for PBXNativeTarget "THGBridge_osx" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CA24107D1AF9692000AA4410 /* Debug */,
+				CA24107E1AF9692000AA4410 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CAC38A971AC3130B005A3CE0 /* Build configuration list for PBXProject "THGBridge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
