@@ -8,7 +8,6 @@
 
 import JavaScriptCore
 
-private let bridgePlatformExportName = "NativeBridge"
 
 @objc protocol PlatformJSExport: JSExport {
     var navigation: BridgeNavigation {get}
@@ -16,9 +15,10 @@ private let bridgePlatformExportName = "NativeBridge"
     func log(value: AnyObject)
 }
 
-@objc class BridgePlatform: WebViewControllerScript, PlatformJSExport {
+@objc public class BridgePlatform: WebViewControllerScript, PlatformJSExport {
     var navigation = BridgeNavigation()
-    
+    static let exportName = "NativeBridge"
+
     override weak var parentWebViewController: WebViewController? {
         didSet {
             navigation.parentWebViewController = parentWebViewController
@@ -68,7 +68,7 @@ public extension WebViewController {
     
     static func WithBridgePlatform() -> WebViewController {
         let webViewController = WebViewController()
-        webViewController.bridge.addExport(BridgePlatform(), name: bridgePlatformExportName)
+        webViewController.bridge.addExport(BridgePlatform(), name: BridgePlatform.exportName)
         return webViewController
     }
 }
@@ -78,6 +78,6 @@ public extension WebViewController {
 extension Bridge {
     
     var platform: BridgePlatform? {
-        return contextValueForName(bridgePlatformExportName).toObject() as? BridgePlatform
+        return contextValueForName(BridgePlatform.exportName).toObject() as? BridgePlatform
     }
 }

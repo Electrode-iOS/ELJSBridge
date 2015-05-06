@@ -8,6 +8,6 @@
 
 import Foundation
 
-@objc class WebViewControllerScript: NSObject {
+@objc public class WebViewControllerScript: NSObject {
     weak var parentWebViewController: WebViewController?
 }
