@@ -9,7 +9,7 @@
 import Foundation
 import JavaScriptCore
 
-public class WebViewController: UIViewController {
+public class WebViewController: UIViewController, WebViewControllerType {
     
     private(set) public var url: NSURL?
     private(set) public var webView = UIWebView(frame: CGRectZero)
@@ -50,7 +50,7 @@ public class WebViewController: UIViewController {
     public override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         
-        bridge.platform?.parentWebViewController = self
+        bridge.platform?.parentViewController = self
         
         if isAppearingFromPop {
             webView.goBack() // go back before remove/adding web view
@@ -154,7 +154,7 @@ extension WebViewController {
 
 // MARK: - Web Controller Navigation
 
-extension WebViewController {
+extension WebViewController: BridgeNavigationViewController {
 
     func pushWebViewController() {
         let webViewController = WebViewController(webView: webView, bridge: bridge)
@@ -170,6 +170,10 @@ extension WebViewController {
         default:
             return false
         }
+    }
+    
+    func nextViewController() -> UIViewController {
+        return WebViewController(webView: webView, bridge: bridge)
     }
 }
 

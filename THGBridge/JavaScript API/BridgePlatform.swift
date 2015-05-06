@@ -16,19 +16,24 @@ import JavaScriptCore
 }
 
 @objc public class BridgePlatform: WebViewControllerScript, PlatformJSExport {
-    var navigation = BridgeNavigation()
-    static let exportName = "NativeBridge"
+    var navigation: BridgeNavigation
+    public static let exportName = "NativeBridge"
+    
+    override init(parentViewController: WebViewControllerType) {
+        self.navigation = BridgeNavigation(parentViewController: parentViewController)
+        super.init(parentViewController: parentViewController)
+    }
 
-    override weak var parentWebViewController: WebViewController? {
+    override weak var parentViewController: UIViewController? {
         didSet {
-            navigation.parentWebViewController = parentWebViewController
+            navigation.parentViewController = parentViewController
         }
     }
     
     func updatePageState(options: [String: AnyObject]) {
         
         if let title = options["title"] as? String {
-            parentWebViewController?.title = title
+            parentViewController?.title = title
         }
     }
     
@@ -44,7 +49,7 @@ extension BridgePlatform: ShareJSExport {
     func share(options: [String: AnyObject]) {
         dispatch_async(dispatch_get_main_queue()) {
             if let activityViewController = BridgeShareActivity.activityViewControllerWithOptions(options) {
-                self.parentWebViewController?.presentViewController(activityViewController, animated: true, completion: nil)
+                self.parentViewController?.presentViewController(activityViewController, animated: true, completion: nil)
             }
         }
     }
@@ -57,7 +62,7 @@ extension BridgePlatform: DialogJSExport {
     func dialog(options: [String: AnyObject], _ callback: JSValue) {
         dispatch_async(dispatch_get_main_queue()) {
             let alertController = BridgeAlert.alertControllerWithOptions(options, callback: callback)
-            self.parentWebViewController?.presentViewController(alertController, animated: true, completion: nil)
+            self.parentViewController?.presentViewController(alertController, animated: true, completion: nil)
         }
     }
 }
@@ -68,16 +73,17 @@ public extension WebViewController {
     
     static func WithBridgePlatform() -> WebViewController {
         let webViewController = WebViewController()
-        webViewController.bridge.addExport(BridgePlatform(), name: BridgePlatform.exportName)
+        let platform = BridgePlatform(parentViewController: webViewController)
+        webViewController.bridge.addExport(platform, name: BridgePlatform.exportName)
         return webViewController
     }
 }
 
 // MARK: - Bridge Integration
 
-extension Bridge {
+public extension Bridge {
     
-    var platform: BridgePlatform? {
+    public var platform: BridgePlatform? {
         return contextValueForName(BridgePlatform.exportName).toObject() as? BridgePlatform
     }
 }
