@@ -19,12 +19,12 @@ import JavaScriptCore
     var navigation: BridgeNavigation
     public static let exportName = "NativeBridge"
     
-    override init(parentViewController: WebViewControllerType) {
+    public override init(parentViewController: WebViewControllerType) {
         self.navigation = BridgeNavigation(parentViewController: parentViewController)
         super.init(parentViewController: parentViewController)
     }
 
-    override weak var parentViewController: UIViewController? {
+    override public weak var parentViewController: UIViewController? {
         didSet {
             navigation.parentViewController = parentViewController
         }

@@ -8,12 +8,12 @@
 
 import Foundation
 
-protocol WebViewControllerType: class {}
+public protocol WebViewControllerType: class {}
 
 @objc public class WebViewControllerScript: NSObject {
-    weak var parentViewController: UIViewController?
+    public weak var parentViewController: UIViewController?
 
-    init(parentViewController: WebViewControllerType) {
+    public init(parentViewController: WebViewControllerType) {
         self.parentViewController = parentViewController as? UIViewController
     }
 }

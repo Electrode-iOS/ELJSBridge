@@ -17,7 +17,7 @@ protocol BridgeNavigationViewController: class {
     func animateForward()
 }
 
-@objc class BridgeNavigation: WebViewControllerScript, BridgeNavigationJSExport {
+@objc public class BridgeNavigation: WebViewControllerScript, BridgeNavigationJSExport {
     
     weak var bridgeNavigationViewController: BridgeNavigationViewController? {
         return parentViewController as? BridgeNavigationViewController

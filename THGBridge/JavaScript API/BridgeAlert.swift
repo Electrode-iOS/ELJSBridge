@@ -9,9 +9,9 @@
 import Foundation
 import JavaScriptCore
 
-struct BridgeAlert {
+public struct BridgeAlert {
     
-    static func alertControllerWithOptions(options: [String: AnyObject], callback: JSValue) -> UIAlertController {
+    public static func alertControllerWithOptions(options: [String: AnyObject], callback: JSValue) -> UIAlertController {
         let title = options["title"] as? String
         let message = options["message"] as? String
         let alertController = UIAlertController(title: title, message: message, preferredStyle: .Alert)
