@@ -18,9 +18,14 @@ if let url = NSURL(string: "http://localhost:3000/") {
 
 ## JavaScript Usage
 
-#### window.nativeBridgeReady()
+#### nativeBridgeReady()
 
 An optional callback to invoke after the web view has finished loading and the bridge APIs are ready for use.
+
+**Parameters**
+
+- `error` (object) - Error
+- `bridge` (object) - The native bridge API object.
 
 **Example**
 
@@ -32,7 +37,7 @@ function bridgeReady() {
 }
 
 if (window.NativeBridge === undefined) {
-  window.nativeBridgeReady = function() {
+  window.nativeBridgeReady = function(error, bridge) {
     bridgeReady();
   }
 } else {
