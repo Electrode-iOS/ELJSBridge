@@ -8,8 +8,11 @@
 
 import Foundation
 import JavaScriptCore
+#if NOFRAMEWORKS
+#else
 import THGFoundation
 import THGLog
+#endif
 
 public enum THGBridgeError: Int, NSErrorEnum {
     case FileDoesNotExist
