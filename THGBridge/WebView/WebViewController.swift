@@ -148,7 +148,10 @@ extension WebViewController {
     
     public func configureBridgeContext(context: JSContext) {
         bridge.context = context
-        bridge.context.evaluateScript("window.nativeBridgeReady();")
+        
+        if let platform = bridge.platform {
+            bridge.contextValueForName("nativeBridgeReady").callWithData(platform)
+        }
     }
 }
 
