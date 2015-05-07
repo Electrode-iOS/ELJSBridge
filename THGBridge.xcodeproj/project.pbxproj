@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		175A492C1AFBB4F000C62D10 /* THGBridge copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 175A492B1AFBB4F000C62D10 /* THGBridge copy-Info.plist */; };
+		175A49311AFBB50700C62D10 /* BridgeAlertTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A492F1AFBB50700C62D10 /* BridgeAlertTests.swift */; };
+		175A49321AFBB50700C62D10 /* BridgePlatformTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 175A49301AFBB50700C62D10 /* BridgePlatformTests.swift */; };
 		17647D001AF3DA9800D450E7 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17647CFC1AF3DA9800D450E7 /* Bridge.swift */; };
 		17647D011AF3DA9800D450E7 /* WebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17647CFE1AF3DA9800D450E7 /* WebViewController.swift */; };
 		17647D021AF3DA9800D450E7 /* WebViewControllerScript.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17647CFF1AF3DA9800D450E7 /* WebViewControllerScript.swift */; };
@@ -43,20 +46,6 @@
 			proxyType = 1;
 			remoteGlobalIDString = CACF2A091A9614D20084EFAE;
 			remoteInfo = THGFoundation;
-		};
-		CA2410831AF9692000AA4410 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CABA997B1AC31D5D008D25B4 /* THGFoundation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA24104D1AF965B700AA4410;
-			remoteInfo = THGFoundation_osx;
-		};
-		CA2410871AF9692000AA4410 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CABA99841AC32103008D25B4 /* THGLog.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA2410631AF966F600AA4410;
-			remoteInfo = THGLog_osx;
 		};
 		CABA99801AC31D5D008D25B4 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -110,6 +99,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		175A492B1AFBB4F000C62D10 /* THGBridge copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "THGBridge copy-Info.plist"; sourceTree = "<group>"; };
+		175A492F1AFBB50700C62D10 /* BridgeAlertTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeAlertTests.swift; sourceTree = "<group>"; };
+		175A49301AFBB50700C62D10 /* BridgePlatformTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgePlatformTests.swift; sourceTree = "<group>"; };
 		17647CFC1AF3DA9800D450E7 /* Bridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Bridge.swift; sourceTree = "<group>"; };
 		17647CFE1AF3DA9800D450E7 /* WebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewController.swift; sourceTree = "<group>"; };
 		17647CFF1AF3DA9800D450E7 /* WebViewControllerScript.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WebViewControllerScript.swift; sourceTree = "<group>"; };
@@ -120,7 +112,6 @@
 		17E26ACE1AF2924500DDC3B2 /* BridgeNavigation.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgeNavigation.swift; sourceTree = "<group>"; };
 		17E26ACF1AF2924500DDC3B2 /* BridgePlatform.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BridgePlatform.swift; sourceTree = "<group>"; };
 		CA24107F1AF9692000AA4410 /* THGBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = THGBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA2410801AF9692000AA4410 /* THGBridge copy-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = "THGBridge copy-Info.plist"; path = "/Users/brandon/work/Libraries/BridgeOfDeath/THGBridge copy-Info.plist"; sourceTree = "<absolute>"; };
 		CABA997B1AC31D5D008D25B4 /* THGFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = THGFoundation.xcodeproj; path = ../Excalibur/THGFoundation.xcodeproj; sourceTree = "<group>"; };
 		CABA99841AC32103008D25B4 /* THGLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = THGLog.xcodeproj; path = ../Shrubbery/THGLog.xcodeproj; sourceTree = "<group>"; };
 		CAC38A9D1AC3130B005A3CE0 /* THGBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = THGBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -207,7 +198,6 @@
 			children = (
 				CABA99811AC31D5D008D25B4 /* THGFoundation.framework */,
 				CABA99831AC31D5D008D25B4 /* THGFoundationTests.xctest */,
-				CA2410841AF9692000AA4410 /* THGFoundation.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -217,7 +207,6 @@
 			children = (
 				CABA998A1AC32103008D25B4 /* THGLog.framework */,
 				CABA998C1AC32103008D25B4 /* THGLogTests.xctest */,
-				CA2410881AF9692000AA4410 /* THGLog.framework */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -225,12 +214,12 @@
 		CAC38A931AC3130B005A3CE0 = {
 			isa = PBXGroup;
 			children = (
+				175A492B1AFBB4F000C62D10 /* THGBridge copy-Info.plist */,
 				CAD57B231ACA0E5D00696CA3 /* JavaScriptCore.framework */,
 				CAC38A9F1AC3130B005A3CE0 /* THGBridge */,
 				CABA997A1AC31C7F008D25B4 /* Modules */,
 				CAC38AAC1AC3130B005A3CE0 /* THGBridgeTests */,
 				CAC38A9E1AC3130B005A3CE0 /* Products */,
-				CA2410801AF9692000AA4410 /* THGBridge copy-Info.plist */,
 			);
 			sourceTree = "<group>";
 		};
@@ -267,6 +256,8 @@
 		CAC38AAC1AC3130B005A3CE0 /* THGBridgeTests */ = {
 			isa = PBXGroup;
 			children = (
+				175A492F1AFBB50700C62D10 /* BridgeAlertTests.swift */,
+				175A49301AFBB50700C62D10 /* BridgePlatformTests.swift */,
 				CAC38AAF1AC3130B005A3CE0 /* THGBridgeTests.swift */,
 				CAC38AAD1AC3130B005A3CE0 /* Supporting Files */,
 			);
@@ -408,20 +399,6 @@
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		CA2410841AF9692000AA4410 /* THGFoundation.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = THGFoundation.framework;
-			remoteRef = CA2410831AF9692000AA4410 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
-		CA2410881AF9692000AA4410 /* THGLog.framework */ = {
-			isa = PBXReferenceProxy;
-			fileType = wrapper.framework;
-			path = THGLog.framework;
-			remoteRef = CA2410871AF9692000AA4410 /* PBXContainerItemProxy */;
-			sourceTree = BUILT_PRODUCTS_DIR;
-		};
 		CABA99811AC31D5D008D25B4 /* THGFoundation.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
@@ -464,6 +441,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				175A492C1AFBB4F000C62D10 /* THGBridge copy-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -507,6 +485,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				CAC38AB01AC3130B005A3CE0 /* THGBridgeTests.swift in Sources */,
+				175A49311AFBB50700C62D10 /* BridgeAlertTests.swift in Sources */,
+				175A49321AFBB50700C62D10 /* BridgePlatformTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
