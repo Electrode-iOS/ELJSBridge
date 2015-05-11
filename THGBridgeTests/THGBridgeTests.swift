@@ -222,11 +222,4 @@ class THGBridgeTests: XCTestCase {
         
         XCTAssert(bridge.contextValueForName(name).toObject() === export)
     }
-    
-    func testGetWebViewJavaScriptContext() {
-        let webView = UIWebView(frame: CGRectZero)
-        let context = webView.javaScriptContext
-        XCTAssert(context != nil)
-    }
-    
 }
