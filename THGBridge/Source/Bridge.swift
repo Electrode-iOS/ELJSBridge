@@ -117,7 +117,7 @@ public class Bridge {
 
 // MARK: - Exports API
 
-extension Bridge {
+public extension Bridge {
     /**
     Add an exported object to the context
     :param: export Object being exported to JavaScript

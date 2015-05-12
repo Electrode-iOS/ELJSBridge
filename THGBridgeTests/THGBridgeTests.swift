@@ -222,4 +222,12 @@ class THGBridgeTests: XCTestCase {
         
         XCTAssert(bridge.contextValueForName(name).toObject() === export)
     }
+    
+    func testExample() {
+        let bridge = Bridge()
+        bridge.context.evaluateScript("var question = 'What is your name?'")
+        let question: JSValue = bridge.contextValueForName("question") //bridge.context.evaluateScript("question")
+        println(question) // "What is your name?"
+        
+    }
 }
