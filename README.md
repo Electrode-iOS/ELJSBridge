@@ -4,7 +4,17 @@ BridgeOfDeath (`THGBridge` module) is a Swift wrapper around JavaScriptCore's Ob
 
 ## Installation
 
-BridgeOfDeath can be installed by adding THGBridge.xcodeproj to your project and configuring your target to link THGBridge.framework.
+### Carthage
+
+Install with [Carthage](https://github.com/Carthage/Carthage) by adding the framework to your project's [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
+
+```
+github "TheHolyGrail/BridgeOfDeath" ~> 0.0.1
+```
+
+### Manual
+
+BridgeOfDeath can be installed manually by adding THGBridge.xcodeproj to your project and configuring your target to link THGBridge.framework.
 
 BridgeOfDeath depends on the following [THG](https://github.com/TheHolyGrail/) modules:
 
