@@ -1,4 +1,4 @@
-# BridgeOfDeath
+# BridgeOfDeath [![Build Status](https://travis-ci.org/TheHolyGrail/BridgeOfDeath.svg)](https://travis-ci.org/TheHolyGrail/BridgeOfDeath)
 
 BridgeOfDeath (`THGBridge` module) is a Swift wrapper around JavaScriptCore's Objective-C bridge.
 

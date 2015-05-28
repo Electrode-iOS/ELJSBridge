@@ -1,0 +1,8 @@
+language: objective-c
+osx_image: beta-xcode6.3
+before_install:
+  - brew update
+  - brew install carthage
+  - carthage update
+script:
+   - xctool -project THGBridge.xcodeproj -scheme THGBridge -sdk iphonesimulator build test
