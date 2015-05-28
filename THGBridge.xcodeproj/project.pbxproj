@@ -12,6 +12,9 @@
 		175FFE721B0D13F000D8318D /* THGLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175FFE701B0D13F000D8318D /* THGLog.framework */; };
 		175FFE731B0D148F00D8318D /* THGFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175FFE6F1B0D13F000D8318D /* THGFoundation.framework */; };
 		175FFE741B0D149500D8318D /* THGLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175FFE701B0D13F000D8318D /* THGLog.framework */; };
+		178412291B16894400EECF8B /* THGFoundation.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 175FFE6F1B0D13F000D8318D /* THGFoundation.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1784122A1B16894400EECF8B /* THGLog.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 175FFE701B0D13F000D8318D /* THGLog.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		1784122B1B168A3A00EECF8B /* THGBridge.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = CAC38A9D1AC3130B005A3CE0 /* THGBridge.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		17E076DC1B024478008F89EC /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E076DB1B024478008F89EC /* Bridge.swift */; };
 		CA24107A1AF9692000AA4410 /* THGBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC38AA21AC3130B005A3CE0 /* THGBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAC38AA31AC3130B005A3CE0 /* THGBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC38AA21AC3130B005A3CE0 /* THGBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -29,6 +32,21 @@
 			remoteInfo = THGBridge;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		178412281B16893700EECF8B /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				1784122B1B168A3A00EECF8B /* THGBridge.framework in CopyFiles */,
+				178412291B16894400EECF8B /* THGFoundation.framework in CopyFiles */,
+				1784122A1B16894400EECF8B /* THGLog.framework in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		175A492B1AFBB4F000C62D10 /* THGBridge copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "THGBridge copy-Info.plist"; sourceTree = "<group>"; };
@@ -215,6 +233,7 @@
 				CAC38AA41AC3130B005A3CE0 /* Sources */,
 				CAC38AA51AC3130B005A3CE0 /* Frameworks */,
 				CAC38AA61AC3130B005A3CE0 /* Resources */,
+				178412281B16893700EECF8B /* CopyFiles */,
 			);
 			buildRules = (
 			);
