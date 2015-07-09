@@ -42,7 +42,7 @@ public class Bridge {
         didSet {
             for (name, script) in exports {
                 
-                println("add \(name) \(script)")
+                print("add \(name) \(script)")
                 
                 context.setObject(script, forKeyedSubscript: name)
             }
@@ -59,21 +59,21 @@ public class Bridge {
         context = JSContext(virtualMachine: JSVirtualMachine())
     }
 
-    public func loadFromFile(filePath: String, error: NSErrorPointer = nil) {
+    public func loadFromFile(filePath: String) throws {
         let filemanager = NSFileManager.defaultManager()
         if filemanager.fileExistsAtPath(filePath) {
-            if let script = String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: error) {
-                var loadError: NSError? = nil
-                self.load(script, error: &loadError)
-                if let loadError = loadError {
-                    error.memory = loadError
+            do {
+                let script = try String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding)
+                do {
+                    try self.load(script)
+                } catch let catchError as NSError {
+                    throw catchError
                 }
-            }
-        } else {
-            if (error != nil) {
-                error.memory = NSError(THGBridgeError.FileDoesNotExist)
+            } catch  {
+                throw NSError(THGBridgeError.FileDoesNotExist)
             }
         }
+        
     }
 
     public func loadFromURL(downloadURL: NSURL, completion: (error: NSError?) -> Void) {
@@ -82,9 +82,14 @@ public class Bridge {
                 completion(error: error)
             } else {
                 if let data = data, let script = NSString(data: data, encoding: NSUTF8StringEncoding) as String? {
-                    var error: NSError? = nil
-                    self.load(script, error: &error)
-                    completion(error: error)
+                    do {
+                        try self.load(script)
+                        completion(error: nil)
+                    } catch let catchError as NSError {
+                        completion(error: catchError)
+                    } catch {
+                        completion(error: NSError(THGBridgeError.FailedToDownloadScript))
+                    }
                 } else {
                     completion(error: NSError(THGBridgeError.FailedToDownloadScript))
                 }
@@ -92,12 +97,12 @@ public class Bridge {
         }
     }
 
-    public func load(script: String, error: NSErrorPointer = nil) {
-        let value = context.evaluateScript(script)
-        /*if value.isUndefined() {
-            let anError = NSError(THGBridgeError.FailedToEvaluateScript)
-            error.memory = anError
-        }*/
+    public func load(script: String) throws {
+        context.evaluateScript(script)
+        if let exception = context.exception {
+            print("Load failed with exception: \(exception)")
+            throw NSError(THGBridgeError.FailedToEvaluateScript)
+        }
     }
 
     private func downloadScript(url: NSURL, completion: (data: NSData?, error: NSError?) -> Void)
@@ -110,8 +115,12 @@ public class Bridge {
                 completion(data: data, error: error)
             }
         }
-
-        downloadTask.resume()
+        
+        if let downloadTask = downloadTask {
+            downloadTask.resume()
+        } else {
+            completion(data: nil, error: NSError(THGBridgeError.FileDoesNotExist)) // TODO: This is likely the wrong error to throw if we could not make the task
+        }
     }
 }
 

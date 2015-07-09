@@ -33,10 +33,12 @@ class THGBridgeTests: XCTestCase {
     func testScriptEvaluationFailure() {
         let bridge = Bridge()
 
-        var error: NSError? = nil
-        bridge.load("doSomethingStupid()", error: &error)
-
-        XCTAssertTrue(error != nil, "An error should occur if junk javascript is evaluated!")
+        do {
+            try bridge.load("doSomethingStupid()")
+        } catch {
+            return
+        }
+        XCTAssert(true, "An error should occur if junk javascript is evaluated!")
     }
 
     func testScriptDownloadScriptBadEval() {
@@ -115,16 +117,16 @@ class THGBridgeTests: XCTestCase {
         XCTAssertTrue(anError == nil, "There should be no errors!")
 
         let testFunction = bridge.contextValueForName("test")
-        if testFunction.isUndefined() {
-            println("you moron.")
+        if testFunction.isUndefined {
+            print("you moron.")
         }
         let result = testFunction.callWithArguments([2, 2])
 
         let global = bridge.context.globalObject
-        println("global = \(global.toDictionary())")
+        print("global = \(global.toDictionary())")
 
 
-        XCTAssertTrue(result.isNumber(), "the javascript function should've returned a number!")
+        XCTAssertTrue(result.isNumber, "the javascript function should've returned a number!")
         XCTAssertTrue(result.toInt32() == 4, "the javascript function should've returned a value of 3!")
     }
 
@@ -155,7 +157,7 @@ class THGBridgeTests: XCTestCase {
         let testFunction = bridge.context.objectForKeyedSubscript("test")
         let result = testFunction.callWithArguments([2, 2])
 
-        XCTAssertTrue(result.isNumber(), "the javascript function should've returned a number!")
+        XCTAssertTrue(result.isNumber, "the javascript function should've returned a number!")
         XCTAssertTrue(result.toInt32() == 4, "the javascript function should've returned a value of 3!")
 
         // start up our serial queue
@@ -166,7 +168,7 @@ class THGBridgeTests: XCTestCase {
             for index in 0..<1000 {
                 dispatch_async(serialQueue, { () -> Void in
                     let result = testFunction.callWithArguments([1, index])
-                    println("result = \(result.toInt32())")
+                    print("result = \(result.toInt32())")
                 })
 
             }
@@ -187,8 +189,8 @@ class THGBridgeTests: XCTestCase {
 
         self.measureBlock() {
             // Put the code you want to measure the time of here.
-            for index in 0..<10000 {
-                let result = addTwoNumbers(2, 2)
+            for _ in 0..<10000 {
+                let _ = addTwoNumbers(2, b: 2)
             }
 
             dispatch_semaphore_signal(semaphore)
@@ -227,7 +229,7 @@ class THGBridgeTests: XCTestCase {
         let bridge = Bridge()
         bridge.context.evaluateScript("var question = 'What is your name?'")
         let question: JSValue = bridge.contextValueForName("question") //bridge.context.evaluateScript("question")
-        println(question) // "What is your name?"
+        print(question) // "What is your name?"
         
     }
 }
