@@ -1,0 +1,37 @@
+{
+  "DVTSourceControlWorkspaceBlueprintPrimaryRemoteRepositoryKey" : "453EFE5EA8F03EC2996E3952FAFCE0B3A8FEE409",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyRepositoryLocationsKey" : {
+
+  },
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyStatesKey" : {
+    "8793D34A7BF94DA191D8F935B1E0425A8C1B2681" : 0,
+    "F75375CB2C82D2BC362ACFD0392481707735854D" : 0,
+    "453EFE5EA8F03EC2996E3952FAFCE0B3A8FEE409" : 0
+  },
+  "DVTSourceControlWorkspaceBlueprintIdentifierKey" : "5882F127-323E-42FC-B8B8-6F12DD622A2F",
+  "DVTSourceControlWorkspaceBlueprintWorkingCopyPathsKey" : {
+    "8793D34A7BF94DA191D8F935B1E0425A8C1B2681" : "Excalibur\/",
+    "F75375CB2C82D2BC362ACFD0392481707735854D" : "Shrubbery\/",
+    "453EFE5EA8F03EC2996E3952FAFCE0B3A8FEE409" : "BridgeOfDeath\/"
+  },
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "THGBridge",
+  "DVTSourceControlWorkspaceBlueprintVersion" : 204,
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "THGBridge.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:TheHolyGrail\/BridgeOfDeath.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "453EFE5EA8F03EC2996E3952FAFCE0B3A8FEE409"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:TheHolyGrail\/Excalibur.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "8793D34A7BF94DA191D8F935B1E0425A8C1B2681"
+    },
+    {
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:TheHolyGrail\/Shrubbery.git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositorySystemKey" : "com.apple.dt.Xcode.sourcecontrol.Git",
+      "DVTSourceControlWorkspaceBlueprintRemoteRepositoryIdentifierKey" : "F75375CB2C82D2BC362ACFD0392481707735854D"
+    }
+  ]
+}

@@ -36,7 +36,7 @@ public enum THGBridgeError: Int, NSErrorEnum {
 }
 
 @objc(THGBridge)
-public class Bridge {
+public class Bridge: NSObject {
 
     public var context: JSContext {
         didSet {
@@ -55,7 +55,7 @@ public class Bridge {
 
     private(set) public var exports = [String: JSExport]()
 
-    public init() {
+    public override init() {
         context = JSContext(virtualMachine: JSVirtualMachine())
     }
 
@@ -116,11 +116,7 @@ public class Bridge {
             }
         }
         
-        if let downloadTask = downloadTask {
             downloadTask.resume()
-        } else {
-            completion(data: nil, error: NSError(THGBridgeError.FileDoesNotExist)) // TODO: This is likely the wrong error to throw if we could not make the task
-        }
     }
 }
 
