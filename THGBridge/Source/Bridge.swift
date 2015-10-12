@@ -146,3 +146,35 @@ public extension Bridge {
         return context.objectForKeyedSubscript(name)
     }
 }
+
+// MARK: - Global Runtime API
+
+public extension Bridge {
+    
+    /**
+    Enables a global runtime that defines native implementations of commonly needed JS functions.
+    Defines: setTimeout, clearTimeout, setInterval, clearInterval
+    Redefines: console.log
+    */
+    public func enableGlobalRuntime() {
+        let global = Global()
+        
+        context.setObject(global, forKeyedSubscript: "$")
+        
+        context.evaluateScript(
+            "global = {\n" +
+                "setTimeout: function (fn, timeout) { return $.setTimeout(fn, timeout); },\n" +
+                "clearTimeout: function (identifier) { $.clearTimeout(identifier); },\n" +
+                "setInterval: function (fn, interval) { return $.setInterval(fn, interval); },\n" +
+                "clearInterval: function (identifier) { $.clearInterval(identifier); },\n" +
+                "logmsg: function (string) { $.logmsg(string); }\n" +
+                "};\n" +
+            "console.log = global.logmsg\n" +
+            "setTimeout = global.setTimeout\n" +
+            "clearTimeout = global.clearTimeout\n" +
+            "setInterval = global.setInterval\n" +
+            "clearInterval = global.clearInterval\n"
+        )
+    }
+    
+}
