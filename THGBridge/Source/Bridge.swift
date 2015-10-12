@@ -10,8 +10,13 @@ import Foundation
 import JavaScriptCore
 #if NOFRAMEWORKS
 #else
-import THGFoundation
-import THGLog
+    #if os(OSX)
+        import THGFoundation_osx
+        import THGLog_osx
+    #elseif os(iOS)
+        import THGFoundation
+        import THGLog
+    #endif
 #endif
 
 public enum THGBridgeError: Int, NSErrorEnum {
