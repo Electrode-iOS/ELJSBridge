@@ -9,7 +9,8 @@
 import Foundation
 import JavaScriptCore
 
-@objc public protocol GlobalSupportable: JSExport {
+@objc
+public protocol GlobalSupportable: JSExport {
     // setTimeout, clearTimeout
     func set(fn: JSValue, timeout: JSValue) -> UInt
     func clearTimeout(identifier: UInt)
@@ -17,11 +18,10 @@ import JavaScriptCore
     // setInterval, clearInterval
     func set(fn: JSValue, interval: JSValue) -> UInt
     func clearInterval(identifier: UInt)
-    
-    func logmsg(msg: AnyObject!)
 }
 
-@objc public class Global: NSObject, GlobalSupportable {
+@objc
+public class Global: NSObject, GlobalSupportable, Scriptable {
     
     // Stores all functions set up with setTimeout and setInterval along with their parameters. Removed after dispatch (in case of setTimeout) or when cleared.
     // Keeping all input values as JSValues so that they can be called on the JS function,  'fn',  in the dispatch and sent back as they came.
@@ -57,10 +57,30 @@ import JavaScriptCore
         removeJSFunction(identifier)
     }
     
-    public func logmsg(msg: AnyObject!) {
-        if let msg = msg {
-            print(msg)
+    public func reset() {
+        //
+    }
+    
+    public func inject(context: JSContext!) {
+        if context == nil {
+            return
         }
+        
+        context.setObject(self, forKeyedSubscript: "$global")
+        
+        context.evaluateScript(
+            "global = {\n" +
+                "setTimeout: function (fn, timeout) { return $global.setTimeout(fn, timeout); },\n" +
+                "clearTimeout: function (identifier) { $global.clearTimeout(identifier); },\n" +
+                "setInterval: function (fn, interval) { return $global.setInterval(fn, interval); },\n" +
+                "clearInterval: function (identifier) { $global.clearInterval(identifier); },\n" +
+            "};\n" +
+            "setTimeout = global.setTimeout\n" +
+            "clearTimeout = global.clearTimeout\n" +
+            "setInterval = global.setInterval\n" +
+            "clearInterval = global.clearInterval\n"
+        )
+
     }
     
     internal func setupIntervalDispatch(identifier: UInt, interval: JSValue) {
@@ -79,4 +99,9 @@ import JavaScriptCore
         self.jsFunctions.removeValueForKey(identifier)
     }
     
+    internal let consoleLog: () -> Void = {
+        let args = JSContext.currentArguments()
+        
+        print(args)
+    }
 }

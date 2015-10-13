@@ -10,7 +10,7 @@
 		175A492C1AFBB4F000C62D10 /* THGBridge copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 175A492B1AFBB4F000C62D10 /* THGBridge copy-Info.plist */; };
 		17E076DC1B024478008F89EC /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E076DB1B024478008F89EC /* Bridge.swift */; };
 		204CE23C1B4DC2890020E7CE /* THGFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204CE2371B4DC26D0020E7CE /* THGFoundation.framework */; };
-		2224FA5B1BC718FB0089D38A /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224FA5A1BC718FB0089D38A /* Global.swift */; settings = {ASSET_TAGS = (); }; };
+		2224FA5B1BC718FB0089D38A /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224FA5A1BC718FB0089D38A /* Global.swift */; };
 		22736E661B87B7DF00312281 /* THGLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22736E611B87B7CD00312281 /* THGLog.framework */; };
 		CA41FF981BBC85DC0009CB83 /* THGBridge_osx.h in Headers */ = {isa = PBXBuildFile; fileRef = CA41FF971BBC85DC0009CB83 /* THGBridge_osx.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA41FF9F1BBC85DD0009CB83 /* THGBridge_osx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA41FF951BBC85DC0009CB83 /* THGBridge_osx.framework */; };
@@ -18,7 +18,11 @@
 		CA41FFAC1BBC85F50009CB83 /* THGFoundation_osx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204CE23B1B4DC26D0020E7CE /* THGFoundation_osx.framework */; };
 		CA41FFAD1BBC85F50009CB83 /* THGLog_osx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22736E651B87B7CD00312281 /* THGLog_osx.framework */; };
 		CA41FFB41BBC8B190009CB83 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E076DB1B024478008F89EC /* Bridge.swift */; };
-		CA41FFC21BBC8B780009CB83 /* THGBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC38AA21AC3130B005A3CE0 /* THGBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA948B541BCC643B00756AA1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224FA5A1BC718FB0089D38A /* Global.swift */; };
+		CA948B5B1BCD700100756AA1 /* Scriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5A1BCD700100756AA1 /* Scriptable.swift */; };
+		CA948B5C1BCD700100756AA1 /* Scriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5A1BCD700100756AA1 /* Scriptable.swift */; };
+		CA948B5E1BCD7DD500756AA1 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5D1BCD7DD500756AA1 /* Console.swift */; };
+		CA948B5F1BCD7DD500756AA1 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5D1BCD7DD500756AA1 /* Console.swift */; };
 		CAC38AA31AC3130B005A3CE0 /* THGBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC38AA21AC3130B005A3CE0 /* THGBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAC38AA91AC3130B005A3CE0 /* THGBridge_osx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC38A9D1AC3130B005A3CE0 /* THGBridge_osx.framework */; };
 		CAC38AB01AC3130B005A3CE0 /* THGBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC38AAF1AC3130B005A3CE0 /* THGBridgeTests.swift */; };
@@ -130,6 +134,8 @@
 		CA41FF9E1BBC85DC0009CB83 /* THGBridge_osxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THGBridge_osxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA41FFA31BBC85DD0009CB83 /* THGBridge_osxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THGBridge_osxTests.swift; sourceTree = "<group>"; };
 		CA41FFA51BBC85DD0009CB83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CA948B5A1BCD700100756AA1 /* Scriptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scriptable.swift; path = THGBridge/Source/Scriptable.swift; sourceTree = SOURCE_ROOT; };
+		CA948B5D1BCD7DD500756AA1 /* Console.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Console.swift; path = THGBridge/Source/Console.swift; sourceTree = SOURCE_ROOT; };
 		CAC38A9D1AC3130B005A3CE0 /* THGBridge_osx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = THGBridge_osx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC38AA11AC3130B005A3CE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CAC38AA21AC3130B005A3CE0 /* THGBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THGBridge.h; sourceTree = "<group>"; };
@@ -179,7 +185,9 @@
 		177E5DEA1B0101EF006BCBE2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				CA948B5A1BCD700100756AA1 /* Scriptable.swift */,
 				2224FA5A1BC718FB0089D38A /* Global.swift */,
+				CA948B5D1BCD7DD500756AA1 /* Console.swift */,
 				17E076DB1B024478008F89EC /* Bridge.swift */,
 			);
 			path = Source;
@@ -301,7 +309,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				CA41FF981BBC85DC0009CB83 /* THGBridge_osx.h in Headers */,
-				CA41FFC21BBC8B780009CB83 /* THGBridge.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -541,7 +548,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CA948B541BCC643B00756AA1 /* Global.swift in Sources */,
 				CA41FFB41BBC8B190009CB83 /* Bridge.swift in Sources */,
+				CA948B5C1BCD700100756AA1 /* Scriptable.swift in Sources */,
+				CA948B5F1BCD7DD500756AA1 /* Console.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -559,6 +569,8 @@
 			files = (
 				2224FA5B1BC718FB0089D38A /* Global.swift in Sources */,
 				17E076DC1B024478008F89EC /* Bridge.swift in Sources */,
+				CA948B5B1BCD700100756AA1 /* Scriptable.swift in Sources */,
+				CA948B5E1BCD7DD500756AA1 /* Console.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
