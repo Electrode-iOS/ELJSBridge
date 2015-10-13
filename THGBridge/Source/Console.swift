@@ -56,6 +56,8 @@ public class Console: NSObject, ConsoleSupportable, Scriptable {
         
         if let handler = outputHandler {
             handler(type: type, message: output)
+        } else {
+            print(output)
         }
     }
     
