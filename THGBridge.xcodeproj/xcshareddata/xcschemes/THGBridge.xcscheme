@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "CAC38A9C1AC3130B005A3CE0"
-               BuildableName = "THGBridge_osx.framework"
+               BuildableName = "THGBridge.framework"
                BlueprintName = "THGBridge"
                ReferencedContainer = "container:THGBridge.xcodeproj">
             </BuildableReference>
@@ -57,7 +57,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CAC38A9C1AC3130B005A3CE0"
-            BuildableName = "THGBridge_osx.framework"
+            BuildableName = "THGBridge.framework"
             BlueprintName = "THGBridge"
             ReferencedContainer = "container:THGBridge.xcodeproj">
          </BuildableReference>
@@ -79,7 +79,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CAC38A9C1AC3130B005A3CE0"
-            BuildableName = "THGBridge_osx.framework"
+            BuildableName = "THGBridge.framework"
             BlueprintName = "THGBridge"
             ReferencedContainer = "container:THGBridge.xcodeproj">
          </BuildableReference>
@@ -97,7 +97,7 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "CAC38A9C1AC3130B005A3CE0"
-            BuildableName = "THGBridge_osx.framework"
+            BuildableName = "THGBridge.framework"
             BlueprintName = "THGBridge"
             ReferencedContainer = "container:THGBridge.xcodeproj">
          </BuildableReference>
