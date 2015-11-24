@@ -317,6 +317,7 @@
 		CAC38A941AC3130B005A3CE0 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
+				LastSwiftUpdateCheck = 0710;
 				LastUpgradeCheck = 0630;
 				ORGANIZATIONNAME = TheHolyGrail;
 				TargetAttributes = {
