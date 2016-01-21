@@ -1,6 +1,6 @@
-# BridgeOfDeath [![Build Status](https://travis-ci.org/TheHolyGrail/BridgeOfDeath.svg)](https://travis-ci.org/TheHolyGrail/BridgeOfDeath)
+# ELJSBridge [![Build Status](https://travis-ci.org/Electrode-iOS/ELJSBridge.svg)](https://travis-ci.org/Electrode-iOS/ELJSBridge)
 
-BridgeOfDeath (`THGBridge` module) is a Swift wrapper around JavaScriptCore's Objective-C bridge.
+ELJSBridge is a Swift wrapper around JavaScriptCore's Objective-C bridge.
 
 ## Installation
 
@@ -9,24 +9,24 @@ BridgeOfDeath (`THGBridge` module) is a Swift wrapper around JavaScriptCore's Ob
 Install with [Carthage](https://github.com/Carthage/Carthage) by adding the framework to your project's [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
 
 ```
-github "TheHolyGrail/BridgeOfDeath" ~> 1.0.0
+github "Electrode-iOS/ELJSBridge" ~> 1.0.0
 ```
 
 ### Manual
 
-BridgeOfDeath can be installed manually by adding THGBridge.xcodeproj to your project and configuring your target to link THGBridge.framework.
+ELJSBridge can be installed manually by adding ELJSBridge.xcodeproj to your project and configuring your target to link ELJSBridge.framework.
 
-BridgeOfDeath depends on the following [THG](https://github.com/TheHolyGrail/) modules:
+ELJSBridge depends on the following [THG](https://github.com/Electrode-iOS/) modules:
 
-- [`THGFoundation`/Excalibur](https://github.com/TheHolyGrail/Excalibur).
-- [`THGLog`/Shrubbery](https://github.com/TheHolyGrail/Shrubbery).
+- [`ELFoundation`](https://github.com/Electrode-iOS/ELFoundation).
+- [`ELLog`](https://github.com/Electrode-iOS/ELLog).
 
-[THG](https://github.com/TheHolyGrail/) modules are designed to live side-by-side in the file system, like so:
+[Electrode-iOS](https://github.com/Electrode-iOS/) modules are designed to live side-by-side in the file system, like so:
 
 * \MyProject
-* \MyProject\BridgeOfDeath
-* \MyProject\Excalibur
-* \MyProject\Shrubbery
+* \MyProject\ELJSBridge
+* \MyProject\ELFoundation
+* \MyProject\ELLog
 
 
 ## Usage
@@ -73,15 +73,3 @@ scanner.presentScanner(function(error, scannedValue) {});
 ```
 
 Objects that are exported via the `addExport` method are retained between JavaScript context changes. When the `context` property is set all exported objects are added to the new JavaScript context value. This is useful when you need to provide a stateful API between context changes like page loads in a web view.
-
-
-
-
-
-
-
-
-
-
-
-

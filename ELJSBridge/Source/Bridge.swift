@@ -1,9 +1,9 @@
 //
 //  Bridge.swift
-//  THGBridge
+//  ELJSBridge
 //
 //  Created by Brandon Sneed on 3/25/15.
-//  Copyright (c) 2015 TheHolyGrail. All rights reserved.
+//  Copyright (c) WalmartLabs. All rights reserved.
 //
 
 import Foundation
@@ -11,21 +11,21 @@ import JavaScriptCore
 #if NOFRAMEWORKS
 #else
     #if os(OSX)
-        import THGFoundation_osx
-        import THGLog_osx
+        import ELFoundation_osx
+        import ELLog_osx
     #elseif os(iOS)
-        import THGFoundation
-        import THGLog
+        import ELFoundation
+        import ELLog
     #endif
 #endif
 
-public enum THGBridgeError: Int, NSErrorEnum {
+public enum ELJSBridgeError: Int, NSErrorEnum {
     case FileDoesNotExist
     case FailedToDownloadScript
     case FailedToEvaluateScript
 
     public var domain: String {
-        return "io.theholygrail.THGBridgeError"
+        return "io.theholygrail.ELJSBridgeError"
     }
 
     public var errorDescription: String {
@@ -40,7 +40,7 @@ public enum THGBridgeError: Int, NSErrorEnum {
     }
 }
 
-@objc(THGBridge)
+@objc(ELJSBridge)
 public class Bridge: NSObject {
 
     public var context: JSContext {
@@ -75,7 +75,7 @@ public class Bridge: NSObject {
                     throw catchError
                 }
             } catch  {
-                throw NSError(THGBridgeError.FileDoesNotExist)
+                throw NSError(ELJSBridgeError.FileDoesNotExist)
             }
         }
         
@@ -93,10 +93,10 @@ public class Bridge: NSObject {
                     } catch let catchError as NSError {
                         completion(error: catchError)
                     } catch {
-                        completion(error: NSError(THGBridgeError.FailedToDownloadScript))
+                        completion(error: NSError(ELJSBridgeError.FailedToDownloadScript))
                     }
                 } else {
-                    completion(error: NSError(THGBridgeError.FailedToDownloadScript))
+                    completion(error: NSError(ELJSBridgeError.FailedToDownloadScript))
                 }
             }
         }
@@ -106,7 +106,7 @@ public class Bridge: NSObject {
         context.evaluateScript(script)
         if let exception = context.exception {
             print("Load failed with exception: \(exception)")
-            throw NSError(THGBridgeError.FailedToEvaluateScript)
+            throw NSError(ELJSBridgeError.FailedToEvaluateScript)
         }
     }
 
@@ -115,7 +115,7 @@ public class Bridge: NSObject {
         let downloadTask = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             let httpResponse = response as? NSHTTPURLResponse
             if httpResponse?.statusCode == 404 {
-                completion(data: nil, error: NSError(THGBridgeError.FileDoesNotExist))
+                completion(data: nil, error: NSError(ELJSBridgeError.FileDoesNotExist))
             } else {
                 completion(data: data, error: error)
             }

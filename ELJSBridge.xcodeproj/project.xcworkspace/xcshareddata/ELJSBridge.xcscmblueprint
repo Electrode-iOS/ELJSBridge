@@ -14,9 +14,9 @@
     "F75375CB2C82D2BC362ACFD0392481707735854D" : "Shrubbery\/",
     "453EFE5EA8F03EC2996E3952FAFCE0B3A8FEE409" : "BridgeOfDeath\/"
   },
-  "DVTSourceControlWorkspaceBlueprintNameKey" : "THGBridge",
+  "DVTSourceControlWorkspaceBlueprintNameKey" : "ELJSBridge",
   "DVTSourceControlWorkspaceBlueprintVersion" : 204,
-  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "THGBridge.xcodeproj",
+  "DVTSourceControlWorkspaceBlueprintRelativePathToProjectKey" : "ELJSBridge.xcodeproj",
   "DVTSourceControlWorkspaceBlueprintRemoteRepositoriesKey" : [
     {
       "DVTSourceControlWorkspaceBlueprintRemoteRepositoryURLKey" : "github.com:TheHolyGrail\/BridgeOfDeath.git",

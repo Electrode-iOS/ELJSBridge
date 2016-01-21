@@ -1,18 +1,18 @@
 //
-//  THGBridgeTests.swift
-//  THGBridgeTests
+//  ELJSBridgeTests.swift
+//  ELJSBridgeTests
 //
 //  Created by Brandon Sneed on 3/25/15.
-//  Copyright (c) 2015 TheHolyGrail. All rights reserved.
+//  Copyright (c) WalmartLabs. All rights reserved.
 //
 
 import UIKit
 import XCTest
-import THGFoundation
-import THGBridge
+import ELFoundation
+import ELJSBridge
 import JavaScriptCore
 
-class THGBridgeTests: XCTestCase {
+class ELJSBridgeTests: XCTestCase {
     
     class Script: NSObject, JSExport {
         func foo() -> String {
@@ -48,7 +48,7 @@ class THGBridgeTests: XCTestCase {
 
         let semaphore = dispatch_semaphore_create(0)
 
-        let url = NSURL(string: "http://theholygrail.io/testfiles/THGBridge_testdownload_bad.js")
+        let url = NSURL(string: "http://theholygrail.io/testfiles/ELJSBridge_testdownload_bad.js")
         bridge.loadFromURL(url!) { (error) -> Void in
             if error != nil {
                 failed = true
@@ -62,9 +62,9 @@ class THGBridgeTests: XCTestCase {
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
 
         XCTAssertTrue(failed, "This should have failed!")
-        XCTAssertTrue(anError!.domain == "io.theholygrail.THGBridgeError" &&
-            anError!.code == THGBridgeError.FailedToEvaluateScript.rawValue,
-            "Error should be THGBridgeError.FailedToEvaluateScript!")
+        XCTAssertTrue(anError!.domain == "io.theholygrail.ELJSBridgeError" &&
+            anError!.code == ELJSBridgeError.FailedToEvaluateScript.rawValue,
+            "Error should be ELJSBridgeError.FailedToEvaluateScript!")
     }
 
     func testScriptDownloadScriptFileDoesNotExist() {
@@ -88,9 +88,9 @@ class THGBridgeTests: XCTestCase {
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
 
         XCTAssertTrue(failed, "This should have failed!")
-        XCTAssertTrue(anError!.domain == "io.theholygrail.THGBridgeError" &&
-            anError!.code == THGBridgeError.FileDoesNotExist.rawValue,
-            "Error should be THGBridgeError.FileDoesNotExist!")
+        XCTAssertTrue(anError!.domain == "io.theholygrail.ELJSBridgeError" &&
+            anError!.code == ELJSBridgeError.FileDoesNotExist.rawValue,
+            "Error should be ELJSBridgeError.FileDoesNotExist!")
     }
 
     func testScriptDownloadScriptWorks() {
@@ -100,7 +100,7 @@ class THGBridgeTests: XCTestCase {
 
         let semaphore = dispatch_semaphore_create(0)
 
-        let url = NSURL(string: "http://theholygrail.io/testfiles/THGBridge_testdownload_good.js")
+        let url = NSURL(string: "http://theholygrail.io/testfiles/ELJSBridge_testdownload_good.js")
         bridge.loadFromURL(url!) { (error) -> Void in
             if error != nil {
                 failed = true
@@ -138,7 +138,7 @@ class THGBridgeTests: XCTestCase {
 
         let semaphore = dispatch_semaphore_create(0)
 
-        let url = NSURL(string: "http://theholygrail.io/testfiles/THGBridge_testdownload_good.js")
+        let url = NSURL(string: "http://theholygrail.io/testfiles/ELJSBridge_testdownload_good.js")
         bridge.loadFromURL(url!) { (error) -> Void in
             if error != nil {
                 failed = true

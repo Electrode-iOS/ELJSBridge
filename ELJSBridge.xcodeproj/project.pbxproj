@@ -7,141 +7,113 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		175A492C1AFBB4F000C62D10 /* THGBridge copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 175A492B1AFBB4F000C62D10 /* THGBridge copy-Info.plist */; };
+		175A492C1AFBB4F000C62D10 /* ELJSBridge copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 175A492B1AFBB4F000C62D10 /* ELJSBridge copy-Info.plist */; };
+		175CA1D81C511ED5005A8364 /* ELFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1C51C511EAE005A8364 /* ELFoundation.framework */; };
+		175CA1D91C511ED6005A8364 /* ELLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1D31C511EBD005A8364 /* ELLog.framework */; };
+		175CA1DA1C511EE0005A8364 /* ELFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1C91C511EAE005A8364 /* ELFoundation.framework */; };
+		175CA1DB1C511EE0005A8364 /* ELLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1D71C511EBD005A8364 /* ELLog.framework */; };
 		17E076DC1B024478008F89EC /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E076DB1B024478008F89EC /* Bridge.swift */; };
-		202A83531BE820C800D13698 /* THGBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC38A9D1AC3130B005A3CE0 /* THGBridge.framework */; };
-		204CE23C1B4DC2890020E7CE /* THGFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204CE2371B4DC26D0020E7CE /* THGFoundation.framework */; };
+		202A83531BE820C800D13698 /* ELJSBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC38A9D1AC3130B005A3CE0 /* ELJSBridge.framework */; };
 		2224FA5B1BC718FB0089D38A /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224FA5A1BC718FB0089D38A /* Global.swift */; };
-		22736E661B87B7DF00312281 /* THGLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22736E611B87B7CD00312281 /* THGLog.framework */; };
-		CA41FF981BBC85DC0009CB83 /* THGBridge_osx.h in Headers */ = {isa = PBXBuildFile; fileRef = CA41FF971BBC85DC0009CB83 /* THGBridge_osx.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CA41FF9F1BBC85DD0009CB83 /* THGBridge_osx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA41FF951BBC85DC0009CB83 /* THGBridge_osx.framework */; };
-		CA41FFA41BBC85DD0009CB83 /* THGBridge_osxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA41FFA31BBC85DD0009CB83 /* THGBridge_osxTests.swift */; };
-		CA41FFAC1BBC85F50009CB83 /* THGFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 204CE23B1B4DC26D0020E7CE /* THGFoundation.framework */; };
-		CA41FFAD1BBC85F50009CB83 /* THGLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 22736E651B87B7CD00312281 /* THGLog.framework */; };
+		CA41FF981BBC85DC0009CB83 /* ELJSBridge_osx.h in Headers */ = {isa = PBXBuildFile; fileRef = CA41FF971BBC85DC0009CB83 /* ELJSBridge_osx.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CA41FF9F1BBC85DD0009CB83 /* ELJSBridge_osx.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA41FF951BBC85DC0009CB83 /* ELJSBridge_osx.framework */; };
+		CA41FFA41BBC85DD0009CB83 /* ELJSBridge_osxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA41FFA31BBC85DD0009CB83 /* ELJSBridge_osxTests.swift */; };
 		CA41FFB41BBC8B190009CB83 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E076DB1B024478008F89EC /* Bridge.swift */; };
 		CA948B541BCC643B00756AA1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224FA5A1BC718FB0089D38A /* Global.swift */; };
 		CA948B5B1BCD700100756AA1 /* Scriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5A1BCD700100756AA1 /* Scriptable.swift */; };
 		CA948B5C1BCD700100756AA1 /* Scriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5A1BCD700100756AA1 /* Scriptable.swift */; };
 		CA948B5E1BCD7DD500756AA1 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5D1BCD7DD500756AA1 /* Console.swift */; };
 		CA948B5F1BCD7DD500756AA1 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5D1BCD7DD500756AA1 /* Console.swift */; };
-		CAC38AA31AC3130B005A3CE0 /* THGBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC38AA21AC3130B005A3CE0 /* THGBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CAC38AB01AC3130B005A3CE0 /* THGBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC38AAF1AC3130B005A3CE0 /* THGBridgeTests.swift */; };
+		CAC38AA31AC3130B005A3CE0 /* ELJSBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC38AA21AC3130B005A3CE0 /* ELJSBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		CAC38AB01AC3130B005A3CE0 /* ELJSBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC38AAF1AC3130B005A3CE0 /* ELJSBridgeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		202A83491BE819CB00D13698 /* PBXContainerItemProxy */ = {
+		175CA1C41C511EAE005A8364 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 22736E5A1B87B7CD00312281 /* THGLog.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CA8D47BA1AAE6FF50028B74D;
-			remoteInfo = THGLog;
+			containerPortal = 175CA1BD1C511EAE005A8364 /* ELFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CACF2A0A1A9614D20084EFAE;
+			remoteInfo = ELFoundation;
+		};
+		175CA1C61C511EAE005A8364 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175CA1BD1C511EAE005A8364 /* ELFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CACF2A151A9614D20084EFAE;
+			remoteInfo = ELFoundationTests;
+		};
+		175CA1C81C511EAE005A8364 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175CA1BD1C511EAE005A8364 /* ELFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CA8CD55A1B7A9DCA00DA8BF7;
+			remoteInfo = ELFoundation_osx;
+		};
+		175CA1CA1C511EAE005A8364 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175CA1BD1C511EAE005A8364 /* ELFoundation.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CA8CD5631B7A9DCB00DA8BF7;
+			remoteInfo = ELFoundation_osxTests;
+		};
+		175CA1D21C511EBD005A8364 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175CA1CC1C511EBD005A8364 /* ELLog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CA8D47BB1AAE6FF50028B74D;
+			remoteInfo = ELLog;
+		};
+		175CA1D41C511EBD005A8364 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175CA1CC1C511EBD005A8364 /* ELLog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CA8D47C61AAE6FF50028B74D;
+			remoteInfo = ELLogTests;
+		};
+		175CA1D61C511EBD005A8364 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175CA1CC1C511EBD005A8364 /* ELLog.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = CA2410631AF966F600AA4410;
+			remoteInfo = ELLog_osx;
 		};
 		202A83511BE820C300D13698 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CAC38A941AC3130B005A3CE0 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CAC38A9C1AC3130B005A3CE0;
-			remoteInfo = THGBridge;
-		};
-		204CE2361B4DC26D0020E7CE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 204CE2301B4DC26D0020E7CE /* THGFoundation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CACF2A0A1A9614D20084EFAE;
-			remoteInfo = THGFoundation;
-		};
-		204CE2381B4DC26D0020E7CE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 204CE2301B4DC26D0020E7CE /* THGFoundation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CACF2A151A9614D20084EFAE;
-			remoteInfo = THGFoundationTests;
-		};
-		204CE23A1B4DC26D0020E7CE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 204CE2301B4DC26D0020E7CE /* THGFoundation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA24104D1AF965B700AA4410;
-			remoteInfo = THGFoundation_osx;
-		};
-		204CE23E1B4DC29D0020E7CE /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 204CE2301B4DC26D0020E7CE /* THGFoundation.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CACF2A091A9614D20084EFAE;
-			remoteInfo = THGFoundation;
-		};
-		2201A04B1B878E550017824D /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 204CE2301B4DC26D0020E7CE /* THGFoundation.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA8CD5631B7A9DCB00DA8BF7;
-			remoteInfo = THGFoundation_osxTests;
-		};
-		22736E601B87B7CD00312281 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 22736E5A1B87B7CD00312281 /* THGLog.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA8D47BB1AAE6FF50028B74D;
-			remoteInfo = THGLog;
-		};
-		22736E621B87B7CD00312281 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 22736E5A1B87B7CD00312281 /* THGLog.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA8D47C61AAE6FF50028B74D;
-			remoteInfo = THGLogTests;
-		};
-		22736E641B87B7CD00312281 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 22736E5A1B87B7CD00312281 /* THGLog.xcodeproj */;
-			proxyType = 2;
-			remoteGlobalIDString = CA2410631AF966F600AA4410;
-			remoteInfo = THGLog_osx;
+			remoteInfo = ELJSBridge;
 		};
 		CA41FFA01BBC85DD0009CB83 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CAC38A941AC3130B005A3CE0 /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = CA41FF941BBC85DC0009CB83;
-			remoteInfo = THGBridge_osx;
-		};
-		CA41FFAE1BBC86010009CB83 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 22736E5A1B87B7CD00312281 /* THGLog.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CA24104F1AF966F600AA4410;
-			remoteInfo = THGLog_osx;
-		};
-		CA41FFB01BBC86010009CB83 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 204CE2301B4DC26D0020E7CE /* THGFoundation.xcodeproj */;
-			proxyType = 1;
-			remoteGlobalIDString = CA8CD5591B7A9DCA00DA8BF7;
-			remoteInfo = THGFoundation_osx;
+			remoteInfo = ELJSBridge_osx;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		175A492B1AFBB4F000C62D10 /* THGBridge copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "THGBridge copy-Info.plist"; sourceTree = "<group>"; };
-		17E076DB1B024478008F89EC /* Bridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bridge.swift; path = THGBridge/Source/Bridge.swift; sourceTree = SOURCE_ROOT; };
-		204CE2301B4DC26D0020E7CE /* THGFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = THGFoundation.xcodeproj; path = ../Excalibur/THGFoundation.xcodeproj; sourceTree = "<group>"; };
-		2224FA5A1BC718FB0089D38A /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Global.swift; path = THGBridge/Source/Global.swift; sourceTree = SOURCE_ROOT; };
-		22736E5A1B87B7CD00312281 /* THGLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = THGLog.xcodeproj; path = ../Shrubbery/THGLog.xcodeproj; sourceTree = "<group>"; };
-		CA41FF951BBC85DC0009CB83 /* THGBridge_osx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = THGBridge_osx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA41FF971BBC85DC0009CB83 /* THGBridge_osx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THGBridge_osx.h; sourceTree = "<group>"; };
+		175A492B1AFBB4F000C62D10 /* ELJSBridge copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ELJSBridge copy-Info.plist"; sourceTree = "<group>"; };
+		175CA1BD1C511EAE005A8364 /* ELFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ELFoundation.xcodeproj; path = ../ELFoundation/ELFoundation.xcodeproj; sourceTree = "<group>"; };
+		175CA1CC1C511EBD005A8364 /* ELLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ELLog.xcodeproj; path = ../ELLog/ELLog.xcodeproj; sourceTree = "<group>"; };
+		17E076DB1B024478008F89EC /* Bridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bridge.swift; path = ELJSBridge/Source/Bridge.swift; sourceTree = SOURCE_ROOT; };
+		2224FA5A1BC718FB0089D38A /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Global.swift; path = ELJSBridge/Source/Global.swift; sourceTree = SOURCE_ROOT; };
+		CA41FF951BBC85DC0009CB83 /* ELJSBridge_osx.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ELJSBridge_osx.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA41FF971BBC85DC0009CB83 /* ELJSBridge_osx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELJSBridge_osx.h; sourceTree = "<group>"; };
 		CA41FF991BBC85DC0009CB83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA41FF9E1BBC85DC0009CB83 /* THGBridge_osxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THGBridge_osxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA41FFA31BBC85DD0009CB83 /* THGBridge_osxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THGBridge_osxTests.swift; sourceTree = "<group>"; };
+		CA41FF9E1BBC85DC0009CB83 /* ELJSBridge_osxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELJSBridge_osxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA41FFA31BBC85DD0009CB83 /* ELJSBridge_osxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELJSBridge_osxTests.swift; sourceTree = "<group>"; };
 		CA41FFA51BBC85DD0009CB83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA948B5A1BCD700100756AA1 /* Scriptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scriptable.swift; path = THGBridge/Source/Scriptable.swift; sourceTree = SOURCE_ROOT; };
-		CA948B5D1BCD7DD500756AA1 /* Console.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Console.swift; path = THGBridge/Source/Console.swift; sourceTree = SOURCE_ROOT; };
-		CAC38A9D1AC3130B005A3CE0 /* THGBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = THGBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		CA948B5A1BCD700100756AA1 /* Scriptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scriptable.swift; path = ELJSBridge/Source/Scriptable.swift; sourceTree = SOURCE_ROOT; };
+		CA948B5D1BCD7DD500756AA1 /* Console.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Console.swift; path = ELJSBridge/Source/Console.swift; sourceTree = SOURCE_ROOT; };
+		CAC38A9D1AC3130B005A3CE0 /* ELJSBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ELJSBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC38AA11AC3130B005A3CE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CAC38AA21AC3130B005A3CE0 /* THGBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = THGBridge.h; sourceTree = "<group>"; };
-		CAC38AA81AC3130B005A3CE0 /* THGBridgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = THGBridgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CAC38AA21AC3130B005A3CE0 /* ELJSBridge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELJSBridge.h; sourceTree = "<group>"; };
+		CAC38AA81AC3130B005A3CE0 /* ELJSBridgeTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELJSBridgeTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CAC38AAE1AC3130B005A3CE0 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CAC38AAF1AC3130B005A3CE0 /* THGBridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = THGBridgeTests.swift; sourceTree = "<group>"; };
+		CAC38AAF1AC3130B005A3CE0 /* ELJSBridgeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELJSBridgeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -149,8 +121,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA41FFAC1BBC85F50009CB83 /* THGFoundation.framework in Frameworks */,
-				CA41FFAD1BBC85F50009CB83 /* THGLog.framework in Frameworks */,
+				175CA1DA1C511EE0005A8364 /* ELFoundation.framework in Frameworks */,
+				175CA1DB1C511EE0005A8364 /* ELLog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -158,7 +130,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA41FF9F1BBC85DD0009CB83 /* THGBridge_osx.framework in Frameworks */,
+				CA41FF9F1BBC85DD0009CB83 /* ELJSBridge_osx.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -166,8 +138,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				22736E661B87B7DF00312281 /* THGLog.framework in Frameworks */,
-				204CE23C1B4DC2890020E7CE /* THGFoundation.framework in Frameworks */,
+				175CA1D81C511ED5005A8364 /* ELFoundation.framework in Frameworks */,
+				175CA1D91C511ED6005A8364 /* ELLog.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -175,13 +147,34 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				202A83531BE820C800D13698 /* THGBridge.framework in Frameworks */,
+				202A83531BE820C800D13698 /* ELJSBridge.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		175CA1BE1C511EAE005A8364 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				175CA1C51C511EAE005A8364 /* ELFoundation.framework */,
+				175CA1C71C511EAE005A8364 /* ELFoundationTests.xctest */,
+				175CA1C91C511EAE005A8364 /* ELFoundation.framework */,
+				175CA1CB1C511EAE005A8364 /* ELFoundation_osxTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		175CA1CD1C511EBD005A8364 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				175CA1D31C511EBD005A8364 /* ELLog.framework */,
+				175CA1D51C511EBD005A8364 /* ELLogTests.xctest */,
+				175CA1D71C511EBD005A8364 /* ELLog.framework */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
 		177E5DEA1B0101EF006BCBE2 /* Source */ = {
 			isa = PBXGroup;
 			children = (
@@ -193,50 +186,29 @@
 			path = Source;
 			sourceTree = SOURCE_ROOT;
 		};
-		204CE2311B4DC26D0020E7CE /* Products */ = {
+		CA41FF961BBC85DC0009CB83 /* ELJSBridge_osx */ = {
 			isa = PBXGroup;
 			children = (
-				204CE2371B4DC26D0020E7CE /* THGFoundation.framework */,
-				204CE2391B4DC26D0020E7CE /* THGFoundationTests.xctest */,
-				204CE23B1B4DC26D0020E7CE /* THGFoundation.framework */,
-				2201A04C1B878E550017824D /* THGFoundation_osxTests.xctest */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		22736E5B1B87B7CD00312281 /* Products */ = {
-			isa = PBXGroup;
-			children = (
-				22736E611B87B7CD00312281 /* THGLog.framework */,
-				22736E631B87B7CD00312281 /* THGLogTests.xctest */,
-				22736E651B87B7CD00312281 /* THGLog.framework */,
-			);
-			name = Products;
-			sourceTree = "<group>";
-		};
-		CA41FF961BBC85DC0009CB83 /* THGBridge_osx */ = {
-			isa = PBXGroup;
-			children = (
-				CA41FF971BBC85DC0009CB83 /* THGBridge_osx.h */,
+				CA41FF971BBC85DC0009CB83 /* ELJSBridge_osx.h */,
 				CA41FF991BBC85DC0009CB83 /* Info.plist */,
 			);
-			path = THGBridge_osx;
+			path = ELJSBridge_osx;
 			sourceTree = "<group>";
 		};
-		CA41FFA21BBC85DD0009CB83 /* THGBridge_osxTests */ = {
+		CA41FFA21BBC85DD0009CB83 /* ELJSBridge_osxTests */ = {
 			isa = PBXGroup;
 			children = (
-				CA41FFA31BBC85DD0009CB83 /* THGBridge_osxTests.swift */,
+				CA41FFA31BBC85DD0009CB83 /* ELJSBridge_osxTests.swift */,
 				CA41FFA51BBC85DD0009CB83 /* Info.plist */,
 			);
-			path = THGBridge_osxTests;
+			path = ELJSBridge_osxTests;
 			sourceTree = "<group>";
 		};
 		CA85AA081B3B27060000FEEF /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				22736E5A1B87B7CD00312281 /* THGLog.xcodeproj */,
-				204CE2301B4DC26D0020E7CE /* THGFoundation.xcodeproj */,
+				175CA1CC1C511EBD005A8364 /* ELLog.xcodeproj */,
+				175CA1BD1C511EAE005A8364 /* ELFoundation.xcodeproj */,
 			);
 			name = Modules;
 			sourceTree = "<group>";
@@ -245,11 +217,11 @@
 			isa = PBXGroup;
 			children = (
 				CA85AA081B3B27060000FEEF /* Modules */,
-				175A492B1AFBB4F000C62D10 /* THGBridge copy-Info.plist */,
-				CAC38A9F1AC3130B005A3CE0 /* THGBridge */,
-				CAC38AAC1AC3130B005A3CE0 /* THGBridgeTests */,
-				CA41FF961BBC85DC0009CB83 /* THGBridge_osx */,
-				CA41FFA21BBC85DD0009CB83 /* THGBridge_osxTests */,
+				175A492B1AFBB4F000C62D10 /* ELJSBridge copy-Info.plist */,
+				CAC38A9F1AC3130B005A3CE0 /* ELJSBridge */,
+				CAC38AAC1AC3130B005A3CE0 /* ELJSBridgeTests */,
+				CA41FF961BBC85DC0009CB83 /* ELJSBridge_osx */,
+				CA41FFA21BBC85DD0009CB83 /* ELJSBridge_osxTests */,
 				CAC38A9E1AC3130B005A3CE0 /* Products */,
 			);
 			sourceTree = "<group>";
@@ -257,22 +229,22 @@
 		CAC38A9E1AC3130B005A3CE0 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CAC38A9D1AC3130B005A3CE0 /* THGBridge.framework */,
-				CAC38AA81AC3130B005A3CE0 /* THGBridgeTests.xctest */,
-				CA41FF951BBC85DC0009CB83 /* THGBridge_osx.framework */,
-				CA41FF9E1BBC85DC0009CB83 /* THGBridge_osxTests.xctest */,
+				CAC38A9D1AC3130B005A3CE0 /* ELJSBridge.framework */,
+				CAC38AA81AC3130B005A3CE0 /* ELJSBridgeTests.xctest */,
+				CA41FF951BBC85DC0009CB83 /* ELJSBridge_osx.framework */,
+				CA41FF9E1BBC85DC0009CB83 /* ELJSBridge_osxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CAC38A9F1AC3130B005A3CE0 /* THGBridge */ = {
+		CAC38A9F1AC3130B005A3CE0 /* ELJSBridge */ = {
 			isa = PBXGroup;
 			children = (
 				177E5DEA1B0101EF006BCBE2 /* Source */,
-				CAC38AA21AC3130B005A3CE0 /* THGBridge.h */,
+				CAC38AA21AC3130B005A3CE0 /* ELJSBridge.h */,
 				CAC38AA01AC3130B005A3CE0 /* Supporting Files */,
 			);
-			path = THGBridge;
+			path = ELJSBridge;
 			sourceTree = "<group>";
 		};
 		CAC38AA01AC3130B005A3CE0 /* Supporting Files */ = {
@@ -283,13 +255,13 @@
 			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
-		CAC38AAC1AC3130B005A3CE0 /* THGBridgeTests */ = {
+		CAC38AAC1AC3130B005A3CE0 /* ELJSBridgeTests */ = {
 			isa = PBXGroup;
 			children = (
-				CAC38AAF1AC3130B005A3CE0 /* THGBridgeTests.swift */,
+				CAC38AAF1AC3130B005A3CE0 /* ELJSBridgeTests.swift */,
 				CAC38AAD1AC3130B005A3CE0 /* Supporting Files */,
 			);
-			path = THGBridgeTests;
+			path = ELJSBridgeTests;
 			sourceTree = "<group>";
 		};
 		CAC38AAD1AC3130B005A3CE0 /* Supporting Files */ = {
@@ -307,7 +279,7 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA41FF981BBC85DC0009CB83 /* THGBridge_osx.h in Headers */,
+				CA41FF981BBC85DC0009CB83 /* ELJSBridge_osx.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -315,16 +287,16 @@
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAC38AA31AC3130B005A3CE0 /* THGBridge.h in Headers */,
+				CAC38AA31AC3130B005A3CE0 /* ELJSBridge.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		CA41FF941BBC85DC0009CB83 /* THGBridge_osx */ = {
+		CA41FF941BBC85DC0009CB83 /* ELJSBridge_osx */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA41FFA61BBC85DD0009CB83 /* Build configuration list for PBXNativeTarget "THGBridge_osx" */;
+			buildConfigurationList = CA41FFA61BBC85DD0009CB83 /* Build configuration list for PBXNativeTarget "ELJSBridge_osx" */;
 			buildPhases = (
 				CA41FF901BBC85DC0009CB83 /* Sources */,
 				CA41FF911BBC85DC0009CB83 /* Frameworks */,
@@ -334,17 +306,15 @@
 			buildRules = (
 			);
 			dependencies = (
-				CA41FFAF1BBC86010009CB83 /* PBXTargetDependency */,
-				CA41FFB11BBC86010009CB83 /* PBXTargetDependency */,
 			);
-			name = THGBridge_osx;
-			productName = THGBridge_osx;
-			productReference = CA41FF951BBC85DC0009CB83 /* THGBridge_osx.framework */;
+			name = ELJSBridge_osx;
+			productName = ELJSBridge_osx;
+			productReference = CA41FF951BBC85DC0009CB83 /* ELJSBridge_osx.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		CA41FF9D1BBC85DC0009CB83 /* THGBridge_osxTests */ = {
+		CA41FF9D1BBC85DC0009CB83 /* ELJSBridge_osxTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CA41FFA91BBC85DD0009CB83 /* Build configuration list for PBXNativeTarget "THGBridge_osxTests" */;
+			buildConfigurationList = CA41FFA91BBC85DD0009CB83 /* Build configuration list for PBXNativeTarget "ELJSBridge_osxTests" */;
 			buildPhases = (
 				CA41FF9A1BBC85DC0009CB83 /* Sources */,
 				CA41FF9B1BBC85DC0009CB83 /* Frameworks */,
@@ -355,14 +325,14 @@
 			dependencies = (
 				CA41FFA11BBC85DD0009CB83 /* PBXTargetDependency */,
 			);
-			name = THGBridge_osxTests;
-			productName = THGBridge_osxTests;
-			productReference = CA41FF9E1BBC85DC0009CB83 /* THGBridge_osxTests.xctest */;
+			name = ELJSBridge_osxTests;
+			productName = ELJSBridge_osxTests;
+			productReference = CA41FF9E1BBC85DC0009CB83 /* ELJSBridge_osxTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		CAC38A9C1AC3130B005A3CE0 /* THGBridge */ = {
+		CAC38A9C1AC3130B005A3CE0 /* ELJSBridge */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CAC38AB31AC3130B005A3CE0 /* Build configuration list for PBXNativeTarget "THGBridge" */;
+			buildConfigurationList = CAC38AB31AC3130B005A3CE0 /* Build configuration list for PBXNativeTarget "ELJSBridge" */;
 			buildPhases = (
 				CAC38A981AC3130B005A3CE0 /* Sources */,
 				CAC38A991AC3130B005A3CE0 /* Frameworks */,
@@ -372,17 +342,15 @@
 			buildRules = (
 			);
 			dependencies = (
-				202A834A1BE819CB00D13698 /* PBXTargetDependency */,
-				204CE23F1B4DC29D0020E7CE /* PBXTargetDependency */,
 			);
-			name = THGBridge;
-			productName = THGBridge;
-			productReference = CAC38A9D1AC3130B005A3CE0 /* THGBridge.framework */;
+			name = ELJSBridge;
+			productName = ELJSBridge;
+			productReference = CAC38A9D1AC3130B005A3CE0 /* ELJSBridge.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		CAC38AA71AC3130B005A3CE0 /* THGBridgeTests */ = {
+		CAC38AA71AC3130B005A3CE0 /* ELJSBridgeTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CAC38AB61AC3130B005A3CE0 /* Build configuration list for PBXNativeTarget "THGBridgeTests" */;
+			buildConfigurationList = CAC38AB61AC3130B005A3CE0 /* Build configuration list for PBXNativeTarget "ELJSBridgeTests" */;
 			buildPhases = (
 				CAC38AA41AC3130B005A3CE0 /* Sources */,
 				CAC38AA51AC3130B005A3CE0 /* Frameworks */,
@@ -393,9 +361,9 @@
 			dependencies = (
 				202A83521BE820C300D13698 /* PBXTargetDependency */,
 			);
-			name = THGBridgeTests;
-			productName = THGBridgeTests;
-			productReference = CAC38AA81AC3130B005A3CE0 /* THGBridgeTests.xctest */;
+			name = ELJSBridgeTests;
+			productName = ELJSBridgeTests;
+			productReference = CAC38AA81AC3130B005A3CE0 /* ELJSBridgeTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
@@ -406,7 +374,7 @@
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
 				LastUpgradeCheck = 0700;
-				ORGANIZATIONNAME = TheHolyGrail;
+				ORGANIZATIONNAME = WalmartLabs;
 				TargetAttributes = {
 					CA41FF941BBC85DC0009CB83 = {
 						CreatedOnToolsVersion = 7.0;
@@ -422,7 +390,7 @@
 					};
 				};
 			};
-			buildConfigurationList = CAC38A971AC3130B005A3CE0 /* Build configuration list for PBXProject "THGBridge" */;
+			buildConfigurationList = CAC38A971AC3130B005A3CE0 /* Build configuration list for PBXProject "ELJSBridge" */;
 			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 0;
@@ -434,72 +402,72 @@
 			projectDirPath = "";
 			projectReferences = (
 				{
-					ProductGroup = 204CE2311B4DC26D0020E7CE /* Products */;
-					ProjectRef = 204CE2301B4DC26D0020E7CE /* THGFoundation.xcodeproj */;
+					ProductGroup = 175CA1BE1C511EAE005A8364 /* Products */;
+					ProjectRef = 175CA1BD1C511EAE005A8364 /* ELFoundation.xcodeproj */;
 				},
 				{
-					ProductGroup = 22736E5B1B87B7CD00312281 /* Products */;
-					ProjectRef = 22736E5A1B87B7CD00312281 /* THGLog.xcodeproj */;
+					ProductGroup = 175CA1CD1C511EBD005A8364 /* Products */;
+					ProjectRef = 175CA1CC1C511EBD005A8364 /* ELLog.xcodeproj */;
 				},
 			);
 			projectRoot = "";
 			targets = (
-				CAC38A9C1AC3130B005A3CE0 /* THGBridge */,
-				CAC38AA71AC3130B005A3CE0 /* THGBridgeTests */,
-				CA41FF941BBC85DC0009CB83 /* THGBridge_osx */,
-				CA41FF9D1BBC85DC0009CB83 /* THGBridge_osxTests */,
+				CAC38A9C1AC3130B005A3CE0 /* ELJSBridge */,
+				CAC38AA71AC3130B005A3CE0 /* ELJSBridgeTests */,
+				CA41FF941BBC85DC0009CB83 /* ELJSBridge_osx */,
+				CA41FF9D1BBC85DC0009CB83 /* ELJSBridge_osxTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXReferenceProxy section */
-		204CE2371B4DC26D0020E7CE /* THGFoundation.framework */ = {
+		175CA1C51C511EAE005A8364 /* ELFoundation.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = THGFoundation.framework;
-			remoteRef = 204CE2361B4DC26D0020E7CE /* PBXContainerItemProxy */;
+			path = ELFoundation.framework;
+			remoteRef = 175CA1C41C511EAE005A8364 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		204CE2391B4DC26D0020E7CE /* THGFoundationTests.xctest */ = {
+		175CA1C71C511EAE005A8364 /* ELFoundationTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = THGFoundationTests.xctest;
-			remoteRef = 204CE2381B4DC26D0020E7CE /* PBXContainerItemProxy */;
+			path = ELFoundationTests.xctest;
+			remoteRef = 175CA1C61C511EAE005A8364 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		204CE23B1B4DC26D0020E7CE /* THGFoundation.framework */ = {
+		175CA1C91C511EAE005A8364 /* ELFoundation.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = THGFoundation.framework;
-			remoteRef = 204CE23A1B4DC26D0020E7CE /* PBXContainerItemProxy */;
+			path = ELFoundation.framework;
+			remoteRef = 175CA1C81C511EAE005A8364 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		2201A04C1B878E550017824D /* THGFoundation_osxTests.xctest */ = {
+		175CA1CB1C511EAE005A8364 /* ELFoundation_osxTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = THGFoundation_osxTests.xctest;
-			remoteRef = 2201A04B1B878E550017824D /* PBXContainerItemProxy */;
+			path = ELFoundation_osxTests.xctest;
+			remoteRef = 175CA1CA1C511EAE005A8364 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		22736E611B87B7CD00312281 /* THGLog.framework */ = {
+		175CA1D31C511EBD005A8364 /* ELLog.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = THGLog.framework;
-			remoteRef = 22736E601B87B7CD00312281 /* PBXContainerItemProxy */;
+			path = ELLog.framework;
+			remoteRef = 175CA1D21C511EBD005A8364 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		22736E631B87B7CD00312281 /* THGLogTests.xctest */ = {
+		175CA1D51C511EBD005A8364 /* ELLogTests.xctest */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.cfbundle;
-			path = THGLogTests.xctest;
-			remoteRef = 22736E621B87B7CD00312281 /* PBXContainerItemProxy */;
+			path = ELLogTests.xctest;
+			remoteRef = 175CA1D41C511EBD005A8364 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
-		22736E651B87B7CD00312281 /* THGLog.framework */ = {
+		175CA1D71C511EBD005A8364 /* ELLog.framework */ = {
 			isa = PBXReferenceProxy;
 			fileType = wrapper.framework;
-			path = THGLog.framework;
-			remoteRef = 22736E641B87B7CD00312281 /* PBXContainerItemProxy */;
+			path = ELLog.framework;
+			remoteRef = 175CA1D61C511EBD005A8364 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 /* End PBXReferenceProxy section */
@@ -523,7 +491,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				175A492C1AFBB4F000C62D10 /* THGBridge copy-Info.plist in Resources */,
+				175A492C1AFBB4F000C62D10 /* ELJSBridge copy-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -552,7 +520,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA41FFA41BBC85DD0009CB83 /* THGBridge_osxTests.swift in Sources */,
+				CA41FFA41BBC85DD0009CB83 /* ELJSBridge_osxTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -571,42 +539,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CAC38AB01AC3130B005A3CE0 /* THGBridgeTests.swift in Sources */,
+				CAC38AB01AC3130B005A3CE0 /* ELJSBridgeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		202A834A1BE819CB00D13698 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = THGLog;
-			targetProxy = 202A83491BE819CB00D13698 /* PBXContainerItemProxy */;
-		};
 		202A83521BE820C300D13698 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CAC38A9C1AC3130B005A3CE0 /* THGBridge */;
+			target = CAC38A9C1AC3130B005A3CE0 /* ELJSBridge */;
 			targetProxy = 202A83511BE820C300D13698 /* PBXContainerItemProxy */;
-		};
-		204CE23F1B4DC29D0020E7CE /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = THGFoundation;
-			targetProxy = 204CE23E1B4DC29D0020E7CE /* PBXContainerItemProxy */;
 		};
 		CA41FFA11BBC85DD0009CB83 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = CA41FF941BBC85DC0009CB83 /* THGBridge_osx */;
+			target = CA41FF941BBC85DC0009CB83 /* ELJSBridge_osx */;
 			targetProxy = CA41FFA01BBC85DD0009CB83 /* PBXContainerItemProxy */;
-		};
-		CA41FFAF1BBC86010009CB83 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = THGLog_osx;
-			targetProxy = CA41FFAE1BBC86010009CB83 /* PBXContainerItemProxy */;
-		};
-		CA41FFB11BBC86010009CB83 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			name = THGFoundation_osx;
-			targetProxy = CA41FFB01BBC86010009CB83 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -668,12 +616,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = THGBridge/Info.plist;
+				INFOPLIST_FILE = ELJSBridge/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.THGBridge-ios";
-				PRODUCT_NAME = THGBridge;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.ELJSBridge-ios";
+				PRODUCT_NAME = ELJSBridge;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -686,7 +634,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = THGBridgeTests/Info.plist;
+				INFOPLIST_FILE = ELJSBridgeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theholygrail.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -703,11 +651,11 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = THGBridge_osx/Info.plist;
+				INFOPLIST_FILE = ELJSBridge_osx/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.THGBridge-osx";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.ELJSBridge-osx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -719,10 +667,10 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				INFOPLIST_FILE = THGBridge_osxTests/Info.plist;
+				INFOPLIST_FILE = ELJSBridge_osxTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.THGBridge-osxTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.ELJSBridge-osxTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -738,11 +686,11 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = THGBridge_osx/Info.plist;
+				INFOPLIST_FILE = ELJSBridge_osx/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.THGBridge-osx";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.ELJSBridge-osx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -758,11 +706,11 @@
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = THGBridge_osx/Info.plist;
+				INFOPLIST_FILE = ELJSBridge_osx/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.THGBridge-osx";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.ELJSBridge-osx";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 				SKIP_INSTALL = YES;
@@ -774,10 +722,10 @@
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = dwarf;
-				INFOPLIST_FILE = THGBridge_osxTests/Info.plist;
+				INFOPLIST_FILE = ELJSBridge_osxTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.THGBridge-osxTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.ELJSBridge-osxTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -787,10 +735,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = THGBridge_osxTests/Info.plist;
+				INFOPLIST_FILE = ELJSBridge_osxTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
 				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.THGBridge-osxTests";
+				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.ELJSBridge-osxTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = macosx;
 			};
@@ -894,12 +842,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = THGBridge/Info.plist;
+				INFOPLIST_FILE = ELJSBridge/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.THGBridge-ios";
-				PRODUCT_NAME = THGBridge;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.ELJSBridge-ios";
+				PRODUCT_NAME = ELJSBridge;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 			};
@@ -913,12 +861,12 @@
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				INFOPLIST_FILE = THGBridge/Info.plist;
+				INFOPLIST_FILE = ELJSBridge/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.THGBridge-ios";
-				PRODUCT_NAME = THGBridge;
+				PRODUCT_BUNDLE_IDENTIFIER = "io.theholygrail.ELJSBridge-ios";
+				PRODUCT_NAME = ELJSBridge;
 				SKIP_INSTALL = YES;
 			};
 			name = Release;
@@ -930,7 +878,7 @@
 					"DEBUG=1",
 					"$(inherited)",
 				);
-				INFOPLIST_FILE = THGBridgeTests/Info.plist;
+				INFOPLIST_FILE = ELJSBridgeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theholygrail.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -940,7 +888,7 @@
 		CAC38AB81AC3130B005A3CE0 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				INFOPLIST_FILE = THGBridgeTests/Info.plist;
+				INFOPLIST_FILE = ELJSBridgeTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theholygrail.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -950,7 +898,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CA41FFA61BBC85DD0009CB83 /* Build configuration list for PBXNativeTarget "THGBridge_osx" */ = {
+		CA41FFA61BBC85DD0009CB83 /* Build configuration list for PBXNativeTarget "ELJSBridge_osx" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA41FFA71BBC85DD0009CB83 /* Debug */,
@@ -960,7 +908,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CA41FFA91BBC85DD0009CB83 /* Build configuration list for PBXNativeTarget "THGBridge_osxTests" */ = {
+		CA41FFA91BBC85DD0009CB83 /* Build configuration list for PBXNativeTarget "ELJSBridge_osxTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CA41FFAA1BBC85DD0009CB83 /* Debug */,
@@ -970,7 +918,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CAC38A971AC3130B005A3CE0 /* Build configuration list for PBXProject "THGBridge" */ = {
+		CAC38A971AC3130B005A3CE0 /* Build configuration list for PBXProject "ELJSBridge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAC38AB11AC3130B005A3CE0 /* Debug */,
@@ -980,7 +928,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CAC38AB31AC3130B005A3CE0 /* Build configuration list for PBXNativeTarget "THGBridge" */ = {
+		CAC38AB31AC3130B005A3CE0 /* Build configuration list for PBXNativeTarget "ELJSBridge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAC38AB41AC3130B005A3CE0 /* Debug */,
@@ -990,7 +938,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		CAC38AB61AC3130B005A3CE0 /* Build configuration list for PBXNativeTarget "THGBridgeTests" */ = {
+		CAC38AB61AC3130B005A3CE0 /* Build configuration list for PBXNativeTarget "ELJSBridgeTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CAC38AB71AC3130B005A3CE0 /* Debug */,

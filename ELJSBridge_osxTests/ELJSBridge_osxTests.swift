@@ -1,15 +1,15 @@
 //
-//  THGBridge_osxTests.swift
-//  THGBridge_osxTests
+//  ELJSBridge_osxTests.swift
+//  ELJSBridge_osxTests
 //
 //  Created by Brandon Sneed on 9/30/15.
-//  Copyright © 2015 TheHolyGrail. All rights reserved.
+//  Copyright © 2015 WalmartLabs. All rights reserved.
 //
 
 import XCTest
-@testable import THGBridge_osx
+@testable import ELJSBridge_osx
 
-class THGBridge_osxTests: XCTestCase {
+class ELJSBridge_osxTests: XCTestCase {
     
     override func setUp() {
         super.setUp()
