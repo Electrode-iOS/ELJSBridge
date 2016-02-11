@@ -1,8 +1,8 @@
 language: objective-c
-osx_image: beta-xcode6.3
-before_install:
-  - brew update
-  - brew install carthage
-  - carthage update
+osx_image: xcode7.2
+
+install: 
+  - git clone https://github.com/Electrode-iOS/ELFoundation.git ../ELFoundation
+  - git clone https://github.com/Electrode-iOS/ELLog.git ../ELLog
 script:
-   - xctool -project THGBridge.xcodeproj -scheme THGBridge -sdk iphonesimulator build test
+   - xctool -project ELJSBridge.xcodeproj -scheme ELJSBridge -sdk iphonesimulator build test

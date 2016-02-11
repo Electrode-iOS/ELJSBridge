@@ -1,26 +1,31 @@
 //
 //  Bridge.swift
-//  THGBridge
+//  ELJSBridge
 //
 //  Created by Brandon Sneed on 3/25/15.
-//  Copyright (c) 2015 TheHolyGrail. All rights reserved.
+//  Copyright (c) WalmartLabs. All rights reserved.
 //
 
 import Foundation
 import JavaScriptCore
 #if NOFRAMEWORKS
 #else
-import THGFoundation
-import THGLog
+    #if os(OSX)
+        import ELFoundation_osx
+        import ELLog_osx
+    #elseif os(iOS)
+        import ELFoundation
+        import ELLog
+    #endif
 #endif
 
-public enum THGBridgeError: Int, NSErrorEnum {
+public enum ELJSBridgeError: Int, NSErrorEnum {
     case FileDoesNotExist
     case FailedToDownloadScript
     case FailedToEvaluateScript
 
     public var domain: String {
-        return "io.theholygrail.THGBridgeError"
+        return "io.theholygrail.ELJSBridgeError"
     }
 
     public var errorDescription: String {
@@ -35,14 +40,14 @@ public enum THGBridgeError: Int, NSErrorEnum {
     }
 }
 
-@objc(THGBridge)
-public class Bridge {
+@objc(ELJSBridge)
+public class Bridge: NSObject {
 
     public var context: JSContext {
         didSet {
             for (name, script) in exports {
                 
-                println("add \(name) \(script)")
+                print("add \(name) \(script)")
                 
                 context.setObject(script, forKeyedSubscript: name)
             }
@@ -55,25 +60,25 @@ public class Bridge {
 
     private(set) public var exports = [String: JSExport]()
 
-    public init() {
+    public override init() {
         context = JSContext(virtualMachine: JSVirtualMachine())
     }
 
-    public func loadFromFile(filePath: String, error: NSErrorPointer = nil) {
+    public func loadFromFile(filePath: String) throws {
         let filemanager = NSFileManager.defaultManager()
         if filemanager.fileExistsAtPath(filePath) {
-            if let script = String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding, error: error) {
-                var loadError: NSError? = nil
-                self.load(script, error: &loadError)
-                if let loadError = loadError {
-                    error.memory = loadError
+            do {
+                let script = try String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding)
+                do {
+                    try self.load(script)
+                } catch let catchError as NSError {
+                    throw catchError
                 }
-            }
-        } else {
-            if (error != nil) {
-                error.memory = NSError(THGBridgeError.FileDoesNotExist)
+            } catch  {
+                throw NSError(ELJSBridgeError.FileDoesNotExist)
             }
         }
+        
     }
 
     public func loadFromURL(downloadURL: NSURL, completion: (error: NSError?) -> Void) {
@@ -82,22 +87,27 @@ public class Bridge {
                 completion(error: error)
             } else {
                 if let data = data, let script = NSString(data: data, encoding: NSUTF8StringEncoding) as String? {
-                    var error: NSError? = nil
-                    self.load(script, error: &error)
-                    completion(error: error)
+                    do {
+                        try self.load(script)
+                        completion(error: nil)
+                    } catch let catchError as NSError {
+                        completion(error: catchError)
+                    } catch {
+                        completion(error: NSError(ELJSBridgeError.FailedToDownloadScript))
+                    }
                 } else {
-                    completion(error: NSError(THGBridgeError.FailedToDownloadScript))
+                    completion(error: NSError(ELJSBridgeError.FailedToDownloadScript))
                 }
             }
         }
     }
 
-    public func load(script: String, error: NSErrorPointer = nil) {
-        let value = context.evaluateScript(script)
-        /*if value.isUndefined() {
-            let anError = NSError(THGBridgeError.FailedToEvaluateScript)
-            error.memory = anError
-        }*/
+    public func load(script: String) throws {
+        context.evaluateScript(script)
+        if let exception = context.exception {
+            print("Load failed with exception: \(exception)")
+            throw NSError(ELJSBridgeError.FailedToEvaluateScript)
+        }
     }
 
     private func downloadScript(url: NSURL, completion: (data: NSData?, error: NSError?) -> Void)
@@ -105,13 +115,13 @@ public class Bridge {
         let downloadTask = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             let httpResponse = response as? NSHTTPURLResponse
             if httpResponse?.statusCode == 404 {
-                completion(data: nil, error: NSError(THGBridgeError.FileDoesNotExist))
+                completion(data: nil, error: NSError(ELJSBridgeError.FileDoesNotExist))
             } else {
                 completion(data: data, error: error)
             }
         }
-
-        downloadTask.resume()
+        
+            downloadTask.resume()
     }
 }
 
@@ -135,4 +145,20 @@ public extension Bridge {
     public func contextValueForName(name: String) -> JSValue {
         return context.objectForKeyedSubscript(name)
     }
+}
+
+// MARK: - Global Runtime API
+
+public extension Bridge {
+    
+    /**
+    Injects a global runtime that defines native implementations of commonly needed JS functions.
+    Defines: setTimeout, clearTimeout, setInterval, clearInterval
+    Redefines: console.log, warn, error, 
+    */
+    public func injectRuntime(runtime: Scriptable) {
+        runtime.reset()
+        runtime.inject(context)
+    }
+    
 }
