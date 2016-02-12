@@ -62,7 +62,7 @@ class ELJSBridgeTests: XCTestCase {
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
 
         XCTAssertTrue(failed, "This should have failed!")
-        XCTAssertTrue(anError!.domain == "io.theholygrail.ELJSBridgeError" &&
+        XCTAssertTrue(anError!.domain == "com.walmartlabs.ELJSBridgeError" &&
             anError!.code == ELJSBridgeError.FailedToEvaluateScript.rawValue,
             "Error should be ELJSBridgeError.FailedToEvaluateScript!")
     }
@@ -88,7 +88,7 @@ class ELJSBridgeTests: XCTestCase {
         dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
 
         XCTAssertTrue(failed, "This should have failed!")
-        XCTAssertTrue(anError!.domain == "io.theholygrail.ELJSBridgeError" &&
+        XCTAssertTrue(anError!.domain == "com.walmartlabs.ELJSBridgeError" &&
             anError!.code == ELJSBridgeError.FileDoesNotExist.rawValue,
             "Error should be ELJSBridgeError.FileDoesNotExist!")
     }

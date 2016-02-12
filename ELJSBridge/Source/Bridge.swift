@@ -25,7 +25,7 @@ public enum ELJSBridgeError: Int, NSErrorEnum {
     case FailedToEvaluateScript
 
     public var domain: String {
-        return "io.theholygrail.ELJSBridgeError"
+        return "com.walmartlabs.ELJSBridgeError"
     }
 
     public var errorDescription: String {
