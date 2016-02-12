@@ -48,7 +48,7 @@ class ELJSBridgeTests: XCTestCase {
 
         let semaphore = dispatch_semaphore_create(0)
 
-        let url = NSURL(string: "http://theholygrail.io/testfiles/ELJSBridge_testdownload_bad.js")
+        let url = NSURL(string: "https://raw.githubusercontent.com/Electrode-iOS/ELJSBridge/master/ELJSBridgeTests/TestFiles/ELJSBridge_testdownload_bad.js")
         bridge.loadFromURL(url!) { (error) -> Void in
             if error != nil {
                 failed = true
@@ -74,7 +74,7 @@ class ELJSBridgeTests: XCTestCase {
 
         let semaphore = dispatch_semaphore_create(0)
 
-        let url = NSURL(string: "http://theholygrail.io/testfiles/doesnotexist.js")
+        let url = NSURL(string: "https://raw.githubusercontent.com/Electrode-iOS/ELJSBridge/master/ELJSBridgeTests/TestFiles/doesnotexist.js")
         bridge.loadFromURL(url!) { (error) -> Void in
             if error != nil {
                 failed = true
@@ -100,7 +100,7 @@ class ELJSBridgeTests: XCTestCase {
 
         let semaphore = dispatch_semaphore_create(0)
 
-        let url = NSURL(string: "http://theholygrail.io/testfiles/ELJSBridge_testdownload_good.js")
+        let url = NSURL(string: "https://raw.githubusercontent.com/Electrode-iOS/ELJSBridge/master/ELJSBridgeTests/TestFiles/ELJSBridge_testdownload_good.js")
         bridge.loadFromURL(url!) { (error) -> Void in
             if error != nil {
                 failed = true
@@ -138,7 +138,7 @@ class ELJSBridgeTests: XCTestCase {
 
         let semaphore = dispatch_semaphore_create(0)
 
-        let url = NSURL(string: "http://theholygrail.io/testfiles/ELJSBridge_testdownload_good.js")
+        let url = NSURL(string: "https://raw.githubusercontent.com/Electrode-iOS/ELJSBridge/master/ELJSBridgeTests/TestFiles/ELJSBridge_testdownload_good.js")
         bridge.loadFromURL(url!) { (error) -> Void in
             if error != nil {
                 failed = true
