@@ -21,11 +21,21 @@ public enum ConsoleOutputType: Int {
 
 @objc
 public protocol ConsoleSupportable: JSExport {
+    /**
+     Output to the console.
+     
+     - parameter type: The type of output.
+     - parameter arguments: The objects to be outputted by converting into strings.
+     */
     func output(type: ConsoleOutputType, arguments: [AnyObject])
 }
 
 public typealias OutputHandler = ((type: ConsoleOutputType, message: String) -> Void)
 
+/**
+ This class implements console functions commonly expected in the JS runtime like in a browser but are not present by default in the Bridge.
+ For list of functions, see `ConsoleSupportable`.
+ */
 @objc
 public class Console: NSObject, ConsoleSupportable, Scriptable {
     

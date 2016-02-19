@@ -14,7 +14,7 @@ github "Electrode-iOS/ELJSBridge" ~> 1.0.0
 
 ### Manual
 
-ELJSBridge can be installed manually by adding ELJSBridge.xcodeproj to your project and configuring your target to link ELJSBridge.framework.
+ELJSBridge can be installed manually by adding `ELJSBridge.xcodeproj` to your project and configuring your target to link `ELJSBridge.framework`.
 
 ELJSBridge depends on the following [Electrode-iOS](https://github.com/Electrode-iOS/) modules:
 

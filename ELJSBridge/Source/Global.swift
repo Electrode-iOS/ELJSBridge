@@ -11,15 +11,43 @@ import JavaScriptCore
 
 @objc
 public protocol GlobalSupportable: JSExport {
-    // setTimeout, clearTimeout
+    /**
+     Calls a function after some milliseconds.
+     
+     - parameter fn: The function to call
+     - parameter timeout: The time, in milliseconds, after which to call function.
+     - returns: An identifier that can be used to cancel the call back using `clearTimeout`.
+     */
     func set(fn: JSValue, timeout: JSValue) -> UInt
+    
+    /**
+     Cancel a function scheduled to be called with `setTimeout`.
+     
+     - parameter identifier: The identifier returned by `setTimeout`.
+     */
     func clearTimeout(identifier: UInt)
    
-    // setInterval, clearInterval
+    /**
+     Calls a function after a regular interval of some milliseconds until cleared.
+     
+     - parameter fn: The function to call
+     - parameter interval: The interval, in milliseconds, after which to call function.
+     - returns: An identifier that can be used to cancel the call back.
+     */
     func set(fn: JSValue, interval: JSValue) -> UInt
+    
+    /**
+     Cancel a function scheduled to be called regularly with `setInterval`.
+     
+     - parameter identifier: The identifier returned by `setInterval`.
+     */
     func clearInterval(identifier: UInt)
 }
 
+/**
+ This class implements functions commonly expected in the JS runtime like in a browser but are not present by default in the Bridge.
+ For list of functions, see `GlobalSupportable`.
+*/
 @objc
 public class Global: NSObject, GlobalSupportable, Scriptable {
     
