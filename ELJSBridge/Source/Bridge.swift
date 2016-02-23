@@ -25,7 +25,7 @@ public enum ELJSBridgeError: Int, NSErrorEnum {
     case FailedToEvaluateScript
 
     public var domain: String {
-        return "io.theholygrail.ELJSBridgeError"
+        return "com.walmartlabs.ELJSBridgeError"
     }
 
     public var errorDescription: String {
@@ -43,6 +43,7 @@ public enum ELJSBridgeError: Int, NSErrorEnum {
 @objc(ELJSBridge)
 public class Bridge: NSObject {
 
+    /// The JS context in which this bridge operates.
     public var context: JSContext {
         didSet {
             for (name, script) in exports {
@@ -64,6 +65,11 @@ public class Bridge: NSObject {
         context = JSContext(virtualMachine: JSVirtualMachine())
     }
 
+    /**
+     Load JS from a file at the given path.
+     
+     - parameter filePath: Path to the JS file.
+     */
     public func loadFromFile(filePath: String) throws {
         let filemanager = NSFileManager.defaultManager()
         if filemanager.fileExistsAtPath(filePath) {
@@ -81,6 +87,12 @@ public class Bridge: NSObject {
         
     }
 
+    /**
+     Load JS from a resource at the given URL.
+     
+     - parameter downloadURL: URL to the JS resource.
+     - parameter completion: The completion block to call after the resource is loaded into the bridge.
+     */
     public func loadFromURL(downloadURL: NSURL, completion: (error: NSError?) -> Void) {
         downloadScript(downloadURL) { (data, error) -> Void in
             if let error = error {
@@ -102,6 +114,11 @@ public class Bridge: NSObject {
         }
     }
 
+    /**
+     Load JS from a String.
+     
+     - parameter script: The JS to load.
+     */
     public func load(script: String) throws {
         context.evaluateScript(script)
         if let exception = context.exception {
@@ -129,9 +146,9 @@ public class Bridge: NSObject {
 
 public extension Bridge {
     /**
-    Add an exported object to the context
-    :param: export Object being exported to JavaScript
-    :param: name Name of object being exported
+     Add an exported object to the context
+     - parameter export: Object being exported to JavaScript
+     - parameter name: Name of object being exported
     */
     public func addExport(export: JSExport, name: String) {
         exports[name] = export
@@ -139,8 +156,8 @@ public extension Bridge {
     }
     
     /**
-    Retrieve a JSValue out of the context by name.
-    :param: name Name of value to retrieve out of context.
+     Retrieve a JSValue out of the context by name.
+     - parameter name: Name of value to retrieve out of context.
     */
     public func contextValueForName(name: String) -> JSValue {
         return context.objectForKeyedSubscript(name)
