@@ -130,53 +130,41 @@ class ELJSBridgeTests: XCTestCase {
         XCTAssertTrue(result.toInt32() == 4, "the javascript function should've returned a value of 3!")
     }
 
-
     func testPerformanceExampleJS() {
         let bridge = Bridge()
-        var failed = false
-        var anError: NSError? = nil
-
-        let semaphore = dispatch_semaphore_create(0)
-
-        let url = NSURL(string: "https://raw.githubusercontent.com/Electrode-iOS/ELJSBridge/master/ELJSBridgeTests/TestFiles/ELJSBridge_testdownload_good.js")
-        bridge.loadFromURL(url!) { (error) -> Void in
-            if error != nil {
-                failed = true
-                anError = error
-            }
-            // signal that the block has finished.
-            dispatch_semaphore_signal(semaphore)
+        let filename = "ELJSBridge_testdownload_good"
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let path = bundle.pathForResource(filename, ofType: "js")
+        do {
+            try bridge.loadFromFile(path!)
+        } catch {
+            XCTAssertTrue(false, "Test file \(filename) not found")
         }
-
-        // wait for the block to finish.
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-
-        XCTAssertTrue(failed == false, "This shouldn't have failed!")
-        XCTAssertTrue(anError == nil, "There should be no errors!")
-
+        
         let testFunction = bridge.context.objectForKeyedSubscript("test")
         let result = testFunction.callWithArguments([2, 2])
 
         XCTAssertTrue(result.isNumber, "the javascript function should've returned a number!")
-        XCTAssertTrue(result.toInt32() == 4, "the javascript function should've returned a value of 3!")
+        XCTAssertTrue(result.toInt32() == 4, "the javascript function should've returned a value of 4!")
 
         // start up our serial queue
         let serialQueue = dispatch_queue_create("blah", DISPATCH_QUEUE_SERIAL)
 
         self.measureBlock() {
+            let expectation = self.expectationWithDescription("Loop execution completed.")
             // Put the code you want to measure the time of here.
             for index in 0..<1000 {
                 dispatch_async(serialQueue, { () -> Void in
                     let result = testFunction.callWithArguments([1, index])
-                    print("result = \(result.toInt32())")
+                    if index == 999 {
+                        XCTAssertTrue(result.toInt32() == 1000)
+                        expectation.fulfill()
+                    }
                 })
-
             }
-
-            dispatch_semaphore_signal(semaphore)
+            self.waitForExpectationsWithTimeout(5, handler: nil)
         }
-
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+        
     }
 
     func testPerformanceExampleSwift() {
