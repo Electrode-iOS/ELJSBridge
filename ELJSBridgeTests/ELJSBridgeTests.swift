@@ -41,26 +41,23 @@ class ELJSBridgeTests: XCTestCase {
         XCTAssert(true, "An error should occur if junk javascript is evaluated!")
     }
 
-    func testScriptDownloadScriptBadEval() {
+    func testBadEval() {
         let bridge = Bridge()
+        
         var failed = false
         var anError: NSError? = nil
-
-        let semaphore = dispatch_semaphore_create(0)
-
-        let url = NSURL(string: "https://raw.githubusercontent.com/Electrode-iOS/ELJSBridge/master/ELJSBridgeTests/TestFiles/ELJSBridge_testdownload_bad.js")
-        bridge.loadFromURL(url!) { (error) -> Void in
-            if error != nil {
-                failed = true
-                anError = error
-            }
-            // signal that the block has finished.
-            dispatch_semaphore_signal(semaphore)
+        
+        let filename = "ELJSBridge_testdownload_bad"
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let path = bundle.pathForResource(filename, ofType: "js")
+        
+        do {
+            try bridge.loadFromFile(path!)
+        } catch let error as NSError {
+            failed = true
+            anError = error
         }
-
-        // wait for the block to finish.
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-
+        
         XCTAssertTrue(failed, "This should have failed!")
         XCTAssertTrue(anError!.domain == "com.walmartlabs.ELJSBridgeError" &&
             anError!.code == ELJSBridgeError.FailedToEvaluateScript.rawValue,
@@ -138,7 +135,7 @@ class ELJSBridgeTests: XCTestCase {
         do {
             try bridge.loadFromFile(path!)
         } catch {
-            XCTAssertTrue(false, "Test file \(filename) not found")
+            XCTFail("Error: \(error)")
         }
         
         let testFunction = bridge.context.objectForKeyedSubscript("test")
