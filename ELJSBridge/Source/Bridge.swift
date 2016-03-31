@@ -72,17 +72,13 @@ public class Bridge: NSObject {
      */
     public func loadFromFile(filePath: String) throws {
         let filemanager = NSFileManager.defaultManager()
+        
         if filemanager.fileExistsAtPath(filePath) {
-            do {
-                let script = try String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding)
-                do {
-                    try self.load(script)
-                } catch let catchError as NSError {
-                    throw catchError
-                }
-            } catch  {
+            guard let script = try? String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding) else {
                 throw NSError(ELJSBridgeError.FileDoesNotExist)
             }
+            
+            try self.load(script)
         }
         
     }
