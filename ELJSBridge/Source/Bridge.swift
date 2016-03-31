@@ -21,6 +21,7 @@ import JavaScriptCore
 
 public enum ELJSBridgeError: Int, NSErrorEnum {
     case FileDoesNotExist
+    case FileCouldNotBeLoaded
     case FailedToDownloadScript
     case FailedToEvaluateScript
 
@@ -32,6 +33,8 @@ public enum ELJSBridgeError: Int, NSErrorEnum {
         switch self {
         case .FileDoesNotExist:
             return "File does not exist."
+        case .FileCouldNotBeLoaded:
+            return "File could not be loaded."
         case .FailedToDownloadScript:
             return "Failed to download script."
         case .FailedToEvaluateScript:
@@ -75,10 +78,12 @@ public class Bridge: NSObject {
         
         if filemanager.fileExistsAtPath(filePath) {
             guard let script = try? String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding) else {
-                throw NSError(ELJSBridgeError.FileDoesNotExist)
+                throw NSError(ELJSBridgeError.FileCouldNotBeLoaded)
             }
             
             try self.load(script)
+        } else {
+            throw NSError(ELJSBridgeError.FileDoesNotExist)
         }
         
     }
