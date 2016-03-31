@@ -32,13 +32,17 @@ class ELJSBridgeTests: XCTestCase {
     
     func testScriptEvaluationFailure() {
         let bridge = Bridge()
+        var anError: NSError? = nil
 
         do {
             try bridge.load("doSomethingStupid()")
-        } catch {
-            return
+        } catch let error as NSError {
+            anError = error
         }
-        XCTAssert(true, "An error should occur if junk javascript is evaluated!")
+        
+        XCTAssertTrue(anError!.domain == "com.walmartlabs.ELJSBridgeError" &&
+            anError!.code == ELJSBridgeError.FailedToEvaluateScript.rawValue,
+                      "Error should be ELJSBridgeError.FailedToEvaluateScript!")
     }
 
     func testBadEval() {
