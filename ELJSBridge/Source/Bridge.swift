@@ -11,8 +11,8 @@ import JavaScriptCore
 #if NOFRAMEWORKS
 #else
     #if os(OSX)
-        import ELFoundation_osx
-        import ELLog_osx
+        import ELFoundation
+        import ELLog
     #elseif os(iOS)
         import ELFoundation
         import ELLog
