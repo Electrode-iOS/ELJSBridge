@@ -30,95 +30,55 @@ class ELJSBridgeTests: XCTestCase {
         super.tearDown()
     }
     
-    func testScriptEvaluationFailure() {
+    func test_load_throwsFailedToEvaluateScriptErrorWithBogusScript() {
         let bridge = Bridge()
-        var anError: NSError? = nil
 
         do {
             try bridge.load("doSomethingStupid()")
-        } catch let error as NSError {
-            anError = error
+        } catch ELJSBridgeError.FailedToEvaluateScript {
+        } catch _ {
+            XCTFail("Expected to fail with error ELJSBridgeError.FailedToEvaluateScript")
         }
-        
-        XCTAssertTrue(anError!.domain == "com.walmartlabs.ELJSBridgeError" &&
-            anError!.code == ELJSBridgeError.FailedToEvaluateScript.rawValue,
-                      "Error should be ELJSBridgeError.FailedToEvaluateScript!")
     }
 
-    func testBadEval() {
+    func test_loadFromFile_throwsFailedToEvaluateScriptErrorWithBogusFile() {
         let bridge = Bridge()
-        
-        var failed = false
-        var anError: NSError? = nil
-        
-        let filename = "ELJSBridge_testdownload_bad"
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let path = bundle.pathForResource(filename, ofType: "js")
+        let path = NSBundle(forClass: self.dynamicType).pathForResource("ELJSBridge_testdownload_bad", ofType: "js")!
         
         do {
-            try bridge.loadFromFile(path!)
-        } catch let error as NSError {
-            failed = true
-            anError = error
+            try bridge.loadFromFile(path)
+        } catch ELJSBridgeError.FailedToEvaluateScript {
+        } catch _ {
+            XCTFail("Expected loadFromFile to fail with error ELJSBridgeError.FailedToEvaluateScript")
         }
-        
-        XCTAssertTrue(failed, "This should have failed!")
-        XCTAssertTrue(anError!.domain == "com.walmartlabs.ELJSBridgeError" &&
-            anError!.code == ELJSBridgeError.FailedToEvaluateScript.rawValue,
-            "Error should be ELJSBridgeError.FailedToEvaluateScript!")
     }
 
-    func testFileDoesNotExist() {
+    func test_loadFromFile_throwsFileDoesNotExistErrorWhenFileIsMissing() {
         let bridge = Bridge()
-        
-        var failed = false
-        var anError: NSError? = nil
         
         do {
             try bridge.loadFromFile("/path/to/nowhere/doesnotexist.js")
-        } catch let error as NSError {
-            failed = true
-            anError = error
+        } catch ELJSBridgeError.FileDoesNotExist {
+            
+        } catch _ {
+            XCTFail("Expected loadFromFile to fail with error ELJSBridgeErrorFileDoesNotExist")
         }
-                
-        XCTAssertTrue(failed, "This should have failed!")
-        XCTAssertTrue(anError!.domain == "com.walmartlabs.ELJSBridgeError" &&
-            anError!.code == ELJSBridgeError.FileDoesNotExist.rawValue,
-                      "Error should be ELJSBridgeError.FileDoesNotExist!")
     }
     
-    func testScriptWorks() {
+    func test_loadFromFile_successfullyLoadsValidJavaScriptFile() {
         let bridge = Bridge()
-        
-        var failed = false
-        var anError: NSError? = nil
-        
-        let filename = "ELJSBridge_testdownload_good"
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let path = bundle.pathForResource(filename, ofType: "js")
+        let path = NSBundle(forClass: self.dynamicType).pathForResource("ELJSBridge_testdownload_good", ofType: "js")!
         
         do {
-            try bridge.loadFromFile(path!)
-        } catch let error as NSError {
-            failed = true
-            anError = error
+            try bridge.loadFromFile(path)
+        } catch _ {
+            XCTFail("Expected loadFromFile to run without throwing errors")
         }
-        
-        XCTAssertTrue(failed == false, "This shouldn't have failed!")
-        XCTAssertTrue(anError == nil, "There should be no errors!")
 
-        let testFunction = bridge.contextValueForName("test")
-        if testFunction.isUndefined {
-            print("you moron.")
-        }
-        let result = testFunction.callWithArguments([2, 2])
+        let result = bridge.contextValueForName("test").callWithArguments([2, 2])
 
-        let global = bridge.context.globalObject
-        print("global = \(global.toDictionary())")
-
-
-        XCTAssertTrue(result.isNumber, "the javascript function should've returned a number!")
-        XCTAssertTrue(result.toInt32() == 4, "the javascript function should've returned a value of 4!")
+        XCTAssertTrue(result.isNumber, "Expected the function to return a number type!")
+        XCTAssertEqual(result.toInt32(), 4, "Expected the function to return a value of 4!")
     }
 
     func testPerformanceExampleJS() {

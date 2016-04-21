@@ -19,28 +19,11 @@ import JavaScriptCore
     #endif
 #endif
 
-public enum ELJSBridgeError: Int, NSErrorEnum {
+public enum ELJSBridgeError: ErrorType {
     case FileDoesNotExist
     case FileCouldNotBeLoaded
     case FailedToDownloadScript
     case FailedToEvaluateScript
-
-    public var domain: String {
-        return "com.walmartlabs.ELJSBridgeError"
-    }
-
-    public var errorDescription: String {
-        switch self {
-        case .FileDoesNotExist:
-            return "File does not exist."
-        case .FileCouldNotBeLoaded:
-            return "File could not be loaded."
-        case .FailedToDownloadScript:
-            return "Failed to download script."
-        case .FailedToEvaluateScript:
-            return "Failed to evaluate script."
-        }
-    }
 }
 
 @objc(ELJSBridge)
@@ -78,12 +61,12 @@ public class Bridge: NSObject {
         
         if filemanager.fileExistsAtPath(filePath) {
             guard let script = try? String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding) else {
-                throw NSError(ELJSBridgeError.FileCouldNotBeLoaded)
+                throw ELJSBridgeError.FileCouldNotBeLoaded
             }
             
             try self.load(script)
         } else {
-            throw NSError(ELJSBridgeError.FileDoesNotExist)
+            throw ELJSBridgeError.FileDoesNotExist
         }
         
     }
@@ -94,7 +77,7 @@ public class Bridge: NSObject {
      - parameter downloadURL: URL to the JS resource.
      - parameter completion: The completion block to call after the resource is loaded into the bridge.
      */
-    public func loadFromURL(downloadURL: NSURL, completion: (error: NSError?) -> Void) {
+    public func loadFromURL(downloadURL: NSURL, completion: (error: ErrorType?) -> Void) {
         downloadScript(downloadURL) { (data, error) -> Void in
             if let error = error {
                 completion(error: error)
@@ -106,10 +89,10 @@ public class Bridge: NSObject {
                     } catch let catchError as NSError {
                         completion(error: catchError)
                     } catch {
-                        completion(error: NSError(ELJSBridgeError.FailedToDownloadScript))
+                        completion(error: ELJSBridgeError.FailedToDownloadScript)
                     }
                 } else {
-                    completion(error: NSError(ELJSBridgeError.FailedToDownloadScript))
+                    completion(error: ELJSBridgeError.FailedToDownloadScript)
                 }
             }
         }
@@ -124,16 +107,16 @@ public class Bridge: NSObject {
         context.evaluateScript(script)
         if let exception = context.exception {
             print("Load failed with exception: \(exception)")
-            throw NSError(ELJSBridgeError.FailedToEvaluateScript)
+            throw ELJSBridgeError.FailedToEvaluateScript
         }
     }
 
-    private func downloadScript(url: NSURL, completion: (data: NSData?, error: NSError?) -> Void)
+    private func downloadScript(url: NSURL, completion: (data: NSData?, error: ErrorType?) -> Void)
     {
         let downloadTask = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
             let httpResponse = response as? NSHTTPURLResponse
             if httpResponse?.statusCode == 404 {
-                completion(data: nil, error: NSError(ELJSBridgeError.FileDoesNotExist))
+                completion(data: nil, error: ELJSBridgeError.FileDoesNotExist)
             } else {
                 completion(data: data, error: error)
             }
