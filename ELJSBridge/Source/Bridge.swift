@@ -104,18 +104,17 @@ public class Bridge: NSObject {
         }
     }
 
-    private func downloadScript(url: NSURL, completion: (data: NSData?, error: ErrorType?) -> Void)
-    {
-        let downloadTask = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
-            let httpResponse = response as? NSHTTPURLResponse
-            if httpResponse?.statusCode == 404 {
+    private func downloadScript(url: NSURL, completion: (data: NSData?, error: ErrorType?) -> Void) {
+        let downloadTask = NSURLSession.sharedSession().dataTaskWithURL(url) { data, response, error in
+            if let httpResponse = response as? NSHTTPURLResponse
+                where httpResponse.statusCode == 404 {
                 completion(data: nil, error: ELJSBridgeError.FileDoesNotExist)
             } else {
                 completion(data: data, error: error)
             }
         }
         
-            downloadTask.resume()
+        downloadTask.resume()
     }
 }
 
