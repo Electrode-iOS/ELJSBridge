@@ -57,18 +57,14 @@ public class Bridge: NSObject {
      - parameter filePath: Path to the JS file.
      */
     public func loadFromFile(filePath: String) throws {
-        let filemanager = NSFileManager.defaultManager()
-        
-        if filemanager.fileExistsAtPath(filePath) {
-            guard let script = try? String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding) else {
-                throw ELJSBridgeError.FileCouldNotBeLoaded
-            }
-            
-            try self.load(script)
-        } else {
+        guard NSFileManager.defaultManager().fileExistsAtPath(filePath) else {
             throw ELJSBridgeError.FileDoesNotExist
         }
+        guard let script = try? String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding) else {
+            throw ELJSBridgeError.FileCouldNotBeLoaded
+        }
         
+        try load(script)
     }
 
     /**
