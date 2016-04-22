@@ -33,9 +33,6 @@ public class Bridge: NSObject {
     public var context: JSContext {
         didSet {
             for (name, script) in exports {
-                
-                print("add \(name) \(script)")
-                
                 context.setObject(script, forKeyedSubscript: name)
             }
             
@@ -102,7 +99,7 @@ public class Bridge: NSObject {
     public func load(script: String) throws {
         context.evaluateScript(script)
         if let exception = context.exception {
-            print("Load failed with exception: \(exception)")
+            log(.Debug, "Load failed with exception: \(exception)")
             throw ELJSBridgeError.FailedToEvaluateScript
         }
     }
