@@ -1,3 +1,11 @@
+# [2.0.0](https://github.com/Electrode-iOS/ELJSBridge/releases/tag/v2.0.0)
+
+## Breaking Changes
+
+- Updated to suppot Xcode 7.3 and Swift 2.2
+- Updated `ELJSBridgeError` to be `ErrorType` 
+- Changed all `NSError` parameters to `ErrorType` 
+
 # [1.0.0](https://github.com/Electrode-iOS/ELJSBridge/releases/tag/v1.0.0)
 
 - Updated to support Xcode 7 and Swift 2.1
