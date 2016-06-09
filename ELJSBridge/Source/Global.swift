@@ -96,18 +96,20 @@ public class Global: NSObject, GlobalSupportable, Scriptable {
         
         context.setObject(self, forKeyedSubscript: "$global")
         
-        context.evaluateScript(
-            "global = {\n" +
-                "setTimeout: function (fn, timeout) { return $global.setTimeout(fn, timeout); },\n" +
-                "clearTimeout: function (identifier) { $global.clearTimeout(identifier); },\n" +
-                "setInterval: function (fn, interval) { return $global.setInterval(fn, interval); },\n" +
-                "clearInterval: function (identifier) { $global.clearInterval(identifier); },\n" +
-            "};\n" +
-            "setTimeout = global.setTimeout\n" +
-            "clearTimeout = global.clearTimeout\n" +
-            "setInterval = global.setInterval\n" +
-            "clearInterval = global.clearInterval\n"
-        )
+        // This has been broken up into succcesive statements because chaining the '+' operator significantly increases compile
+        // time in Swift at this time.
+        var script = "global = {\n"
+        script = script + "setTimeout: function (fn, timeout) { return $global.setTimeout(fn, timeout); },\n"
+        script = script + "clearTimeout: function (identifier) { $global.clearTimeout(identifier); },\n"
+        script = script + "setInterval: function (fn, interval) { return $global.setInterval(fn, interval); },\n"
+        script = script + "clearInterval: function (identifier) { $global.clearInterval(identifier); },\n"
+        script = script + "};\n"
+        script = script + "setTimeout = global.setTimeout\n"
+        script = script + "clearTimeout = global.clearTimeout\n"
+        script = script + "setInterval = global.setInterval\n"
+        script = script + "clearInterval = global.clearInterval\n"
+        
+        context.evaluateScript(script)
 
     }
     

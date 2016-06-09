@@ -30,153 +30,92 @@ class ELJSBridgeTests: XCTestCase {
         super.tearDown()
     }
     
-    func testScriptEvaluationFailure() {
+    func test_load_throwsFailedToEvaluateScriptErrorWithBogusScript() {
         let bridge = Bridge()
 
         do {
             try bridge.load("doSomethingStupid()")
-        } catch {
-            return
+        } catch ELJSBridgeError.FailedToEvaluateScript {
+        } catch _ {
+            XCTFail("Expected to fail with error ELJSBridgeError.FailedToEvaluateScript")
         }
-        XCTAssert(true, "An error should occur if junk javascript is evaluated!")
     }
 
-    func testScriptDownloadScriptBadEval() {
+    func test_loadFromFile_throwsFailedToEvaluateScriptErrorWithBogusFile() {
         let bridge = Bridge()
-        var failed = false
-        var anError: NSError? = nil
-
-        let semaphore = dispatch_semaphore_create(0)
-
-        let url = NSURL(string: "https://raw.githubusercontent.com/Electrode-iOS/ELJSBridge/master/ELJSBridgeTests/TestFiles/ELJSBridge_testdownload_bad.js")
-        bridge.loadFromURL(url!) { (error) -> Void in
-            if error != nil {
-                failed = true
-                anError = error
-            }
-            // signal that the block has finished.
-            dispatch_semaphore_signal(semaphore)
+        let path = NSBundle(forClass: self.dynamicType).pathForResource("ELJSBridge_testdownload_bad", ofType: "js")!
+        
+        do {
+            try bridge.loadFromFile(path)
+        } catch ELJSBridgeError.FailedToEvaluateScript {
+        } catch _ {
+            XCTFail("Expected loadFromFile to fail with error ELJSBridgeError.FailedToEvaluateScript")
         }
-
-        // wait for the block to finish.
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-
-        XCTAssertTrue(failed, "This should have failed!")
-        XCTAssertTrue(anError!.domain == "com.walmartlabs.ELJSBridgeError" &&
-            anError!.code == ELJSBridgeError.FailedToEvaluateScript.rawValue,
-            "Error should be ELJSBridgeError.FailedToEvaluateScript!")
     }
 
-    func testScriptDownloadScriptFileDoesNotExist() {
+    func test_loadFromFile_throwsFileDoesNotExistErrorWhenFileIsMissing() {
         let bridge = Bridge()
-        var failed = false
-        var anError: NSError? = nil
-
-        let semaphore = dispatch_semaphore_create(0)
-
-        let url = NSURL(string: "https://raw.githubusercontent.com/Electrode-iOS/ELJSBridge/master/ELJSBridgeTests/TestFiles/doesnotexist.js")
-        bridge.loadFromURL(url!) { (error) -> Void in
-            if error != nil {
-                failed = true
-                anError = error
-            }
-            // signal that the block has finished.
-            dispatch_semaphore_signal(semaphore)
+        
+        do {
+            try bridge.loadFromFile("/path/to/nowhere/doesnotexist.js")
+        } catch ELJSBridgeError.FileDoesNotExist {
+            
+        } catch _ {
+            XCTFail("Expected loadFromFile to fail with error ELJSBridgeErrorFileDoesNotExist")
         }
-
-        // wait for the block to finish.
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-
-        XCTAssertTrue(failed, "This should have failed!")
-        XCTAssertTrue(anError!.domain == "com.walmartlabs.ELJSBridgeError" &&
-            anError!.code == ELJSBridgeError.FileDoesNotExist.rawValue,
-            "Error should be ELJSBridgeError.FileDoesNotExist!")
     }
-
-    func testScriptDownloadScriptWorks() {
+    
+    func test_loadFromFile_successfullyLoadsValidJavaScriptFile() {
         let bridge = Bridge()
-        var failed = false
-        var anError: NSError? = nil
-
-        let semaphore = dispatch_semaphore_create(0)
-
-        let url = NSURL(string: "https://raw.githubusercontent.com/Electrode-iOS/ELJSBridge/master/ELJSBridgeTests/TestFiles/ELJSBridge_testdownload_good.js")
-        bridge.loadFromURL(url!) { (error) -> Void in
-            if error != nil {
-                failed = true
-                anError = error
-            }
-            // signal that the block has finished.
-            dispatch_semaphore_signal(semaphore)
+        let path = NSBundle(forClass: self.dynamicType).pathForResource("ELJSBridge_testdownload_good", ofType: "js")!
+        
+        do {
+            try bridge.loadFromFile(path)
+        } catch _ {
+            XCTFail("Expected loadFromFile to run without throwing errors")
         }
 
-        // wait for the block to finish.
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+        let result = bridge.contextValueForName("test").callWithArguments([2, 2])
 
-        XCTAssertTrue(failed == false, "This shouldn't have failed!")
-        XCTAssertTrue(anError == nil, "There should be no errors!")
-
-        let testFunction = bridge.contextValueForName("test")
-        if testFunction.isUndefined {
-            print("you moron.")
-        }
-        let result = testFunction.callWithArguments([2, 2])
-
-        let global = bridge.context.globalObject
-        print("global = \(global.toDictionary())")
-
-
-        XCTAssertTrue(result.isNumber, "the javascript function should've returned a number!")
-        XCTAssertTrue(result.toInt32() == 4, "the javascript function should've returned a value of 3!")
+        XCTAssertTrue(result.isNumber, "Expected the function to return a number type!")
+        XCTAssertEqual(result.toInt32(), 4, "Expected the function to return a value of 4!")
     }
-
 
     func testPerformanceExampleJS() {
         let bridge = Bridge()
-        var failed = false
-        var anError: NSError? = nil
-
-        let semaphore = dispatch_semaphore_create(0)
-
-        let url = NSURL(string: "https://raw.githubusercontent.com/Electrode-iOS/ELJSBridge/master/ELJSBridgeTests/TestFiles/ELJSBridge_testdownload_good.js")
-        bridge.loadFromURL(url!) { (error) -> Void in
-            if error != nil {
-                failed = true
-                anError = error
-            }
-            // signal that the block has finished.
-            dispatch_semaphore_signal(semaphore)
+        let filename = "ELJSBridge_testdownload_good"
+        let bundle = NSBundle(forClass: self.dynamicType)
+        let path = bundle.pathForResource(filename, ofType: "js")
+        do {
+            try bridge.loadFromFile(path!)
+        } catch {
+            XCTFail("Error: \(error)")
         }
-
-        // wait for the block to finish.
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
-
-        XCTAssertTrue(failed == false, "This shouldn't have failed!")
-        XCTAssertTrue(anError == nil, "There should be no errors!")
-
+        
         let testFunction = bridge.context.objectForKeyedSubscript("test")
         let result = testFunction.callWithArguments([2, 2])
 
         XCTAssertTrue(result.isNumber, "the javascript function should've returned a number!")
-        XCTAssertTrue(result.toInt32() == 4, "the javascript function should've returned a value of 3!")
+        XCTAssertTrue(result.toInt32() == 4, "the javascript function should've returned a value of 4!")
 
         // start up our serial queue
         let serialQueue = dispatch_queue_create("blah", DISPATCH_QUEUE_SERIAL)
 
         self.measureBlock() {
+            let expectation = self.expectationWithDescription("Loop execution completed.")
             // Put the code you want to measure the time of here.
             for index in 0..<1000 {
                 dispatch_async(serialQueue, { () -> Void in
                     let result = testFunction.callWithArguments([1, index])
-                    print("result = \(result.toInt32())")
+                    if index == 999 {
+                        XCTAssertTrue(result.toInt32() == 1000)
+                        expectation.fulfill()
+                    }
                 })
-
             }
-
-            dispatch_semaphore_signal(semaphore)
+            self.waitForExpectationsWithTimeout(5, handler: nil)
         }
-
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+        
     }
 
     func testPerformanceExampleSwift() {
