@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		175A492C1AFBB4F000C62D10 /* ELJSBridge copy-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 175A492B1AFBB4F000C62D10 /* ELJSBridge copy-Info.plist */; };
-		175CA1D81C511ED5005A8364 /* ELFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1C51C511EAE005A8364 /* ELFoundation.framework */; };
-		175CA1D91C511ED6005A8364 /* ELLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1D31C511EBD005A8364 /* ELLog.framework */; };
-		175CA1DB1C511EE0005A8364 /* ELLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1D71C511EBD005A8364 /* ELLog.framework */; };
+		07A555761D109FE70043BE5E /* ELFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1C91C511EAE005A8364 /* ELFoundation.framework */; };
+		07A555771D109FFA0043BE5E /* ELLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1D71C511EBD005A8364 /* ELLog.framework */; };
+		07A555781D10A03C0043BE5E /* ELFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1C51C511EAE005A8364 /* ELFoundation.framework */; };
+		07A555791D10A0450043BE5E /* ELLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1D31C511EBD005A8364 /* ELLog.framework */; };
 		17E076DC1B024478008F89EC /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E076DB1B024478008F89EC /* Bridge.swift */; };
 		202A83531BE820C800D13698 /* ELJSBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CAC38A9D1AC3130B005A3CE0 /* ELJSBridge.framework */; };
 		2224FA5B1BC718FB0089D38A /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224FA5A1BC718FB0089D38A /* Global.swift */; };
@@ -27,7 +27,6 @@
 		CA948B5F1BCD7DD500756AA1 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5D1BCD7DD500756AA1 /* Console.swift */; };
 		CAC38AA31AC3130B005A3CE0 /* ELJSBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC38AA21AC3130B005A3CE0 /* ELJSBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAC38AB01AC3130B005A3CE0 /* ELJSBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC38AAF1AC3130B005A3CE0 /* ELJSBridgeTests.swift */; };
-		CADE5B931CB040B300CC6E70 /* ELFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1C91C511EAE005A8364 /* ELFoundation.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +96,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		175A492B1AFBB4F000C62D10 /* ELJSBridge copy-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "ELJSBridge copy-Info.plist"; sourceTree = "<group>"; };
 		175CA1BD1C511EAE005A8364 /* ELFoundation.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ELFoundation.xcodeproj; path = ../ELFoundation/ELFoundation.xcodeproj; sourceTree = "<group>"; };
 		175CA1CC1C511EBD005A8364 /* ELLog.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = ELLog.xcodeproj; path = ../ELLog/ELLog.xcodeproj; sourceTree = "<group>"; };
 		17E076DB1B024478008F89EC /* Bridge.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Bridge.swift; path = ELJSBridge/Source/Bridge.swift; sourceTree = SOURCE_ROOT; };
@@ -125,8 +123,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CADE5B931CB040B300CC6E70 /* ELFoundation.framework in Frameworks */,
-				175CA1DB1C511EE0005A8364 /* ELLog.framework in Frameworks */,
+				07A555771D109FFA0043BE5E /* ELLog.framework in Frameworks */,
+				07A555761D109FE70043BE5E /* ELFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -142,8 +140,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				175CA1D81C511ED5005A8364 /* ELFoundation.framework in Frameworks */,
-				175CA1D91C511ED6005A8364 /* ELLog.framework in Frameworks */,
+				07A555791D10A0450043BE5E /* ELLog.framework in Frameworks */,
+				07A555781D10A03C0043BE5E /* ELFoundation.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -230,7 +228,6 @@
 			isa = PBXGroup;
 			children = (
 				CA85AA081B3B27060000FEEF /* Modules */,
-				175A492B1AFBB4F000C62D10 /* ELJSBridge copy-Info.plist */,
 				CAC38A9F1AC3130B005A3CE0 /* ELJSBridge */,
 				CAC38AAC1AC3130B005A3CE0 /* ELJSBridgeTests */,
 				CA41FF961BBC85DC0009CB83 /* ELJSBridge_osx */,
@@ -505,7 +502,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				175A492C1AFBB4F000C62D10 /* ELJSBridge copy-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
