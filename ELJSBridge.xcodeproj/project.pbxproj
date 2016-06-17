@@ -7,8 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		07A555761D109FE70043BE5E /* ELFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1C91C511EAE005A8364 /* ELFoundation.framework */; };
-		07A555771D109FFA0043BE5E /* ELLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1D71C511EBD005A8364 /* ELLog.framework */; };
 		07A555781D10A03C0043BE5E /* ELFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1C51C511EAE005A8364 /* ELFoundation.framework */; };
 		07A555791D10A0450043BE5E /* ELLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 175CA1D31C511EBD005A8364 /* ELLog.framework */; };
 		17E076DC1B024478008F89EC /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E076DB1B024478008F89EC /* Bridge.swift */; };
@@ -16,15 +14,8 @@
 		2224FA5B1BC718FB0089D38A /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224FA5A1BC718FB0089D38A /* Global.swift */; };
 		224C7C871CAC4CF80023B576 /* ELJSBridge_testdownload_bad.js in Resources */ = {isa = PBXBuildFile; fileRef = 224C7C851CAC4CF80023B576 /* ELJSBridge_testdownload_bad.js */; };
 		224C7C881CAC4CF80023B576 /* ELJSBridge_testdownload_good.js in Resources */ = {isa = PBXBuildFile; fileRef = 224C7C861CAC4CF80023B576 /* ELJSBridge_testdownload_good.js */; };
-		CA41FF981BBC85DC0009CB83 /* ELJSBridge_osx.h in Headers */ = {isa = PBXBuildFile; fileRef = CA41FF971BBC85DC0009CB83 /* ELJSBridge_osx.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		CA41FF9F1BBC85DD0009CB83 /* ELJSBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA41FF951BBC85DC0009CB83 /* ELJSBridge.framework */; };
-		CA41FFA41BBC85DD0009CB83 /* ELJSBridge_osxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA41FFA31BBC85DD0009CB83 /* ELJSBridge_osxTests.swift */; };
-		CA41FFB41BBC8B190009CB83 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E076DB1B024478008F89EC /* Bridge.swift */; };
-		CA948B541BCC643B00756AA1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224FA5A1BC718FB0089D38A /* Global.swift */; };
 		CA948B5B1BCD700100756AA1 /* Scriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5A1BCD700100756AA1 /* Scriptable.swift */; };
-		CA948B5C1BCD700100756AA1 /* Scriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5A1BCD700100756AA1 /* Scriptable.swift */; };
 		CA948B5E1BCD7DD500756AA1 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5D1BCD7DD500756AA1 /* Console.swift */; };
-		CA948B5F1BCD7DD500756AA1 /* Console.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5D1BCD7DD500756AA1 /* Console.swift */; };
 		CAC38AA31AC3130B005A3CE0 /* ELJSBridge.h in Headers */ = {isa = PBXBuildFile; fileRef = CAC38AA21AC3130B005A3CE0 /* ELJSBridge.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CAC38AB01AC3130B005A3CE0 /* ELJSBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC38AAF1AC3130B005A3CE0 /* ELJSBridgeTests.swift */; };
 /* End PBXBuildFile section */
@@ -86,13 +77,6 @@
 			remoteGlobalIDString = CAC38A9C1AC3130B005A3CE0;
 			remoteInfo = ELJSBridge;
 		};
-		CA41FFA01BBC85DD0009CB83 /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = CAC38A941AC3130B005A3CE0 /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = CA41FF941BBC85DC0009CB83;
-			remoteInfo = ELJSBridge_osx;
-		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
@@ -102,10 +86,8 @@
 		2224FA5A1BC718FB0089D38A /* Global.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Global.swift; path = ELJSBridge/Source/Global.swift; sourceTree = SOURCE_ROOT; };
 		224C7C851CAC4CF80023B576 /* ELJSBridge_testdownload_bad.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ELJSBridge_testdownload_bad.js; sourceTree = "<group>"; };
 		224C7C861CAC4CF80023B576 /* ELJSBridge_testdownload_good.js */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.javascript; path = ELJSBridge_testdownload_good.js; sourceTree = "<group>"; };
-		CA41FF951BBC85DC0009CB83 /* ELJSBridge.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = ELJSBridge.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA41FF971BBC85DC0009CB83 /* ELJSBridge_osx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELJSBridge_osx.h; sourceTree = "<group>"; };
 		CA41FF991BBC85DC0009CB83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		CA41FF9E1BBC85DC0009CB83 /* ELJSBridge_osxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELJSBridge_osxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		CA41FFA31BBC85DD0009CB83 /* ELJSBridge_osxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELJSBridge_osxTests.swift; sourceTree = "<group>"; };
 		CA41FFA51BBC85DD0009CB83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA948B5A1BCD700100756AA1 /* Scriptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scriptable.swift; path = ELJSBridge/Source/Scriptable.swift; sourceTree = SOURCE_ROOT; };
@@ -119,23 +101,6 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CA41FF911BBC85DC0009CB83 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				07A555771D109FFA0043BE5E /* ELLog.framework in Frameworks */,
-				07A555761D109FE70043BE5E /* ELFoundation.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CA41FF9B1BBC85DC0009CB83 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CA41FF9F1BBC85DD0009CB83 /* ELJSBridge.framework in Frameworks */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CAC38A991AC3130B005A3CE0 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -241,8 +206,6 @@
 			children = (
 				CAC38A9D1AC3130B005A3CE0 /* ELJSBridge.framework */,
 				CAC38AA81AC3130B005A3CE0 /* ELJSBridgeTests.xctest */,
-				CA41FF951BBC85DC0009CB83 /* ELJSBridge.framework */,
-				CA41FF9E1BBC85DC0009CB83 /* ELJSBridge_osxTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -286,14 +249,6 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		CA41FF921BBC85DC0009CB83 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CA41FF981BBC85DC0009CB83 /* ELJSBridge_osx.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CAC38A9A1AC3130B005A3CE0 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -305,42 +260,6 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		CA41FF941BBC85DC0009CB83 /* ELJSBridge_osx */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CA41FFA61BBC85DD0009CB83 /* Build configuration list for PBXNativeTarget "ELJSBridge_osx" */;
-			buildPhases = (
-				CA41FF901BBC85DC0009CB83 /* Sources */,
-				CA41FF911BBC85DC0009CB83 /* Frameworks */,
-				CA41FF921BBC85DC0009CB83 /* Headers */,
-				CA41FF931BBC85DC0009CB83 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = ELJSBridge_osx;
-			productName = ELJSBridge_osx;
-			productReference = CA41FF951BBC85DC0009CB83 /* ELJSBridge.framework */;
-			productType = "com.apple.product-type.framework";
-		};
-		CA41FF9D1BBC85DC0009CB83 /* ELJSBridge_osxTests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = CA41FFA91BBC85DD0009CB83 /* Build configuration list for PBXNativeTarget "ELJSBridge_osxTests" */;
-			buildPhases = (
-				CA41FF9A1BBC85DC0009CB83 /* Sources */,
-				CA41FF9B1BBC85DC0009CB83 /* Frameworks */,
-				CA41FF9C1BBC85DC0009CB83 /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				CA41FFA11BBC85DD0009CB83 /* PBXTargetDependency */,
-			);
-			name = ELJSBridge_osxTests;
-			productName = ELJSBridge_osxTests;
-			productReference = CA41FF9E1BBC85DC0009CB83 /* ELJSBridge_osxTests.xctest */;
-			productType = "com.apple.product-type.bundle.unit-test";
-		};
 		CAC38A9C1AC3130B005A3CE0 /* ELJSBridge */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = CAC38AB31AC3130B005A3CE0 /* Build configuration list for PBXNativeTarget "ELJSBridge" */;
@@ -387,12 +306,6 @@
 				LastUpgradeCheck = 0700;
 				ORGANIZATIONNAME = WalmartLabs;
 				TargetAttributes = {
-					CA41FF941BBC85DC0009CB83 = {
-						CreatedOnToolsVersion = 7.0;
-					};
-					CA41FF9D1BBC85DC0009CB83 = {
-						CreatedOnToolsVersion = 7.0;
-					};
 					CAC38A9C1AC3130B005A3CE0 = {
 						CreatedOnToolsVersion = 6.3;
 					};
@@ -425,8 +338,6 @@
 			targets = (
 				CAC38A9C1AC3130B005A3CE0 /* ELJSBridge */,
 				CAC38AA71AC3130B005A3CE0 /* ELJSBridgeTests */,
-				CA41FF941BBC85DC0009CB83 /* ELJSBridge_osx */,
-				CA41FF9D1BBC85DC0009CB83 /* ELJSBridge_osxTests */,
 			);
 		};
 /* End PBXProject section */
@@ -484,20 +395,6 @@
 /* End PBXReferenceProxy section */
 
 /* Begin PBXResourcesBuildPhase section */
-		CA41FF931BBC85DC0009CB83 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CA41FF9C1BBC85DC0009CB83 /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CAC38A9B1AC3130B005A3CE0 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -517,25 +414,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		CA41FF901BBC85DC0009CB83 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CA948B541BCC643B00756AA1 /* Global.swift in Sources */,
-				CA41FFB41BBC8B190009CB83 /* Bridge.swift in Sources */,
-				CA948B5C1BCD700100756AA1 /* Scriptable.swift in Sources */,
-				CA948B5F1BCD7DD500756AA1 /* Console.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		CA41FF9A1BBC85DC0009CB83 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				CA41FFA41BBC85DD0009CB83 /* ELJSBridge_osxTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 		CAC38A981AC3130B005A3CE0 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -563,82 +441,9 @@
 			target = CAC38A9C1AC3130B005A3CE0 /* ELJSBridge */;
 			targetProxy = 202A83511BE820C300D13698 /* PBXContainerItemProxy */;
 		};
-		CA41FFA11BBC85DD0009CB83 /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = CA41FF941BBC85DC0009CB83 /* ELJSBridge_osx */;
-			targetProxy = CA41FFA01BBC85DD0009CB83 /* PBXContainerItemProxy */;
-		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		CA41FFA71BBC85DD0009CB83 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = ELJSBridge_osx/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.walmartlabs.ELJSBridge-osx";
-				PRODUCT_NAME = ELJSBridge;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Debug;
-		};
-		CA41FFA81BBC85DD0009CB83 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = ELJSBridge_osx/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.walmartlabs.ELJSBridge-osx";
-				PRODUCT_NAME = ELJSBridge;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = Release;
-		};
-		CA41FFAA1BBC85DD0009CB83 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				INFOPLIST_FILE = ELJSBridge_osxTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.walmartlabs.ELJSBridge-osxTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		CA41FFAB1BBC85DD0009CB83 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				INFOPLIST_FILE = ELJSBridge_osxTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.walmartlabs.ELJSBridge-osxTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 		CAC38AB11AC3130B005A3CE0 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -874,64 +679,9 @@
 			};
 			name = QADeployment;
 		};
-		DB5F6F6F1C77CD620048EA81 /* QADeployment */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				DEFINES_MODULE = YES;
-				DYLIB_COMPATIBILITY_VERSION = 1;
-				DYLIB_CURRENT_VERSION = 1;
-				DYLIB_INSTALL_NAME_BASE = "@rpath";
-				FRAMEWORK_VERSION = A;
-				INFOPLIST_FILE = ELJSBridge_osx/Info.plist;
-				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.walmartlabs.ELJSBridge-osx";
-				PRODUCT_NAME = ELJSBridge;
-				SDKROOT = macosx;
-				SKIP_INSTALL = YES;
-			};
-			name = QADeployment;
-		};
-		DB5F6F701C77CD620048EA81 /* QADeployment */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				COMBINE_HIDPI_IMAGES = YES;
-				DEBUG_INFORMATION_FORMAT = dwarf;
-				INFOPLIST_FILE = ELJSBridge_osxTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/../Frameworks @loader_path/../Frameworks";
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.walmartlabs.ELJSBridge-osxTests";
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = QADeployment;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		CA41FFA61BBC85DD0009CB83 /* Build configuration list for PBXNativeTarget "ELJSBridge_osx" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CA41FFA71BBC85DD0009CB83 /* Debug */,
-				DB5F6F6F1C77CD620048EA81 /* QADeployment */,
-				CA41FFA81BBC85DD0009CB83 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CA41FFA91BBC85DD0009CB83 /* Build configuration list for PBXNativeTarget "ELJSBridge_osxTests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CA41FFAA1BBC85DD0009CB83 /* Debug */,
-				DB5F6F701C77CD620048EA81 /* QADeployment */,
-				CA41FFAB1BBC85DD0009CB83 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
 		CAC38A971AC3130B005A3CE0 /* Build configuration list for PBXProject "ELJSBridge" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
