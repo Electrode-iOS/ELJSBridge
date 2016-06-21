@@ -1,6 +1,6 @@
 # ELJSBridge 
 
-[![Version](https://img.shields.io/badge/version-v2.0.0-blue.svg)](https://github.com/Electrode-iOS/ELJSBridge/releases/latest)
+[![Version](https://img.shields.io/badge/version-v2.0.1-blue.svg)](https://github.com/Electrode-iOS/ELJSBridge/releases/latest)
 [![Build Status](https://travis-ci.org/Electrode-iOS/ELJSBridge.svg)](https://travis-ci.org/Electrode-iOS/ELJSBridge)
 
 ELJSBridge is a Swift wrapper around JavaScriptCore's Objective-C bridge.
@@ -12,7 +12,7 @@ ELJSBridge is a Swift wrapper around JavaScriptCore's Objective-C bridge.
 Install with [Carthage](https://github.com/Carthage/Carthage) by adding the framework to your project's [Cartfile](https://github.com/Carthage/Carthage/blob/master/Documentation/Artifacts.md#cartfile).
 
 ```
-github "Electrode-iOS/ELJSBridge" ~> 2.0.0
+github "Electrode-iOS/ELJSBridge" ~> 2.0.1
 ```
 
 ### Manual
