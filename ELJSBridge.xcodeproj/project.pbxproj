@@ -86,6 +86,34 @@
 			remoteGlobalIDString = CAC38A9C1AC3130B005A3CE0;
 			remoteInfo = ELJSBridge;
 		};
+		48B1FC291D19B71A007C6AF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175CA1CC1C511EBD005A8364 /* ELLog.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CA8D47BA1AAE6FF50028B74D;
+			remoteInfo = ELLog;
+		};
+		48B1FC321D19B71E007C6AF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175CA1BD1C511EAE005A8364 /* ELFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CACF2A091A9614D20084EFAE;
+			remoteInfo = ELFoundation;
+		};
+		48B1FC341D19B72F007C6AF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175CA1CC1C511EBD005A8364 /* ELLog.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CA24104F1AF966F600AA4410;
+			remoteInfo = ELLog_osx;
+		};
+		48B1FC361D19B733007C6AF0 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 175CA1BD1C511EAE005A8364 /* ELFoundation.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = CA8CD5591B7A9DCA00DA8BF7;
+			remoteInfo = ELFoundation_osx;
+		};
 		CA41FFA01BBC85DD0009CB83 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = CAC38A941AC3130B005A3CE0 /* Project object */;
@@ -317,6 +345,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				48B1FC371D19B733007C6AF0 /* PBXTargetDependency */,
+				48B1FC351D19B72F007C6AF0 /* PBXTargetDependency */,
 			);
 			name = ELJSBridge_osx;
 			productName = ELJSBridge_osx;
@@ -353,6 +383,8 @@
 			buildRules = (
 			);
 			dependencies = (
+				48B1FC331D19B71E007C6AF0 /* PBXTargetDependency */,
+				48B1FC2A1D19B71A007C6AF0 /* PBXTargetDependency */,
 			);
 			name = ELJSBridge;
 			productName = ELJSBridge;
@@ -562,6 +594,26 @@
 			isa = PBXTargetDependency;
 			target = CAC38A9C1AC3130B005A3CE0 /* ELJSBridge */;
 			targetProxy = 202A83511BE820C300D13698 /* PBXContainerItemProxy */;
+		};
+		48B1FC2A1D19B71A007C6AF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ELLog;
+			targetProxy = 48B1FC291D19B71A007C6AF0 /* PBXContainerItemProxy */;
+		};
+		48B1FC331D19B71E007C6AF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ELFoundation;
+			targetProxy = 48B1FC321D19B71E007C6AF0 /* PBXContainerItemProxy */;
+		};
+		48B1FC351D19B72F007C6AF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ELLog_osx;
+			targetProxy = 48B1FC341D19B72F007C6AF0 /* PBXContainerItemProxy */;
+		};
+		48B1FC371D19B733007C6AF0 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = ELFoundation_osx;
+			targetProxy = 48B1FC361D19B733007C6AF0 /* PBXContainerItemProxy */;
 		};
 		CA41FFA11BBC85DD0009CB83 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
