@@ -1,3 +1,7 @@
+# [2.1.0](https://github.com/Electrode-iOS/ELJSBridge/releases/tag/v2.1.0)
+
+- Added support for Xcode 8, Swift 2.3, and iOS SDK 10
+
 # [2.0.1](https://github.com/Electrode-iOS/ELJSBridge/releases/tag/v2.0.1)
 
 - Added Target Dependencies for iOS and macOS
@@ -6,7 +10,7 @@
 
 ## Breaking Changes
 
-- Updated to suppot Xcode 7.3 and Swift 2.2
+- Updated to support Xcode 7.3 and Swift 2.2
 - Updated `ELJSBridgeError` to be `ErrorType` 
 - Changed all `NSError` parameters to `ErrorType` 
 
