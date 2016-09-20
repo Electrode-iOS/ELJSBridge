@@ -5,4 +5,4 @@ install:
   - git clone https://github.com/Electrode-iOS/ELFoundation.git ../ELFoundation
   - git clone https://github.com/Electrode-iOS/ELLog.git ../ELLog
 script:
-   - xcodebuild -project ELJSBridge.xcodeproj -scheme ELJSBridge -sdk iphonesimulator test -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0'
+   - xcodebuild -project ELJSBridge.xcodeproj -scheme ELJSBridge -sdk iphonesimulator test -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' CODE_SIGNING_REQUIRED=NO
