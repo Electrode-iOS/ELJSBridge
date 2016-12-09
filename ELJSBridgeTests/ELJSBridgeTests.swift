@@ -6,7 +6,6 @@
 //  Copyright (c) WalmartLabs. All rights reserved.
 //
 
-import UIKit
 import XCTest
 import ELFoundation
 import ELJSBridge
