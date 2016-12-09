@@ -14,6 +14,9 @@
 		2224FA5B1BC718FB0089D38A /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224FA5A1BC718FB0089D38A /* Global.swift */; };
 		224C7C871CAC4CF80023B576 /* ELJSBridge_testdownload_bad.js in Resources */ = {isa = PBXBuildFile; fileRef = 224C7C851CAC4CF80023B576 /* ELJSBridge_testdownload_bad.js */; };
 		224C7C881CAC4CF80023B576 /* ELJSBridge_testdownload_good.js in Resources */ = {isa = PBXBuildFile; fileRef = 224C7C861CAC4CF80023B576 /* ELJSBridge_testdownload_good.js */; };
+		C1EE82911DFB5DE400EF7E89 /* ELJSBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC38AAF1AC3130B005A3CE0 /* ELJSBridgeTests.swift */; };
+		C1EE82921DFB5DEA00EF7E89 /* ELJSBridge_testdownload_bad.js in Resources */ = {isa = PBXBuildFile; fileRef = 224C7C851CAC4CF80023B576 /* ELJSBridge_testdownload_bad.js */; };
+		C1EE82931DFB5DEA00EF7E89 /* ELJSBridge_testdownload_good.js in Resources */ = {isa = PBXBuildFile; fileRef = 224C7C861CAC4CF80023B576 /* ELJSBridge_testdownload_good.js */; };
 		CA41FF981BBC85DC0009CB83 /* ELJSBridge_osx.h in Headers */ = {isa = PBXBuildFile; fileRef = CA41FF971BBC85DC0009CB83 /* ELJSBridge_osx.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA41FF9F1BBC85DD0009CB83 /* ELJSBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA41FF951BBC85DC0009CB83 /* ELJSBridge.framework */; };
 		CA41FFA41BBC85DD0009CB83 /* ELJSBridge_osxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA41FFA31BBC85DD0009CB83 /* ELJSBridge_osxTests.swift */; };
@@ -509,6 +512,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1EE82921DFB5DEA00EF7E89 /* ELJSBridge_testdownload_bad.js in Resources */,
+				C1EE82931DFB5DEA00EF7E89 /* ELJSBridge_testdownload_good.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,6 +551,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1EE82911DFB5DE400EF7E89 /* ELJSBridgeTests.swift in Sources */,
 				CA41FFA41BBC85DD0009CB83 /* ELJSBridge_osxTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
