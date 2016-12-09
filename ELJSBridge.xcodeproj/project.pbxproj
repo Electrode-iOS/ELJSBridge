@@ -428,7 +428,7 @@
 					CAC38A9C1AC3130B005A3CE0 = {
 						CreatedOnToolsVersion = 6.3;
 						LastSwiftMigration = 0800;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					CAC38AA71AC3130B005A3CE0 = {
 						CreatedOnToolsVersion = 6.3;
