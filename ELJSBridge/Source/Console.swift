@@ -11,12 +11,12 @@ import JavaScriptCore
 
 @objc
 public enum ConsoleOutputType: Int {
-    case Log = 0
-    case Info = 1
-    case Error = 2
-    case Warning = 3
-    case Assert = 4
-    case Timestamp = 5
+    case log = 0
+    case info = 1
+    case error = 2
+    case warning = 3
+    case assert = 4
+    case timestamp = 5
 }
 
 @objc
@@ -27,24 +27,24 @@ public protocol ConsoleSupportable: JSExport {
      - parameter type: The type of output.
      - parameter arguments: The objects to be outputted by converting into strings.
      */
-    func output(type: ConsoleOutputType, arguments: [AnyObject])
+    func output(_ type: ConsoleOutputType, arguments: [AnyObject])
 }
 
-public typealias OutputHandler = ((type: ConsoleOutputType, message: String) -> Void)
+public typealias OutputHandler = ((_ type: ConsoleOutputType, _ message: String) -> Void)
 
 /**
  This class implements console functions commonly expected in the JS runtime like in a browser but are not present by default in the Bridge.
  For list of functions, see `ConsoleSupportable`.
  */
 @objc
-public class Console: NSObject, ConsoleSupportable, Scriptable {
+open class Console: NSObject, ConsoleSupportable, Scriptable {
     
-    public func output(type: ConsoleOutputType, arguments: [AnyObject]) {
+    open func output(_ type: ConsoleOutputType, arguments: [AnyObject]) {
         var output: String = ""
         
         switch type {
-        case .Error: output += "⛔️"
-        case .Warning: output += "⚠️"
+        case .error: output += "⛔️"
+        case .warning: output += "⚠️"
             
         default:
             break
@@ -65,22 +65,22 @@ public class Console: NSObject, ConsoleSupportable, Scriptable {
         }
         
         if let handler = outputHandler {
-            handler(type: type, message: output)
+            handler(type, output)
         } else {
             print(output)
         }
     }
     
-    public func reset() {
+    open func reset() {
         //
     }
     
-    public func inject(context: JSContext!) {
+    open func inject(_ context: JSContext!) {
         if context == nil {
             return
         }
         
-        context.setObject(self, forKeyedSubscript: "$console")
+        context.setObject(self, forKeyedSubscript: "$console" as NSString!)
         
         context.evaluateScript(
             "console = {\n" +
@@ -92,6 +92,6 @@ public class Console: NSObject, ConsoleSupportable, Scriptable {
     }
     
     // allows for a custom output handler to be specified.
-    public var outputHandler: OutputHandler? = nil
+    open var outputHandler: OutputHandler? = nil
 
 }

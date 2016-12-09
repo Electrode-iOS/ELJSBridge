@@ -19,21 +19,21 @@ import JavaScriptCore
     #endif
 #endif
 
-public enum ELJSBridgeError: ErrorType {
-    case FileDoesNotExist
-    case FileCouldNotBeLoaded
-    case FailedToDownloadScript
-    case FailedToEvaluateScript
+public enum ELJSBridgeError: Error {
+    case fileDoesNotExist
+    case fileCouldNotBeLoaded
+    case failedToDownloadScript
+    case failedToEvaluateScript
 }
 
 @objc(ELJSBridge)
-public class Bridge: NSObject {
+open class Bridge: NSObject {
 
     /// The JS context in which this bridge operates.
-    public var context: JSContext {
+    open var context: JSContext {
         didSet {
             for (name, script) in exports {
-                context.setObject(script, forKeyedSubscript: name)
+                context.setObject(script, forKeyedSubscript: name as NSString!)
             }
             
             context.exceptionHandler = { context, exception in
@@ -42,7 +42,7 @@ public class Bridge: NSObject {
         }
     }
 
-    private(set) public var exports = [String: JSExport]()
+    fileprivate(set) open var exports = [String: JSExport]()
 
     public override init() {
         context = JSContext(virtualMachine: JSVirtualMachine())
@@ -53,12 +53,12 @@ public class Bridge: NSObject {
      
      - parameter filePath: Path to the JS file.
      */
-    public func loadFromFile(filePath: String) throws {
-        guard NSFileManager.defaultManager().fileExistsAtPath(filePath) else {
-            throw ELJSBridgeError.FileDoesNotExist
+    open func loadFromFile(_ filePath: String) throws {
+        guard FileManager.default.fileExists(atPath: filePath) else {
+            throw ELJSBridgeError.fileDoesNotExist
         }
-        guard let script = try? String(contentsOfFile: filePath, encoding: NSUTF8StringEncoding) else {
-            throw ELJSBridgeError.FileCouldNotBeLoaded
+        guard let script = try? String(contentsOfFile: filePath, encoding: String.Encoding.utf8) else {
+            throw ELJSBridgeError.fileCouldNotBeLoaded
         }
         
         try load(script)
@@ -70,22 +70,22 @@ public class Bridge: NSObject {
      - parameter downloadURL: URL to the JS resource.
      - parameter completion: The completion block to call after the resource is loaded into the bridge.
      */
-    public func loadFromURL(downloadURL: NSURL, completion: (error: ErrorType?) -> Void) {
+    open func loadFromURL(_ downloadURL: URL, completion: @escaping (_ error: Error?) -> Void) {
         downloadScript(downloadURL) { (data, error) -> Void in
             if let error = error {
-                completion(error: error)
+                completion(error)
             } else {
-                if let data = data, let script = NSString(data: data, encoding: NSUTF8StringEncoding) as String? {
+                if let data = data, let script = NSString(data: data, encoding: String.Encoding.utf8.rawValue) as String? {
                     do {
                         try self.load(script)
-                        completion(error: nil)
+                        completion(nil)
                     } catch let catchError as NSError {
-                        completion(error: catchError)
+                        completion(catchError)
                     } catch {
-                        completion(error: ELJSBridgeError.FailedToDownloadScript)
+                        completion(ELJSBridgeError.failedToDownloadScript)
                     }
                 } else {
-                    completion(error: ELJSBridgeError.FailedToDownloadScript)
+                    completion(ELJSBridgeError.failedToDownloadScript)
                 }
             }
         }
@@ -96,22 +96,22 @@ public class Bridge: NSObject {
      
      - parameter script: The JS to load.
      */
-    public func load(script: String) throws {
+    open func load(_ script: String) throws {
         context.evaluateScript(script)
         if let exception = context.exception {
             log(.Debug, "Load failed with exception: \(exception)")
-            throw ELJSBridgeError.FailedToEvaluateScript
+            throw ELJSBridgeError.failedToEvaluateScript
         }
     }
 
-    private func downloadScript(url: NSURL, completion: (data: NSData?, error: ErrorType?) -> Void)
+    fileprivate func downloadScript(_ url: URL, completion: @escaping (_ data: Data?, _ error: Error?) -> Void)
     {
-        let downloadTask = NSURLSession.sharedSession().dataTaskWithURL(url) { (data, response, error) -> Void in
-            let httpResponse = response as? NSHTTPURLResponse
+        let downloadTask = URLSession.shared.dataTask(with: url) { (data, response, error) -> Void in
+            let httpResponse = response as? HTTPURLResponse
             if httpResponse?.statusCode == 404 {
-                completion(data: nil, error: ELJSBridgeError.FileDoesNotExist)
+                completion(nil, ELJSBridgeError.fileDoesNotExist)
             } else {
-                completion(data: data, error: error)
+                completion(data, error)
             }
         }
         
@@ -127,16 +127,16 @@ public extension Bridge {
      - parameter export: Object being exported to JavaScript
      - parameter name: Name of object being exported
     */
-    public func addExport(export: JSExport, name: String) {
+    public func addExport(_ export: JSExport, name: String) {
         exports[name] = export
-        context.setObject(export, forKeyedSubscript: name)
+        context.setObject(export, forKeyedSubscript: name as NSString!)
     }
     
     /**
      Retrieve a JSValue out of the context by name.
      - parameter name: Name of value to retrieve out of context.
     */
-    public func contextValueForName(name: String) -> JSValue {
+    public func contextValueForName(_ name: String) -> JSValue {
         return context.objectForKeyedSubscript(name)
     }
 }
@@ -150,7 +150,7 @@ public extension Bridge {
     Defines: setTimeout, clearTimeout, setInterval, clearInterval
     Redefines: console.log, warn, error, 
     */
-    public func injectRuntime(runtime: Scriptable) {
+    public func injectRuntime(_ runtime: Scriptable) {
         runtime.reset()
         runtime.inject(context)
     }
