@@ -7,7 +7,7 @@
 //
 
 import XCTest
-@testable import ELJSBridge_osx
+@testable import ELJSBridge
 
 class ELJSBridge_osxTests: XCTestCase {
     
@@ -28,7 +28,7 @@ class ELJSBridge_osxTests: XCTestCase {
     
     func testPerformanceExample() {
         // This is an example of a performance test case.
-        self.measureBlock {
+        self.measure {
             // Put the code you want to measure the time of here.
         }
     }
