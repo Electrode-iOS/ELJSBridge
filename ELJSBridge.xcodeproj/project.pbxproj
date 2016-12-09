@@ -19,7 +19,6 @@
 		C1EE82931DFB5DEA00EF7E89 /* ELJSBridge_testdownload_good.js in Resources */ = {isa = PBXBuildFile; fileRef = 224C7C861CAC4CF80023B576 /* ELJSBridge_testdownload_good.js */; };
 		CA41FF981BBC85DC0009CB83 /* ELJSBridge_osx.h in Headers */ = {isa = PBXBuildFile; fileRef = CA41FF971BBC85DC0009CB83 /* ELJSBridge_osx.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA41FF9F1BBC85DD0009CB83 /* ELJSBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA41FF951BBC85DC0009CB83 /* ELJSBridge.framework */; };
-		CA41FFA41BBC85DD0009CB83 /* ELJSBridge_osxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA41FFA31BBC85DD0009CB83 /* ELJSBridge_osxTests.swift */; };
 		CA41FFB41BBC8B190009CB83 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E076DB1B024478008F89EC /* Bridge.swift */; };
 		CA948B541BCC643B00756AA1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224FA5A1BC718FB0089D38A /* Global.swift */; };
 		CA948B5B1BCD700100756AA1 /* Scriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5A1BCD700100756AA1 /* Scriptable.swift */; };
@@ -121,7 +120,6 @@
 		CA41FF971BBC85DC0009CB83 /* ELJSBridge_osx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELJSBridge_osx.h; sourceTree = "<group>"; };
 		CA41FF991BBC85DC0009CB83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA41FF9E1BBC85DC0009CB83 /* ELJSBridge_osxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELJSBridge_osxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA41FFA31BBC85DD0009CB83 /* ELJSBridge_osxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELJSBridge_osxTests.swift; sourceTree = "<group>"; };
 		CA41FFA51BBC85DD0009CB83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA948B5A1BCD700100756AA1 /* Scriptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scriptable.swift; path = ELJSBridge/Source/Scriptable.swift; sourceTree = SOURCE_ROOT; };
 		CA948B5D1BCD7DD500756AA1 /* Console.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Console.swift; path = ELJSBridge/Source/Console.swift; sourceTree = SOURCE_ROOT; };
@@ -222,7 +220,6 @@
 		CA41FFA21BBC85DD0009CB83 /* ELJSBridge_osxTests */ = {
 			isa = PBXGroup;
 			children = (
-				CA41FFA31BBC85DD0009CB83 /* ELJSBridge_osxTests.swift */,
 				CA41FFA51BBC85DD0009CB83 /* Info.plist */,
 			);
 			path = ELJSBridge_osxTests;
@@ -552,7 +549,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				C1EE82911DFB5DE400EF7E89 /* ELJSBridgeTests.swift in Sources */,
-				CA41FFA41BBC85DD0009CB83 /* ELJSBridge_osxTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
