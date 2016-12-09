@@ -1,7 +1,7 @@
 language: objective-c
-osx_image: xcode8
+osx_image: xcode8.1
 
-install: 
+install:
   - carthage update --no-build
 script:
    - xcodebuild -project ELJSBridge.xcodeproj -scheme ELJSBridge -sdk iphonesimulator test -destination 'platform=iOS Simulator,name=iPhone 6,OS=10.0' CODE_SIGNING_REQUIRED=NO
