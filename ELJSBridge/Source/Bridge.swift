@@ -117,11 +117,8 @@ public class Bridge: NSObject {
         
             downloadTask.resume()
     }
-}
 
-// MARK: - Exports API
-
-public extension Bridge {
+    // MARK: - Exports API
     /**
      Add an exported object to the context
      - parameter export: Object being exported to JavaScript
@@ -139,12 +136,8 @@ public extension Bridge {
     public func contextValueForName(name: String) -> JSValue {
         return context.objectForKeyedSubscript(name)
     }
-}
 
-// MARK: - Global Runtime API
-
-public extension Bridge {
-    
+    // MARK: - Global Runtime API
     /**
     Injects a global runtime that defines native implementations of commonly needed JS functions.
     Defines: setTimeout, clearTimeout, setInterval, clearInterval
