@@ -24,5 +24,5 @@ public protocol Scriptable {
      
      - parameter context: The `JSContext` being modified.
      */
-    func inject(context: JSContext!)
+    func inject(_ context: JSContext!)
 }

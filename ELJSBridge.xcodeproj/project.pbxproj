@@ -14,9 +14,11 @@
 		2224FA5B1BC718FB0089D38A /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224FA5A1BC718FB0089D38A /* Global.swift */; };
 		224C7C871CAC4CF80023B576 /* ELJSBridge_testdownload_bad.js in Resources */ = {isa = PBXBuildFile; fileRef = 224C7C851CAC4CF80023B576 /* ELJSBridge_testdownload_bad.js */; };
 		224C7C881CAC4CF80023B576 /* ELJSBridge_testdownload_good.js in Resources */ = {isa = PBXBuildFile; fileRef = 224C7C861CAC4CF80023B576 /* ELJSBridge_testdownload_good.js */; };
+		C1EE82911DFB5DE400EF7E89 /* ELJSBridgeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CAC38AAF1AC3130B005A3CE0 /* ELJSBridgeTests.swift */; };
+		C1EE82921DFB5DEA00EF7E89 /* ELJSBridge_testdownload_bad.js in Resources */ = {isa = PBXBuildFile; fileRef = 224C7C851CAC4CF80023B576 /* ELJSBridge_testdownload_bad.js */; };
+		C1EE82931DFB5DEA00EF7E89 /* ELJSBridge_testdownload_good.js in Resources */ = {isa = PBXBuildFile; fileRef = 224C7C861CAC4CF80023B576 /* ELJSBridge_testdownload_good.js */; };
 		CA41FF981BBC85DC0009CB83 /* ELJSBridge_osx.h in Headers */ = {isa = PBXBuildFile; fileRef = CA41FF971BBC85DC0009CB83 /* ELJSBridge_osx.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		CA41FF9F1BBC85DD0009CB83 /* ELJSBridge.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CA41FF951BBC85DC0009CB83 /* ELJSBridge.framework */; };
-		CA41FFA41BBC85DD0009CB83 /* ELJSBridge_osxTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA41FFA31BBC85DD0009CB83 /* ELJSBridge_osxTests.swift */; };
 		CA41FFB41BBC8B190009CB83 /* Bridge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 17E076DB1B024478008F89EC /* Bridge.swift */; };
 		CA948B541BCC643B00756AA1 /* Global.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2224FA5A1BC718FB0089D38A /* Global.swift */; };
 		CA948B5B1BCD700100756AA1 /* Scriptable.swift in Sources */ = {isa = PBXBuildFile; fileRef = CA948B5A1BCD700100756AA1 /* Scriptable.swift */; };
@@ -118,7 +120,6 @@
 		CA41FF971BBC85DC0009CB83 /* ELJSBridge_osx.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ELJSBridge_osx.h; sourceTree = "<group>"; };
 		CA41FF991BBC85DC0009CB83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA41FF9E1BBC85DC0009CB83 /* ELJSBridge_osxTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ELJSBridge_osxTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		CA41FFA31BBC85DD0009CB83 /* ELJSBridge_osxTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ELJSBridge_osxTests.swift; sourceTree = "<group>"; };
 		CA41FFA51BBC85DD0009CB83 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CA948B5A1BCD700100756AA1 /* Scriptable.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Scriptable.swift; path = ELJSBridge/Source/Scriptable.swift; sourceTree = SOURCE_ROOT; };
 		CA948B5D1BCD7DD500756AA1 /* Console.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Console.swift; path = ELJSBridge/Source/Console.swift; sourceTree = SOURCE_ROOT; };
@@ -219,7 +220,6 @@
 		CA41FFA21BBC85DD0009CB83 /* ELJSBridge_osxTests */ = {
 			isa = PBXGroup;
 			children = (
-				CA41FFA31BBC85DD0009CB83 /* ELJSBridge_osxTests.swift */,
 				CA41FFA51BBC85DD0009CB83 /* Info.plist */,
 			);
 			path = ELJSBridge_osxTests;
@@ -396,7 +396,7 @@
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 0700;
-				LastUpgradeCheck = 0800;
+				LastUpgradeCheck = 0810;
 				ORGANIZATIONNAME = WalmartLabs;
 				TargetAttributes = {
 					CA41FF941BBC85DC0009CB83 = {
@@ -407,11 +407,11 @@
 					};
 					CAC38A9C1AC3130B005A3CE0 = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0810;
 					};
 					CAC38AA71AC3130B005A3CE0 = {
 						CreatedOnToolsVersion = 6.3;
-						LastSwiftMigration = 0800;
+						LastSwiftMigration = 0810;
 					};
 				};
 			};
@@ -509,6 +509,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C1EE82921DFB5DEA00EF7E89 /* ELJSBridge_testdownload_bad.js in Resources */,
+				C1EE82931DFB5DEA00EF7E89 /* ELJSBridge_testdownload_good.js in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -546,7 +548,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CA41FFA41BBC85DD0009CB83 /* ELJSBridge_osxTests.swift in Sources */,
+				C1EE82911DFB5DE400EF7E89 /* ELJSBridgeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -682,7 +684,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -708,6 +709,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -733,7 +735,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -751,6 +752,7 @@
 				MTL_ENABLE_DEBUG_INFO = NO;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
@@ -774,7 +776,6 @@
 				PRODUCT_NAME = ELJSBridge;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -794,7 +795,6 @@
 				PRODUCT_BUNDLE_IDENTIFIER = "com.walmartlabs.ELJSBridge-ios";
 				PRODUCT_NAME = ELJSBridge;
 				SKIP_INSTALL = YES;
-				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -809,7 +809,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theholygrail.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Debug;
 		};
@@ -820,7 +819,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theholygrail.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
 			};
 			name = Release;
 		};
@@ -843,7 +841,6 @@
 				CLANG_WARN_SUSPICIOUS_MOVE = YES;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -869,6 +866,7 @@
 				ONLY_ACTIVE_ARCH = YES;
 				SDKROOT = iphoneos;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				SWIFT_VERSION = 3.0.1;
 				TARGETED_DEVICE_FAMILY = "1,2";
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
@@ -892,7 +890,6 @@
 				PRODUCT_NAME = ELJSBridge;
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
-				SWIFT_VERSION = 2.3;
 			};
 			name = QADeployment;
 		};
@@ -907,7 +904,6 @@
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.theholygrail.$(PRODUCT_NAME:rfc1034identifier)";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_VERSION = 2.3;
 			};
 			name = QADeployment;
 		};

@@ -6,7 +6,6 @@
 //  Copyright (c) WalmartLabs. All rights reserved.
 //
 
-import UIKit
 import XCTest
 import ELFoundation
 import ELJSBridge
@@ -35,7 +34,7 @@ class ELJSBridgeTests: XCTestCase {
 
         do {
             try bridge.load("doSomethingStupid()")
-        } catch ELJSBridgeError.FailedToEvaluateScript {
+        } catch ELJSBridgeError.failedToEvaluateScript {
         } catch _ {
             XCTFail("Expected to fail with error ELJSBridgeError.FailedToEvaluateScript")
         }
@@ -43,11 +42,11 @@ class ELJSBridgeTests: XCTestCase {
 
     func test_loadFromFile_throwsFailedToEvaluateScriptErrorWithBogusFile() {
         let bridge = Bridge()
-        let path = NSBundle(forClass: self.dynamicType).pathForResource("ELJSBridge_testdownload_bad", ofType: "js")!
+        let path = Bundle(for: type(of: self)).path(forResource: "ELJSBridge_testdownload_bad", ofType: "js")!
         
         do {
             try bridge.loadFromFile(path)
-        } catch ELJSBridgeError.FailedToEvaluateScript {
+        } catch ELJSBridgeError.failedToEvaluateScript {
         } catch _ {
             XCTFail("Expected loadFromFile to fail with error ELJSBridgeError.FailedToEvaluateScript")
         }
@@ -58,7 +57,7 @@ class ELJSBridgeTests: XCTestCase {
         
         do {
             try bridge.loadFromFile("/path/to/nowhere/doesnotexist.js")
-        } catch ELJSBridgeError.FileDoesNotExist {
+        } catch ELJSBridgeError.fileDoesNotExist {
             
         } catch _ {
             XCTFail("Expected loadFromFile to fail with error ELJSBridgeErrorFileDoesNotExist")
@@ -67,7 +66,7 @@ class ELJSBridgeTests: XCTestCase {
     
     func test_loadFromFile_successfullyLoadsValidJavaScriptFile() {
         let bridge = Bridge()
-        let path = NSBundle(forClass: self.dynamicType).pathForResource("ELJSBridge_testdownload_good", ofType: "js")!
+        let path = Bundle(for: type(of: self)).path(forResource: "ELJSBridge_testdownload_good", ofType: "js")!
         
         do {
             try bridge.loadFromFile(path)
@@ -75,17 +74,17 @@ class ELJSBridgeTests: XCTestCase {
             XCTFail("Expected loadFromFile to run without throwing errors")
         }
 
-        let result = bridge.contextValueForName("test").callWithArguments([2, 2])
+        let result = bridge.contextValueForName("test").call(withArguments: [2, 2])
 
-        XCTAssertTrue(result.isNumber, "Expected the function to return a number type!")
-        XCTAssertEqual(result.toInt32(), 4, "Expected the function to return a value of 4!")
+        XCTAssertTrue(result!.isNumber, "Expected the function to return a number type!")
+        XCTAssertEqual(result!.toInt32(), 4, "Expected the function to return a value of 4!")
     }
 
     func testPerformanceExampleJS() {
         let bridge = Bridge()
         let filename = "ELJSBridge_testdownload_good"
-        let bundle = NSBundle(forClass: self.dynamicType)
-        let path = bundle.pathForResource(filename, ofType: "js")
+        let bundle = Bundle(for: type(of: self))
+        let path = bundle.path(forResource: filename, ofType: "js")
         do {
             try bridge.loadFromFile(path!)
         } catch {
@@ -93,49 +92,49 @@ class ELJSBridgeTests: XCTestCase {
         }
         
         let testFunction = bridge.context.objectForKeyedSubscript("test")
-        let result = testFunction.callWithArguments([2, 2])
+        let result = testFunction!.call(withArguments: [2, 2])
 
-        XCTAssertTrue(result.isNumber, "the javascript function should've returned a number!")
-        XCTAssertTrue(result.toInt32() == 4, "the javascript function should've returned a value of 4!")
+        XCTAssertTrue(result!.isNumber, "the javascript function should've returned a number!")
+        XCTAssertTrue(result!.toInt32() == 4, "the javascript function should've returned a value of 4!")
 
         // start up our serial queue
-        let serialQueue = dispatch_queue_create("blah", DISPATCH_QUEUE_SERIAL)
+        let serialQueue = DispatchQueue(label: "blah", attributes: [])
 
-        self.measureBlock() {
-            let expectation = self.expectationWithDescription("Loop execution completed.")
+        self.measure() {
+            let expectation = self.expectation(description: "Loop execution completed.")
             // Put the code you want to measure the time of here.
             for index in 0..<1000 {
-                dispatch_async(serialQueue, { () -> Void in
-                    let result = testFunction.callWithArguments([1, index])
+                serialQueue.async(execute: { () -> Void in
+                    let result = testFunction!.call(withArguments: [1, index])
                     if index == 999 {
-                        XCTAssertTrue(result.toInt32() == 1000)
+                        XCTAssertTrue(result!.toInt32() == 1000)
                         expectation.fulfill()
                     }
                 })
             }
-            self.waitForExpectationsWithTimeout(5, handler: nil)
+            self.waitForExpectations(timeout: 5, handler: nil)
         }
         
     }
 
     func testPerformanceExampleSwift() {
 
-        func addTwoNumbers(a: Int, b: Int) -> Int {
+        func addTwoNumbers(_ a: Int, b: Int) -> Int {
             return a + b
         }
 
-        let semaphore = dispatch_semaphore_create(0)
+        let semaphore = DispatchSemaphore(value: 0)
 
-        self.measureBlock() {
+        self.measure() {
             // Put the code you want to measure the time of here.
             for _ in 0..<10000 {
                 let _ = addTwoNumbers(2, b: 2)
             }
 
-            dispatch_semaphore_signal(semaphore)
+            semaphore.signal()
         }
 
-        dispatch_semaphore_wait(semaphore, DISPATCH_TIME_FOREVER)
+        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
     }
     
     // MARK: Export API Tests
@@ -147,7 +146,8 @@ class ELJSBridgeTests: XCTestCase {
         bridge.addExport(export, name: name)
         
         XCTAssert(bridge.exports[name] === export)
-        XCTAssert(bridge.contextValueForName(name).toObject() === export)
+        let script = bridge.contextValueForName(name).toObject() as! ELJSBridgeTests.Script
+        XCTAssert(script === export)
     }
     
     func testExportsBetweenContextChanges() {
@@ -157,11 +157,13 @@ class ELJSBridgeTests: XCTestCase {
         bridge.addExport(export, name: name)
         
         XCTAssert(bridge.exports[name] === export)
-        XCTAssert(bridge.contextValueForName(name).toObject() === export)
+        let script = bridge.contextValueForName(name).toObject() as! ELJSBridgeTests.Script
+        XCTAssert(script === export)
         
         bridge.context = JSContext(virtualMachine: JSVirtualMachine())
-        
-        XCTAssert(bridge.contextValueForName(name).toObject() === export)
+
+        let script2 = bridge.contextValueForName(name).toObject() as! ELJSBridgeTests.Script
+        XCTAssert(script2 === export)
     }
     
     func testExample() {
