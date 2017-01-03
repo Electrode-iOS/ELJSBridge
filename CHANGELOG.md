@@ -1,3 +1,7 @@
+# [3.0.1](https://github.com/Electrode-iOS/ELJSBridge/releases/tag/v3.0.1)
+
+- Updated to require ELFoundation v3.0.0
+
 # [3.0.0](https://github.com/Electrode-iOS/ELJSBridge/releases/tag/v3.0.0)
 
 - Migrated to Swift 3
