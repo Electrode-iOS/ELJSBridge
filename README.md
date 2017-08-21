@@ -4,6 +4,8 @@
 [![Build Status](https://travis-ci.org/Electrode-iOS/ELJSBridge.svg?branch=master)](https://travis-ci.org/Electrode-iOS/ELJSBridge)
 [![Carthage Compatible](https://img.shields.io/badge/Carthage-compatible-4BC51D.svg?style=flat)](https://github.com/Carthage/Carthage)
 
+**Note:** This framework is no longer being actively maintained and will not be updated for future versions of Swift or iOS.
+
 ELJSBridge is a Swift wrapper around JavaScriptCore's Objective-C bridge.
 
 ## Installation
